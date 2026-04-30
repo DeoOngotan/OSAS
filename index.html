@@ -721,6 +721,10 @@
         radial-gradient(760px 340px at 12% 0%, rgba(247, 201, 72, 0.28), transparent 62%),
         linear-gradient(180deg, var(--paper), var(--yellow-50));
     }
+    .cta-label {
+      margin-bottom: 16px;
+      text-align: center;
+    }
     .cta-inner {
       padding: 56px;
       border-radius: var(--radius-xl);
@@ -735,6 +739,10 @@
       align-items: center;
       position: relative;
       overflow: hidden;
+      opacity: 1;
+      transform: none;
+      filter: none;
+      clip-path: none;
     }
     .cta-inner::before {
       content: "";
@@ -2104,7 +2112,10 @@
   <!-- CTA -->
   <section class="cta">
     <div class="container">
-      <div class="cta-inner reveal">
+      <div class="cta-label">
+        <span class="section-eyebrow">Need help?</span>
+      </div>
+      <div class="cta-inner">
         <div>
           <h2>Have a question? We'd love to help.</h2>
           <p>Whether it's about scholarships, organizations, or just where to go next — OSAS is here for you.</p>
@@ -2441,7 +2452,6 @@
       ['.stat, .service-icon', 'reveal-pop'],
       ['.pillar, .contact-card', 'reveal-left'],
       ['.service', 'reveal-tilt'],
-      ['.cta-inner', 'reveal-swipe'],
       ['.section-head .reveal', 'reveal-zoom']
     ];
 
