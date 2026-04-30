@@ -717,12 +717,18 @@
     /* ============ CTA ============ */
     .cta {
       padding: 80px 0;
+      background:
+        radial-gradient(760px 340px at 12% 0%, rgba(247, 201, 72, 0.28), transparent 62%),
+        linear-gradient(180deg, var(--paper), var(--yellow-50));
     }
     .cta-inner {
       padding: 56px;
       border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, var(--yellow-300), var(--yellow-500) 60%, var(--yellow-600));
-      box-shadow: var(--shadow-lg);
+      background:
+        radial-gradient(520px 240px at 100% 0%, rgba(255, 253, 247, 0.55), transparent 58%),
+        linear-gradient(135deg, var(--ink-900), #2a3142 58%, #3b4252);
+      border: 2px solid rgba(247, 201, 72, 0.42);
+      box-shadow: 0 26px 70px rgba(31, 36, 48, 0.24), 0 12px 34px rgba(222, 145, 29, 0.18);
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 32px;
@@ -751,22 +757,32 @@
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: var(--ink-900);
+      color: var(--paper);
       line-height: 1.2;
     }
     .cta p {
       position: relative;
       margin-top: 10px;
-      color: rgba(31, 36, 48, 0.78);
+      color: rgba(255, 253, 247, 0.74);
       font-size: 1rem;
     }
     .cta .btn-primary {
-      background: var(--ink-900);
-      color: var(--paper);
+      background: var(--yellow-400);
+      color: var(--ink-900);
+      box-shadow: 0 14px 30px rgba(240, 180, 41, 0.28);
     }
     .cta .btn-primary:hover {
       background: var(--white);
       color: var(--ink-900);
+    }
+    .cta .btn-ghost {
+      background: rgba(255, 253, 247, 0.08);
+      color: var(--paper);
+      border-color: rgba(255, 253, 247, 0.28);
+    }
+    .cta .btn-ghost:hover {
+      background: rgba(255, 253, 247, 0.16);
+      color: var(--paper);
     }
     .cta-actions { position: relative; display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
 
@@ -1068,6 +1084,28 @@
       .fb-links { padding: 0 20px 22px; }
       .fb-link-card { grid-template-columns: 44px 1fr; }
       .fb-link-arrow { display: none; }
+      .location { padding-bottom: 34px; }
+      .location .section-head { margin-bottom: 28px; }
+      .location-grid { gap: 18px; }
+      .hours-card {
+        order: 1;
+        padding: 26px 22px;
+      }
+      .map-card {
+        order: 2;
+        min-height: 240px;
+      }
+      .map-card iframe { min-height: 240px; }
+      .cta {
+        padding: 34px 0 44px;
+      }
+      .cta-inner {
+        gap: 18px;
+        padding: 32px 22px;
+        border-radius: var(--radius-lg);
+      }
+      .cta h2 { font-size: 1.45rem; }
+      .cta p { font-size: 0.92rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1647,6 +1685,16 @@
       .crest-emblem svg { width: 40px; height: 40px; }
       .crest h3 { font-size: 1.05rem; }
       .crest p { font-size: 0.82rem; }
+      .location { padding: 48px 0 24px; }
+      .location .section-head { margin-bottom: 22px; }
+      .hours-card { padding: 22px 18px; }
+      .hours-list { margin-top: 18px; gap: 8px; }
+      .hours-row { padding: 11px 12px; }
+      .map-card,
+      .map-card iframe { min-height: 190px; }
+      .cta { padding: 28px 0 34px; }
+      .cta-inner { padding: 28px 18px; }
+      footer { padding-top: 42px; }
 
       .welcome-inner {
         align-content: center;
