@@ -1417,10 +1417,10 @@
     .welcome.leaving .scroll-hint {
       animation: leave-up 380ms cubic-bezier(0.55, -0.05, 0.35, 1) 0ms forwards;
     }
-    .welcome.leaving .welcome-image.left img {
+    .welcome.leaving .welcome-image.left .welcome-media {
       animation: leave-left 950ms cubic-bezier(0.5, 0.05, 0.4, 1) 350ms forwards;
     }
-    .welcome.leaving .welcome-image.right img {
+    .welcome.leaving .welcome-image.right .welcome-media {
       animation: leave-right 950ms cubic-bezier(0.5, 0.05, 0.4, 1) 450ms forwards;
     }
     .welcome.leaving .welcome-image::after {
@@ -1498,14 +1498,62 @@
       to   { opacity: 1; transform: translateX(0)     scale(1);    }
     }
 
-    .welcome-image img {
+    .welcome-image img,
+    .welcome-media {
       width: 100%;
       max-width: 320px;
       height: auto;
       filter: drop-shadow(0 30px 40px rgba(222, 145, 29, 0.35));
       animation: floaty-welcome 6s ease-in-out infinite;
     }
-    .welcome-image.right img { animation-delay: 1.2s; }
+    .welcome-media {
+      position: relative;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+    }
+    .welcome-media img,
+    .welcome-media video {
+      grid-area: 1 / 1;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      filter: none;
+      animation: none;
+      transition: opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+      -webkit-user-drag: none;
+    }
+    .welcome-media video {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.985);
+    }
+    .welcome-media.is-playing .welcome-photo {
+      opacity: 0;
+      transform: scale(1.025);
+    }
+    .welcome-media.is-playing .welcome-video {
+      opacity: 1;
+      transform: scale(1);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .welcome-media:hover .welcome-photo {
+        opacity: 0;
+        transform: scale(1.025);
+      }
+      .welcome-media:hover .welcome-video {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .welcome-image.right img,
+    .welcome-image.right .welcome-media { animation-delay: 1.2s; }
 
     @keyframes floaty-welcome {
       0%, 100% { transform: translateY(0); }
@@ -1688,7 +1736,10 @@
         align-self: end;
       }
       .welcome-image.right { display: grid; }
-      .welcome-image img { max-width: min(180px, 42vw); }
+      .welcome-image img,
+      .welcome-media,
+      .welcome-media img,
+      .welcome-media video { max-width: min(180px, 42vw); }
       .scroll-hint { bottom: 14px; }
     }
     @media (max-width: 560px) {
@@ -1708,7 +1759,10 @@
         font-size: 14px;
       }
       .welcome-image { max-height: 170px; }
-      .welcome-image img { max-width: min(142px, 43vw); }
+      .welcome-image img,
+      .welcome-media,
+      .welcome-media img,
+      .welcome-media video { max-width: min(142px, 43vw); }
     }
     @media (max-width: 420px) {
       .container { padding: 0 18px; }
@@ -1769,7 +1823,10 @@
         border-radius: 13px;
       }
       .welcome-image { max-height: 145px; }
-      .welcome-image img { max-width: min(118px, 40vw); }
+      .welcome-image img,
+      .welcome-media,
+      .welcome-media img,
+      .welcome-media video { max-width: min(118px, 40vw); }
       .scroll-hint {
         display: flex;
         bottom: 10px;
@@ -1801,7 +1858,10 @@
 
     <div class="welcome-inner">
       <div class="welcome-image left">
-        <img src="j.v.png" alt="Smiling ISPSC student" />
+        <div class="welcome-media" id="jvDanceMedia" aria-label="Hold or hover to play J.V. dancing video">
+          <img class="welcome-photo" src="j.v.png" alt="Smiling ISPSC student" />
+          <video class="welcome-video" src="j.v_vid.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        </div>
       </div>
 
       <div class="welcome-content">
@@ -1819,7 +1879,10 @@
       </div>
 
       <div class="welcome-image right">
-        <img src="allan.png" alt="Smiling ISPSC student" />
+        <div class="welcome-media" id="allanDanceMedia" aria-label="Hold or hover to play Allan dancing video">
+          <img class="welcome-photo" src="allan.png" alt="Smiling ISPSC student" />
+          <video class="welcome-video" src="allan_vid.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        </div>
       </div>
     </div>
 
@@ -2441,6 +2504,55 @@
       window.addEventListener('keydown',    onKey);
       window.addEventListener('touchstart', onTouchStart, { passive: true });
       window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+
+      document.querySelectorAll('.welcome-media').forEach(media => {
+        const video = media.querySelector('video');
+        if (!video) return;
+
+        let pressTimer = null;
+        let pressPoint = null;
+
+        function playVideo() {
+          media.classList.add('is-playing');
+          const playAttempt = video.play();
+          if (playAttempt) playAttempt.catch(() => media.classList.remove('is-playing'));
+        }
+
+        function stopVideo() {
+          media.classList.remove('is-playing');
+          video.pause();
+          video.currentTime = 0;
+        }
+
+        function clearPressTimer() {
+          if (!pressTimer) return;
+          clearTimeout(pressTimer);
+          pressTimer = null;
+        }
+
+        media.addEventListener('contextmenu', (e) => e.preventDefault());
+        media.addEventListener('mouseenter', playVideo);
+        media.addEventListener('mouseleave', stopVideo);
+        media.addEventListener('pointerdown', (e) => {
+          if (e.pointerType !== 'touch') return;
+          pressPoint = { x: e.clientX, y: e.clientY };
+          clearPressTimer();
+          pressTimer = setTimeout(playVideo, 260);
+        });
+        media.addEventListener('pointermove', (e) => {
+          if (!pressPoint || e.pointerType !== 'touch') return;
+          const moved = Math.hypot(e.clientX - pressPoint.x, e.clientY - pressPoint.y);
+          if (moved > 12) clearPressTimer();
+        });
+        ['pointerup', 'pointercancel', 'pointerleave'].forEach(type => {
+          media.addEventListener(type, (e) => {
+            if (e.pointerType !== 'touch') return;
+            clearPressTimer();
+            pressPoint = null;
+            stopVideo();
+          });
+        });
+      });
     })();
 
     // Year
