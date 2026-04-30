@@ -45,6 +45,11 @@
 
     #top { scroll-margin-top: 82px; }
 
+    html, body { overflow-x: hidden; max-width: 100%; }
+    html { overflow-x: clip; }
+    body { overflow-x: clip; }
+    section, header, footer, nav, main, div { max-width: 100%; }
+
     body {
       font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--ink-900);
@@ -52,6 +57,8 @@
       background: var(--paper);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
     }
 
     img { max-width: 100%; display: block; }
@@ -1166,7 +1173,7 @@
       right: 22px;
       bottom: 96px;
       z-index: 199;
-      width: 360px;
+      width: min(360px, calc(100vw - 32px));
       max-width: calc(100vw - 32px);
       height: 540px;
       max-height: calc(100vh - 130px);
@@ -1395,12 +1402,46 @@
         radial-gradient(800px 500px at 10% 90%, rgba(252, 229, 136, 0.6), transparent 65%),
         linear-gradient(160deg, #FFFEF5 0%, var(--yellow-50) 50%, var(--yellow-100) 100%);
       overflow: hidden;
-      transition: opacity 800ms cubic-bezier(0.65, 0, 0.35, 1), transform 800ms cubic-bezier(0.65, 0, 0.35, 1), visibility 0s linear 800ms;
+      transition: opacity 500ms cubic-bezier(0.65, 0, 0.35, 1) 1100ms,
+                  transform 500ms cubic-bezier(0.65, 0, 0.35, 1) 1100ms,
+                  visibility 0s linear 1600ms;
     }
     .welcome.leaving {
       opacity: 0;
-      transform: translateY(-40px);
+      transform: translateY(-30px);
       visibility: hidden;
+    }
+
+    /* Text/CTA fades out FIRST, then images rotate and fly up (slower) */
+    .welcome.leaving .welcome-content,
+    .welcome.leaving .scroll-hint {
+      animation: leave-up 380ms cubic-bezier(0.55, -0.05, 0.35, 1) 0ms forwards;
+    }
+    .welcome.leaving .welcome-image.left img {
+      animation: leave-left 950ms cubic-bezier(0.5, 0.05, 0.4, 1) 350ms forwards;
+    }
+    .welcome.leaving .welcome-image.right img {
+      animation: leave-right 950ms cubic-bezier(0.5, 0.05, 0.4, 1) 450ms forwards;
+    }
+    .welcome.leaving .welcome-image::after {
+      animation: leave-shadow 500ms ease-out 350ms forwards;
+    }
+
+    @keyframes leave-left {
+      0%   { opacity: 1; transform: translateY(0)     rotate(0);    }
+      100% { opacity: 0; transform: translateY(-130vh) rotate(-28deg); }
+    }
+    @keyframes leave-right {
+      0%   { opacity: 1; transform: translateY(0)     rotate(0);    }
+      100% { opacity: 0; transform: translateY(-130vh) rotate(28deg);  }
+    }
+    @keyframes leave-up {
+      0%   { opacity: 1; transform: translateY(0);   }
+      100% { opacity: 0; transform: translateY(-50px); }
+    }
+    @keyframes leave-shadow {
+      0%   { opacity: 0.5; transform: translateX(-50%) scale(1); }
+      100% { opacity: 0;   transform: translateX(-50%) scale(0.4); }
     }
     .welcome::before {
       content: "";
@@ -2327,8 +2368,8 @@
         welcome.classList.add('leaving');
         document.body.classList.remove('welcome-active');
         document.body.classList.add('welcome-scroll-lock');
-        // Reveal main page
-        requestAnimationFrame(() => shell.classList.add('revealed'));
+        // Reveal main page after the welcome text begins fading
+        setTimeout(() => shell.classList.add('revealed'), 300);
         // Remove scroll listeners
         window.removeEventListener('touchstart', onTouchStart);
         // Make sure we're at the top
@@ -2341,9 +2382,9 @@
           window.removeEventListener('touchmove', onTouchMove);
           window.removeEventListener('keydown', onKey);
           window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-        }, 1200);
-        // Remove from DOM after transition
-        setTimeout(() => welcome.remove(), 900);
+        }, 1700);
+        // Remove from DOM after the slower image fly-up + welcome fade finish
+        setTimeout(() => welcome.remove(), 1700);
       }
 
       function onWheel(e)  {
