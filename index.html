@@ -1770,7 +1770,24 @@
       }
       .welcome-image { max-height: 145px; }
       .welcome-image img { max-width: min(118px, 40vw); }
-      .scroll-hint { display: none; }
+      .scroll-hint {
+        display: flex;
+        bottom: 10px;
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+        gap: 5px;
+      }
+      .scroll-hint .mouse {
+        width: 18px;
+        height: 28px;
+        border-width: 1.5px;
+        border-radius: 10px;
+      }
+      .scroll-hint .mouse::after {
+        top: 5px;
+        width: 2.5px;
+        height: 5px;
+      }
     }
   </style>
   
