@@ -682,7 +682,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url("https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=80");
+        background-image: url("P2.jpg");
         background-size: cover;
         background-position: center;
         opacity: 0.55;
@@ -792,82 +792,535 @@
         color: var(--ink-500);
       }
 
-      /* ============ CONTACT ============ */
+      /* ============ CONTACT / TEAM SHOWCASE — CINEMATIC ============ */
       .contact {
-        background:
-          radial-gradient(
-            800px 400px at 0% 0%,
-            rgba(252, 229, 136, 0.5),
-            transparent 60%
-          ),
-          radial-gradient(
-            800px 400px at 100% 100%,
-            rgba(247, 201, 72, 0.35),
-            transparent 65%
-          ),
-          var(--yellow-50);
+        background-image: url("ispscbg.jpg");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        position: relative;
+        padding: 110px 0 120px;
       }
-      .contact-grid {
+
+      /* Override section-head colors for dark section */
+      .contact .section-eyebrow {
+        color: var(--yellow-300);
+        text-shadow: 0 2px 8px rgba(0,0,0,.75);
+      }
+      .contact .section-head h2 {
+        color: #fff;
+        -webkit-text-stroke: 1px rgba(0,0,0,.45);
+        text-shadow:
+          0 3px 0 rgba(0,0,0,.35),
+          0 12px 28px rgba(0,0,0,.72);
+      }
+      .contact .section-head p  {
+        color: rgba(255,255,255,.96);
+        text-shadow:
+          0 2px 4px rgba(0,0,0,.85),
+          0 8px 20px rgba(0,0,0,.65);
+      }
+
+      /* ── Animated ambient orbs ── */
+      .contact-orbs {
+        position: absolute; inset: 0;
+        pointer-events: none; overflow: hidden;
+      }
+      .contact-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        animation: orb-drift 18s ease-in-out infinite;
+        opacity: 0;
+        animation-fill-mode: both;
+      }
+      .contact-orb.o1 { width:520px; height:520px; background:rgba(240,180,41,.12); top:-140px; left:-120px; animation-delay:0s; }
+      .contact-orb.o2 { width:400px; height:400px; background:rgba(222,145,29,.1);  bottom:-100px; right:-80px; animation-delay:6s; animation-duration:22s; }
+      .contact-orb.o3 { width:300px; height:300px; background:rgba(247,201,72,.08); top:40%; left:45%; animation-delay:3s; animation-duration:15s; }
+      @keyframes orb-drift {
+        0%   { opacity:0; transform:translate(0,0) scale(1); }
+        15%  { opacity:1; }
+        50%  { transform:translate(40px,-30px) scale(1.12); }
+        85%  { opacity:.7; }
+        100% { opacity:0; transform:translate(-20px,20px) scale(.95); }
+      }
+
+      /* ── Ambient light streaks ── */
+      .contact-streaks {
+        position: absolute; inset: 0;
+        pointer-events: none; overflow: hidden;
+      }
+      .contact-streak {
+        position: absolute;
+        width: 1px; height: 160px;
+        background: linear-gradient(to bottom, transparent, rgba(247,201,72,.35), transparent);
+        animation: streak-fall 8s ease-in-out infinite;
+        opacity: 0;
+      }
+      .contact-streak:nth-child(1) { left:18%;  animation-delay:0s;   animation-duration:9s;  }
+      .contact-streak:nth-child(2) { left:44%;  animation-delay:3s;   animation-duration:11s; }
+      .contact-streak:nth-child(3) { left:72%;  animation-delay:6s;   animation-duration:8s;  }
+      .contact-streak:nth-child(4) { left:88%;  animation-delay:1.5s; animation-duration:13s; }
+      @keyframes streak-fall {
+        0%   { opacity:0; transform:translateY(-60px); }
+        20%  { opacity:1; }
+        80%  { opacity:.5; }
+        100% { opacity:0; transform:translateY(100vh); }
+      }
+
+      /* ── Floating particles ── */
+      .contact-particles {
+        position: absolute; inset: 0;
+        pointer-events: none; overflow: hidden;
+      }
+      .contact-particles span {
+        position: absolute; border-radius: 50%;
+        opacity: 0; animation: particle-drift 12s ease-in-out infinite;
+      }
+      .contact-particles span:nth-child(1) { width:5px;  height:5px;  background:var(--yellow-300); top:14%; left:8%;  animation-delay:0s;   animation-duration:11s; }
+      .contact-particles span:nth-child(2) { width:3px;  height:3px;  background:var(--yellow-400); top:60%; left:22%; animation-delay:2s;   animation-duration:14s; }
+      .contact-particles span:nth-child(3) { width:7px;  height:7px;  background:var(--yellow-200); top:28%; left:76%; animation-delay:4s;   animation-duration:10s; }
+      .contact-particles span:nth-child(4) { width:4px;  height:4px;  background:var(--yellow-500); top:75%; left:84%; animation-delay:1s;   animation-duration:13s; }
+      .contact-particles span:nth-child(5) { width:3px;  height:3px;  background:rgba(255,255,255,.5); top:45%; left:50%; animation-delay:6s; animation-duration:9s;  }
+      .contact-particles span:nth-child(6) { width:6px;  height:6px;  background:var(--yellow-200); top:82%; left:38%; animation-delay:3s;   animation-duration:15s; }
+      @keyframes particle-drift {
+        0%   { opacity:0; transform:translateY(0) scale(.8); }
+        20%  { opacity:.8; }
+        80%  { opacity:.5; }
+        100% { opacity:0; transform:translateY(-100px) scale(1.3); }
+      }
+
+      /* ── Team grid ── */
+      .team-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        position: relative;
+        z-index: 2;
       }
-      .contact-card {
-        padding: 28px;
-        background: var(--white);
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line);
-        box-shadow: var(--shadow-sm);
-        display: flex;
-        gap: 20px;
+
+      /* ── Card wrapper — animated gradient border ── */
+      .team-card-wrap {
+        position: relative;
+        border-radius: 26px;
+        padding: 1.5px;
+        background: linear-gradient(135deg, rgba(247,201,72,0), rgba(240,180,41,0), rgba(247,201,72,0));
+        background-size: 400% 400%;
+        transition: background 500ms ease;
+        animation: none;
+      }
+      .team-card-wrap:hover {
+        background: linear-gradient(135deg, rgba(247,201,72,.6), rgba(240,180,41,.4), rgba(222,145,29,.7), rgba(247,201,72,.5));
+        background-size: 400% 400%;
+        animation: border-spin 3s linear infinite;
+      }
+      @keyframes border-spin {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* ── Card ── */
+      .team-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #181b22;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition:
+          transform 450ms cubic-bezier(0.23,1,0.32,1),
+          box-shadow 450ms ease;
+        will-change: transform;
+      }
+      .team-card:hover {
+        transform: translateY(-14px) scale(1.015);
+        box-shadow:
+          0 30px 70px rgba(0,0,0,.6),
+          0 0 40px rgba(240,180,41,.18);
+      }
+
+      /* ── Image area — full card height ── */
+      .team-card-img {
+        position: relative;
+        height: 420px;
+        overflow: hidden;
+        background: #1a1d24;
+      }
+      .team-card-img img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        transition: transform 900ms cubic-bezier(0.22,1,0.36,1);
+        filter: brightness(.88) saturate(1.05);
+      }
+      .team-card:hover .team-card-img img {
+        transform: scale(1.1);
+        filter: brightness(.95) saturate(1.1);
+      }
+
+      /* Deep cinematic gradient at bottom of image */
+      .team-card-img-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(10,11,16,0) 30%,
+          rgba(10,11,16,.55) 60%,
+          rgba(10,11,16,.96) 100%
+        );
+        z-index: 2;
+        transition: opacity 400ms ease;
+      }
+
+      /* Mouse-follow spotlight glow */
+      .team-card-spotlight {
+        position: absolute; inset: 0; z-index: 3;
+        pointer-events: none;
+        background: radial-gradient(circle 180px at 50% 50%, rgba(247,201,72,.12), transparent 70%);
+        opacity: 0;
+        transition: opacity 300ms ease;
+      }
+      .team-card:hover .team-card-spotlight { opacity: 1; }
+
+      /* Shine sweep on hover */
+      .team-card-shine {
+        position: absolute; inset: 0; z-index: 4;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .team-card-shine::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -120%;
+        width: 60%; height: 100%;
+        background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.08) 50%, transparent 60%);
+        transform: skewX(-15deg);
+        transition: none;
+      }
+      .team-card:hover .team-card-shine::after {
+        transition: left 700ms ease;
+        left: 140%;
+      }
+
+      /* Text overlay — name + position directly on image */
+      .team-card-text {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        z-index: 5;
+        padding: 0 22px 22px;
+      }
+      .team-card-name {
+        font-size: 1.18rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -.015em;
+        line-height: 1.22;
+        text-shadow:
+          0 2px 12px rgba(0,0,0,.8),
+          0 0 30px rgba(240,180,41,.35),
+          0 1px 0 rgba(0,0,0,.9);
+        -webkit-text-stroke: .3px rgba(255,255,255,.15);
+        transform: translateY(6px);
+        opacity: 0;
+        transition: transform 400ms ease, opacity 400ms ease;
+      }
+      .team-card-position-tag {
+        display: inline-block;
+        margin-top: 7px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--ink-900);
+        background: linear-gradient(135deg, var(--yellow-300), var(--yellow-500));
+        padding: 4px 12px;
+        border-radius: 100px;
+        box-shadow: 0 4px 16px rgba(240,180,41,.4), 0 0 0 1px rgba(255,255,255,.08);
+        transform: translateY(8px);
+        opacity: 0;
+        transition: transform 400ms ease 60ms, opacity 400ms ease 60ms;
+      }
+      .team-card.visible .team-card-name,
+      .team-card.visible .team-card-position-tag { transform: translateY(0); opacity: 1; }
+
+      /* Glassmorphism card body */
+      .team-card-body {
+        position: relative;
+        z-index: 6;
+        padding: 18px 20px 20px;
+        background: rgba(15,17,22,.72);
+        backdrop-filter: blur(18px) saturate(1.6);
+        -webkit-backdrop-filter: blur(18px) saturate(1.6);
+        border-top: 1px solid rgba(247,201,72,.14);
+        text-align: center;
+      }
+
+      /* Contact Info button — magnetic style */
+      .team-contact-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 12px;
+        border: 1px solid rgba(247,201,72,.35);
+        background: rgba(247,201,72,.08);
+        color: var(--yellow-300);
+        font-size: .85rem;
+        font-weight: 700;
+        font-family: inherit;
+        cursor: pointer;
+        width: 100%;
+        letter-spacing: .02em;
+        position: relative;
+        overflow: hidden;
+        transition:
+          background 280ms ease,
+          border-color 280ms ease,
+          color 280ms ease,
+          transform 280ms cubic-bezier(0.34,1.56,0.64,1),
+          box-shadow 280ms ease;
+      }
+      .team-contact-btn::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600));
+        opacity: 0;
+        transition: opacity 280ms ease;
+        z-index: 0;
+      }
+      .team-contact-btn:hover::before { opacity: 1; }
+      .team-contact-btn:hover {
+        color: var(--ink-900);
+        border-color: transparent;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(240,180,41,.4);
+      }
+      .team-contact-btn span, .team-contact-btn svg { position: relative; z-index: 1; }
+      .team-contact-btn svg { width:14px; height:14px; flex-shrink:0; }
+
+      /* Ripple on click */
+      .team-contact-btn .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,.25);
+        transform: scale(0);
+        animation: btn-ripple 600ms linear;
+        z-index: 2; pointer-events: none;
+      }
+      @keyframes btn-ripple {
+        to { transform: scale(4); opacity: 0; }
+      }
+
+      /* ============ TEAM MODAL — GLASSMORPHISM DARK ============ */
+      .team-modal-overlay {
+        position: fixed; inset: 0; z-index: 900;
+        display: flex; align-items: center; justify-content: center;
+        padding: 20px;
+        opacity: 0; visibility: hidden;
+        transition: opacity 350ms ease, visibility 350ms ease;
+      }
+      .team-modal-overlay.open { opacity: 1; visibility: visible; }
+
+      .team-modal-backdrop {
+        position: absolute; inset: 0;
+        background: rgba(6,7,10,.82);
+        backdrop-filter: blur(20px) saturate(1.4);
+        -webkit-backdrop-filter: blur(20px) saturate(1.4);
+        cursor: pointer;
+      }
+
+      /* Animated glow border wrapper */
+      .team-modal-border {
+        position: relative; z-index: 1;
+        border-radius: 28px;
+        padding: 1.5px;
+        background: linear-gradient(135deg, rgba(247,201,72,.55), rgba(222,145,29,.3), rgba(240,180,41,.6), rgba(247,201,72,.2));
+        background-size: 400% 400%;
+        animation: modal-border-glow 4s linear infinite;
+        box-shadow:
+          0 0 40px rgba(240,180,41,.2),
+          0 0 80px rgba(240,180,41,.08),
+          0 32px 80px rgba(0,0,0,.7);
+        transform: translateY(28px) scale(.95);
+        opacity: 0;
+        transition: transform 480ms cubic-bezier(0.34,1.56,0.64,1), opacity 350ms ease;
+        will-change: transform, opacity;
+        width: min(480px, 100%);
+        max-height: calc(100dvh - 40px);
+        overflow: hidden;
+        animation: modal-border-glow 4s linear infinite, modal-float 6s ease-in-out infinite 500ms;
+      }
+      .team-modal-overlay.open .team-modal-border {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      @keyframes modal-border-glow {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes modal-float {
+        0%,100% { transform: translateY(0); }
+        50%      { transform: translateY(-6px); }
+      }
+
+      /* Panel inside the glow border */
+      .team-modal-panel {
+        border-radius: 27px;
+        background: rgba(12,13,18,.88);
+        backdrop-filter: blur(24px) saturate(1.5);
+        -webkit-backdrop-filter: blur(24px) saturate(1.5);
+        overflow-y: auto;
+        max-height: calc(100dvh - 80px);
+        scrollbar-width: thin;
+        scrollbar-color: rgba(247,201,72,.3) transparent;
+      }
+      .team-modal-panel::-webkit-scrollbar { width: 4px; }
+      .team-modal-panel::-webkit-scrollbar-thumb { background: rgba(247,201,72,.3); border-radius: 4px; }
+
+      /* Modal header photo */
+      .team-modal-hero {
+        position: relative; height: 200px;
+        border-radius: 27px 27px 0 0;
+        overflow: hidden; flex-shrink: 0;
+        background: #0d0f14;
+      }
+      .team-modal-hero img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: top center;
+        filter: brightness(.7) saturate(1.1);
+      }
+      .team-modal-hero::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(to bottom, transparent 30%, rgba(12,13,18,.9) 100%);
+      }
+
+      /* Close button */
+      .team-modal-close {
+        position: absolute; top: 14px; right: 14px; z-index: 10;
+        width: 36px; height: 36px; border-radius: 50%; border: none;
+        background: rgba(255,255,255,.1);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        cursor: pointer;
+        display: grid; place-items: center;
+        border: 1px solid rgba(255,255,255,.15);
+        box-shadow: 0 4px 16px rgba(0,0,0,.4);
+        transition: background 260ms ease, transform 360ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 260ms ease;
+      }
+      .team-modal-close:hover {
+        background: rgba(240,180,41,.25);
+        border-color: rgba(247,201,72,.5);
+        box-shadow: 0 0 20px rgba(240,180,41,.3);
+        transform: rotate(90deg) scale(1.1);
+      }
+      .team-modal-close svg { width:15px; height:15px; }
+
+      /* Avatar */
+      .team-modal-avatar-wrap {
+        display: flex; justify-content: center;
+        margin-top: -48px; position: relative; z-index: 2;
+      }
+      .team-modal-avatar {
+        width: 92px; height: 92px; border-radius: 50%;
+        border: 3px solid rgba(247,201,72,.6);
+        box-shadow: 0 0 0 4px rgba(247,201,72,.12), 0 12px 30px rgba(0,0,0,.5);
+        overflow: hidden;
+        background: #1a1d24;
+        animation: avatar-pulse 3s ease-in-out infinite;
+      }
+      .team-modal-avatar img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: top center;
+      }
+      @keyframes avatar-pulse {
+        0%,100% { box-shadow: 0 0 0 4px rgba(247,201,72,.12), 0 12px 30px rgba(0,0,0,.5); }
+        50%      { box-shadow: 0 0 0 8px rgba(247,201,72,.18), 0 12px 30px rgba(0,0,0,.5); }
+      }
+
+      /* Modal name/position */
+      .team-modal-info {
+        text-align: center;
+        padding: 14px 28px 0;
+      }
+      .team-modal-info h3 {
+        font-size: 1.35rem; font-weight: 800;
+        color: #fff; letter-spacing: -.02em;
+        text-shadow: 0 2px 16px rgba(240,180,41,.3);
+      }
+      .team-modal-info .modal-position {
+        display: inline-block; margin-top: 8px;
+        background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600));
+        color: var(--ink-900);
+        font-size: .72rem; font-weight: 800;
+        letter-spacing: .12em; text-transform: uppercase;
+        padding: 4px 14px; border-radius: 100px;
+        box-shadow: 0 4px 16px rgba(240,180,41,.35);
+      }
+
+      /* Contact rows */
+      .team-modal-contacts {
+        padding: 20px 20px 24px;
+        display: flex; flex-direction: column; gap: 10px;
+      }
+      .team-modal-row {
+        display: flex; align-items: center; gap: 14px;
+        padding: 12px 16px; border-radius: 14px;
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.07);
+        text-decoration: none; color: inherit;
         transition:
           transform var(--transition-bounce),
-          box-shadow var(--transition);
+          background 260ms ease,
+          border-color 260ms ease,
+          box-shadow 260ms ease;
       }
-      .contact-card:hover {
-        transform: translateY(-5px) scale(1.01);
-        box-shadow: var(--shadow-md);
+      .team-modal-row:hover {
+        transform: translateY(-2px) scale(1.015);
+        background: rgba(247,201,72,.08);
+        border-color: rgba(247,201,72,.3);
+        box-shadow: 0 8px 24px rgba(240,180,41,.12);
       }
-      .contact-icon {
-        flex: none;
-        width: 56px;
-        height: 56px;
-        border-radius: 16px;
-        background: linear-gradient(
-          135deg,
-          var(--yellow-200),
-          var(--yellow-500)
-        );
-        color: var(--ink-900);
-        display: grid;
-        place-items: center;
-        box-shadow: 0 8px 18px rgba(240, 180, 41, 0.3);
+      .team-modal-row-icon {
+        flex-shrink: 0; width: 40px; height: 40px;
+        border-radius: 12px; display: grid; place-items: center;
+        color: #fff;
       }
-      .contact-icon svg {
-        width: 24px;
-        height: 24px;
+      .team-modal-row-icon.ic-email    { background: linear-gradient(135deg,#f093fb,#f5576c); box-shadow: 0 6px 16px rgba(245,87,108,.35); }
+      .team-modal-row-icon.ic-phone    { background: linear-gradient(135deg,#4facfe,#00f2fe); box-shadow: 0 6px 16px rgba(0,242,254,.25); }
+      .team-modal-row-icon.ic-facebook { background: linear-gradient(135deg,#2d6cdf,#1877f2); box-shadow: 0 6px 16px rgba(24,119,242,.35); }
+      .team-modal-row-icon.ic-instagram{ background: linear-gradient(135deg,#f7971e,#ee0979);  box-shadow: 0 6px 16px rgba(238,9,121,.3); }
+      .team-modal-row-icon svg { width:18px; height:18px; }
+      .team-modal-row-label {
+        font-size: .72rem; font-weight: 700;
+        letter-spacing: .08em; text-transform: uppercase;
+        color: rgba(255,255,255,.38);
       }
-      .contact-card h4 {
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--yellow-700);
+      .team-modal-row-value {
+        font-size: .92rem; font-weight: 600;
+        color: rgba(255,255,255,.85);
+        margin-top: 1px; word-break: break-all;
       }
-      .contact-card .value {
-        margin-top: 6px;
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--ink-900);
-        line-height: 1.4;
+
+      /* ── Responsive ── */
+      @media (max-width: 860px) {
+        .team-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+        .team-grid > :last-child { grid-column: 1 / -1; max-width: 360px; margin: 0 auto; }
+        .team-card-img { height: 360px; }
       }
-      .contact-card .sub {
-        margin-top: 4px;
-        font-size: 0.9rem;
-        color: var(--ink-500);
-      }
-      .contact-card a.value:hover {
-        color: var(--yellow-700);
+      @media (max-width: 560px) {
+        .contact { padding: 80px 0 90px; }
+        .team-grid { grid-template-columns: 1fr; gap: 20px; }
+        .team-grid > :last-child { grid-column: auto; max-width: 100%; }
+        .team-card-img { height: 300px; }
+        .team-modal-border { border-radius: 22px; }
+        .team-modal-panel  { border-radius: 21px; }
+        .team-modal-hero   { border-radius: 21px 21px 0 0; height: 160px; }
+        .team-modal-contacts { padding: 16px 14px 20px; }
+        .team-modal-info { padding: 12px 16px 0; }
       }
 
       /* ============ MAP / HOURS ============ */
@@ -961,104 +1414,286 @@
         color: rgba(255, 253, 247, 0.45);
       }
 
-      /* ============ CTA ============ */
-      .cta {
-        padding: 80px 0;
-        background:
-          radial-gradient(
-            760px 340px at 12% 0%,
-            rgba(247, 201, 72, 0.28),
-            transparent 62%
-          ),
-          linear-gradient(180deg, var(--paper), var(--yellow-50));
+      /* ============ CAMPUS EXPERIENCE (Cinematic CTA) ============ */
+      .campus-exp {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 130px 0;
+        isolation: isolate;
+        contain: paint;
       }
-      .cta-label {
-        margin-bottom: 16px;
+      .ce-canvas {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        display: block;
+        z-index: 1; pointer-events: none; opacity: 0.6;
+      }
+      .ce-bg-wrap {
+        position: absolute;
+        inset: -25% 0;
+        max-width: none;
+        z-index: 0;
+        will-change: transform;
+      }
+      .ce-bg {
+        width: 100%; height: 100%;
+        max-width: none;
+        background-size: cover;
+        background-position: center;
+        will-change: transform;
+        transform: scale(1.15);
+        transform-origin: center center;
+      }
+      .ce-bg-overlay {
+        position: absolute; inset: 0;
+        max-width: none;
+        background:
+          linear-gradient(180deg, rgba(6,8,14,0.78) 0%, rgba(8,10,18,0.52) 45%, rgba(6,8,14,0.88) 100%),
+          radial-gradient(ellipse 90% 70% at 50% 40%, rgba(0,0,0,0.05), rgba(0,0,0,0.55) 100%),
+          linear-gradient(90deg, rgba(240,180,41,0.06) 0%, transparent 40%, rgba(240,180,41,0.05) 100%);
+      }
+      /* Animated glow orbs */
+      .ce-orbs { position: absolute; inset: 0; max-width: none; pointer-events: none; overflow: hidden; z-index: 2; }
+      .ce-orb {
+        position: absolute; border-radius: 50%;
+        filter: blur(100px);
+        animation: ce-orb-float 20s ease-in-out infinite;
+      }
+      .ce-o1 { width: 650px; height: 650px; background: rgba(240,180,41,0.11); top: -160px; left: -110px; animation-delay: 0s; }
+      .ce-o2 { width: 520px; height: 520px; background: rgba(222,145,29,0.09); bottom: -110px; right: -90px; animation-delay: 7s; animation-duration: 26s; }
+      .ce-o3 { width: 380px; height: 380px; background: rgba(247,201,72,0.07); top: 55%; left: 50%; transform: translate(-50%,-50%); animation-delay: 3s; animation-duration: 18s; }
+      .ce-o4 { width: 260px; height: 260px; background: rgba(255,210,80,0.06); top: 18%; right: 22%; animation-delay: 11s; animation-duration: 23s; }
+      @keyframes ce-orb-float {
+        0%, 100% { transform: translate(0,0) scale(1); opacity: 0.65; }
+        33%  { transform: translate(55px,-45px) scale(1.12); opacity: 0.95; }
+        66%  { transform: translate(-35px,35px) scale(0.93); opacity: 0.72; }
+      }
+      /* Mouse spotlight */
+      .ce-spotlight {
+        position: absolute; width: 520px; height: 520px;
+        border-radius: 50%; pointer-events: none; z-index: 3;
+        background: radial-gradient(circle, rgba(247,201,72,0.09) 0%, transparent 70%);
+        transform: translate(-50%,-50%);
+        left: 50%; top: 50%;
+        will-change: left, top;
+        transition: left 80ms linear, top 80ms linear;
+      }
+      /* Floating glassmorphism tags */
+      .ce-floating-tags { position: absolute; inset: 0; max-width: none; pointer-events: none; overflow: hidden; z-index: 4; }
+      .ce-tag {
+        position: absolute;
+        padding: 10px 20px;
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(18px) saturate(1.9);
+        -webkit-backdrop-filter: blur(18px) saturate(1.9);
+        border: 1px solid rgba(247,201,72,0.22);
+        border-radius: 100px;
+        color: rgba(255,255,255,0.86);
+        font-size: 13px; font-weight: 700;
+        letter-spacing: 0.025em;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.03) inset, 0 4px 20px rgba(247,201,72,0.07);
+        will-change: transform;
+      }
+      .ce-tag-1 { top: 13%; left: 5%;  animation: ce-float1 8.5s ease-in-out infinite; }
+      .ce-tag-2 { top: 20%; right: 7%; animation: ce-float2 10s ease-in-out infinite; }
+      .ce-tag-3 { bottom: 26%; left: 4%; animation: ce-float3 9s ease-in-out infinite; }
+      .ce-tag-4 { bottom: 20%; right: 6%; animation: ce-float4 11.5s ease-in-out infinite; }
+      .ce-tag-5 { top: 53%; left: 3%;  animation: ce-float1 12s ease-in-out infinite 2s; }
+      .ce-tag-6 { top: 38%; right: 4%; animation: ce-float2 8.5s ease-in-out infinite 1.2s; }
+      @keyframes ce-float1 {
+        0%, 100% { transform: translate3d(0,0,0) rotate(-2deg); }
+        50%       { transform: translate3d(15px,-20px,0) rotate(2.5deg); }
+      }
+      @keyframes ce-float2 {
+        0%, 100% { transform: translate3d(0,0,0) rotate(3deg); }
+        50%       { transform: translate3d(-13px,-16px,0) rotate(-1.5deg); }
+      }
+      @keyframes ce-float3 {
+        0%, 100% { transform: translate3d(0,0,0) rotate(-1.5deg); }
+        50%       { transform: translate3d(18px,14px,0) rotate(3deg); }
+      }
+      @keyframes ce-float4 {
+        0%, 100% { transform: translate3d(0,0,0) rotate(2deg); }
+        50%       { transform: translate3d(-11px,18px,0) rotate(-2.5deg); }
+      }
+      /* Content */
+      .ce-content {
+        position: relative; z-index: 5;
+        width: min(100%, 780px);
+        margin: 0 auto;
+        padding: 0 8px;
         text-align: center;
       }
-      .cta-inner {
-        padding: 56px;
-        border-radius: var(--radius-xl);
-        background:
-          radial-gradient(
-            520px 240px at 100% 0%,
-            rgba(255, 253, 247, 0.55),
-            transparent 58%
-          ),
-          linear-gradient(135deg, var(--ink-900), #2a3142 58%, #3b4252);
-        border: 2px solid rgba(247, 201, 72, 0.42);
-        box-shadow:
-          0 26px 70px rgba(31, 36, 48, 0.24),
-          0 12px 34px rgba(222, 145, 29, 0.18);
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 32px;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        opacity: 1;
-        transform: none;
-        filter: none;
-        clip-path: none;
+      .ce-eyebrow {
+        display: inline-flex; align-items: center; gap: 9px;
+        padding: 9px 20px; border-radius: 100px;
+        background: rgba(247,201,72,0.1);
+        border: 1px solid rgba(247,201,72,0.28);
+        backdrop-filter: blur(12px);
+        color: var(--yellow-300);
+        font-size: 12px; font-weight: 700;
+        letter-spacing: 0.13em; text-transform: uppercase;
+        margin-bottom: 30px;
+        opacity: 0; transform: translateY(22px);
       }
-      .cta-inner::before {
-        content: "";
-        position: absolute;
-        top: -120px;
-        right: -80px;
-        width: 360px;
-        height: 360px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.18);
-      }
-      .cta-inner::after {
-        content: "";
-        position: absolute;
-        bottom: -100px;
-        left: -60px;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: rgba(255, 253, 247, 0.14);
-      }
-      .cta h2 {
-        position: relative;
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: var(--paper);
-        line-height: 1.2;
-      }
-      .cta p {
-        position: relative;
-        margin-top: 10px;
-        color: rgba(255, 253, 247, 0.74);
-        font-size: 1rem;
-      }
-      .cta .btn-primary {
+      .ce-eyebrow .dot {
+        width: 7px; height: 7px; border-radius: 50%;
         background: var(--yellow-400);
-        color: var(--ink-900);
-        box-shadow: 0 14px 30px rgba(240, 180, 41, 0.28);
+        animation: ce-dot-pulse 2s ease-in-out infinite;
+        flex-shrink: 0;
       }
-      .cta .btn-primary:hover {
-        background: var(--white);
-        color: var(--ink-900);
+      @keyframes ce-dot-pulse {
+        0%, 100% { box-shadow: 0 0 0 3px rgba(247,201,72,0.2), 0 0 8px rgba(247,201,72,0.4); }
+        50%       { box-shadow: 0 0 0 6px rgba(247,201,72,0.1), 0 0 22px rgba(247,201,72,0.65); }
       }
-      .cta .btn-ghost {
-        background: rgba(255, 253, 247, 0.08);
-        color: var(--paper);
-        border-color: rgba(255, 253, 247, 0.28);
+      .ce-title {
+        font-size: clamp(3rem, 7.5vw, 5.8rem);
+        font-weight: 800; line-height: 1.04;
+        letter-spacing: -0.03em; color: #fff;
+        text-shadow: 0 4px 28px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.65);
+        -webkit-text-stroke: 0.5px rgba(255,255,255,0.08);
+        margin-bottom: 26px; opacity: 0; transform: translateY(32px);
       }
-      .cta .btn-ghost:hover {
-        background: rgba(255, 253, 247, 0.16);
-        color: var(--paper);
+      .ce-accent {
+        background: linear-gradient(120deg, var(--yellow-300), var(--yellow-500), var(--yellow-300));
+        background-size: 200% auto;
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        animation: ce-shine 4s linear infinite;
+        text-shadow: none; display: inline-block;
       }
-      .cta-actions {
-        position: relative;
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+      @keyframes ce-shine {
+        0%   { background-position: 0% center; }
+        100% { background-position: 200% center; }
+      }
+      .ce-lead {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: rgba(255,255,255,0.68);
+        max-width: 560px; margin: 0 auto 52px;
+        line-height: 1.75; opacity: 0; transform: translateY(22px);
+      }
+      /* Glassmorphism CTA card */
+      .ce-card {
+        position: relative; border-radius: 30px;
+        padding: 2px;
+        background: linear-gradient(135deg,
+          rgba(247,201,72,0.55), rgba(240,180,41,0.22),
+          rgba(255,255,255,0.08), rgba(247,201,72,0.45));
+        background-size: 300% 300%;
+        animation: ce-border-anim 6s linear infinite;
+        box-shadow: 0 0 70px rgba(240,180,41,0.13), 0 28px 90px rgba(0,0,0,0.55);
+        opacity: 0; transform: translateY(42px) scale(0.97);
+        will-change: transform;
+        width: min(100%, 700px);
+        max-width: calc(100vw - 48px);
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        transition: box-shadow 400ms ease;
+      }
+      .ce-card:hover {
+        box-shadow: 0 0 90px rgba(240,180,41,0.22), 0 36px 100px rgba(0,0,0,0.6);
+      }
+      @keyframes ce-border-anim {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .ce-card-glow {
+        position: absolute; inset: -2px; border-radius: 32px;
+        background: radial-gradient(ellipse 80% 55% at 50% -15%, rgba(247,201,72,0.16), transparent 60%);
+        pointer-events: none; z-index: 0;
+      }
+      .ce-card-inner {
+        position: relative; z-index: 1; border-radius: 28px;
+        background: rgba(10,12,20,0.75);
+        backdrop-filter: blur(28px) saturate(1.7);
+        -webkit-backdrop-filter: blur(28px) saturate(1.7);
+        padding: 46px 52px;
+      }
+      .ce-card-stats {
+        display: flex; align-items: center; justify-content: center;
+        gap: 0; margin-bottom: 38px;
+      }
+      .ce-stat { flex: 1; text-align: center; padding: 0 22px; }
+      .ce-stat-num {
+        font-size: 2.4rem; font-weight: 800;
+        letter-spacing: -0.035em; line-height: 1; margin-bottom: 7px;
+        background: linear-gradient(135deg, var(--yellow-300), var(--yellow-500));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .ce-stat-lbl {
+        font-size: 11px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: rgba(255,255,255,0.42);
+      }
+      .ce-stat-divider {
+        width: 1px; height: 44px;
+        background: rgba(247,201,72,0.18); flex-shrink: 0;
+      }
+      .ce-card-actions {
+        display: flex; align-items: center;
+        justify-content: center; gap: 14px; flex-wrap: wrap;
+      }
+      .ce-btn-primary {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 15px 30px; border-radius: 16px;
+        background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600));
+        color: var(--ink-900); font-weight: 700; font-size: 15px;
+        text-decoration: none;
+        box-shadow: 0 12px 36px rgba(240,180,41,0.38);
+        transition: transform 320ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 320ms ease, filter 320ms ease;
+        will-change: transform;
+      }
+      .ce-btn-primary svg { width: 16px; height: 16px; transition: transform 300ms ease; }
+      .ce-btn-primary:hover {
+        transform: translateY(-4px) scale(1.04);
+        box-shadow: 0 20px 52px rgba(240,180,41,0.52);
+        filter: brightness(1.06);
+      }
+      .ce-btn-primary:hover svg { transform: translateX(4px); }
+      .ce-btn-ghost {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 15px 30px; border-radius: 16px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.16);
+        color: rgba(255,255,255,0.82); font-weight: 600; font-size: 15px;
+        text-decoration: none;
+        backdrop-filter: blur(8px);
+        transition: transform 320ms cubic-bezier(0.34,1.56,0.64,1), background 320ms ease, border-color 320ms ease;
+      }
+      .ce-btn-ghost:hover {
+        transform: translateY(-4px);
+        background: rgba(255,255,255,0.11);
+        border-color: rgba(247,201,72,0.38);
+      }
+      @media (max-width: 960px) {
+        .campus-exp { padding: 100px 0; min-height: auto; }
+        .ce-content { padding: 0; }
+        .ce-tag-5, .ce-tag-6 { display: none; }
+        .ce-card-inner { padding: 36px 32px; }
+        .ce-stat-num { font-size: 2rem; }
+      }
+      @media (max-width: 720px) {
+        .campus-exp { padding: 80px 0; }
+        .ce-tag { display: none; }
+        .ce-stat { padding: 0 14px; }
+        .ce-stat-num { font-size: 1.7rem; }
+        .ce-title { font-size: clamp(2.6rem, 10vw, 4rem); }
+      }
+      @media (max-width: 480px) {
+        .campus-exp { padding: 64px 0; }
+        .ce-card { max-width: calc(100vw - 32px); }
+        .ce-card-inner { padding: 28px 22px; }
+        .ce-card-stats { flex-direction: column; gap: 22px; }
+        .ce-stat-divider { width: 60%; height: 1px; }
+        .ce-card-actions { flex-direction: column; align-items: stretch; }
+        .ce-btn-primary, .ce-btn-ghost { justify-content: center; }
+        .ce-title { font-size: clamp(2.3rem, 9.5vw, 3rem); }
+        .ce-lead { font-size: 0.96rem; }
       }
 
       /* ============ FOOTER ============ */
@@ -1768,6 +2403,12 @@
         border: 1px solid var(--line);
         border-bottom-left-radius: 6px;
         box-shadow: 0 2px 6px rgba(31, 36, 48, 0.04);
+      }
+      .msg.bot a {
+        color: var(--yellow-700);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 2px;
       }
       .msg.user {
         align-self: flex-end;
@@ -3788,115 +4429,146 @@
         </div>
       </div>
 
-      <!-- CONTACT -->
+      <!-- CONTACT / TEAM SHOWCASE -->
       <section class="contact" id="contact">
+        <!-- Ambient orbs -->
+        <div class="contact-orbs" aria-hidden="true">
+          <div class="contact-orb o1"></div>
+          <div class="contact-orb o2"></div>
+          <div class="contact-orb o3"></div>
+        </div>
+        <!-- Light streaks -->
+        <div class="contact-streaks" aria-hidden="true">
+          <div class="contact-streak"></div>
+          <div class="contact-streak"></div>
+          <div class="contact-streak"></div>
+          <div class="contact-streak"></div>
+        </div>
+        <!-- Floating particles -->
+        <div class="contact-particles" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+
         <div class="container">
           <div class="section-head">
-            <span class="section-eyebrow reveal">Get in touch</span>
-            <h2 class="reveal reveal-delay-1">We're just a message away.</h2>
+            <span class="section-eyebrow reveal">Meet the Team</span>
+            <h2 class="reveal reveal-delay-1">The People Behind OSAS</h2>
             <p class="reveal reveal-delay-2">
-              Reach out to OSAS for inquiries, assistance, or a friendly chat.
-              We'd love to hear from you.
+              Our dedicated officers are here to support, guide, and serve every
+              student of ISPSC Tagudin Campus.
             </p>
           </div>
 
-          <div class="contact-grid">
-            <div class="contact-card reveal reveal-delay-1">
-              <div class="contact-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-              <div>
-                <h4>Contact Person</h4>
-                <h4>J.V. AUGUSTINE D. REALIZO</h4>
-                <div class="value">OSAS Coordinator</div>
-                <div class="sub">Office of Student Affairs and Services</div>
-              </div>
-            </div>
+          <div class="team-grid">
 
-            <div class="contact-card reveal reveal-delay-2">
-              <div class="contact-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 2 4.11 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75 12 12 0 0 0 .57 2.57 1 1 0 0 1-.23 1L6.91 9.09a16 16 0 0 0 8 8l1.78-1.78a1 1 0 0 1 1-.23 12 12 0 0 0 2.57.57 1 1 0 0 1 .74 1z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4>Cellphone</h4>
-                <a class="value" href="tel:+639171234567">+63 917 123 4567</a>
-                <div class="sub">Globe / Smart — Mon to Fri, 8AM – 5PM</div>
-              </div>
-            </div>
-
-            <div class="contact-card reveal reveal-delay-3">
-              <div class="contact-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-              </div>
-              <div>
-                <h4>Email Address</h4>
-                <a class="value" href="mailto:osas.tagudin@ispsc.edu.ph"
-                  >osas.tagudin@ispsc.edu.ph</a
-                >
-                <div class="sub">
-                  We typically reply within one business day.
+            <!-- Card 1 — Director -->
+            <div class="team-card-wrap reveal reveal-zoom reveal-delay-1">
+              <div class="team-card" data-member="0" role="button" tabindex="0" aria-label="View contact info for Dennis Millare">
+                <div class="team-card-img">
+                  <img src="dennis.jpg" alt="Dennis T. Millare" loading="lazy" />
+                  <div class="team-card-img-overlay"></div>
+                  <div class="team-card-spotlight"></div>
+                  <div class="team-card-shine"></div>
+                  <div class="team-card-text">
+                    <div class="team-card-name">Dennis T. Millare</div>
+                    <span class="team-card-position-tag">Director of OSAS</span>
+                  </div>
+                </div>
+                <div class="team-card-body">
+                  <button class="team-contact-btn" data-member="0" aria-label="Open contact info">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Contact Info</span>
+                  </button>
                 </div>
               </div>
             </div>
 
-            <div class="contact-card reveal reveal-delay-4">
-              <div class="contact-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </div>
-              <div>
-                <h4>Office Location</h4>
-                <div class="value">OSAS Building</div>
-                <div class="sub">
-                  ISPSC Tagudin Campus, Quirino St., Tagudin, Ilocos Sur
+            <!-- Card 2 — Coordinator -->
+            <div class="team-card-wrap reveal reveal-zoom reveal-delay-2">
+              <div class="team-card" data-member="1" role="button" tabindex="0" aria-label="View contact info for J.V. Augustine Realizo">
+                <div class="team-card-img">
+                  <img src="j.v.png" alt="J.V. Augustine D. Realizo" loading="lazy" />
+                  <div class="team-card-img-overlay"></div>
+                  <div class="team-card-spotlight"></div>
+                  <div class="team-card-shine"></div>
+                  <div class="team-card-text">
+                    <div class="team-card-name">J.V. Augustine D. Realizo</div>
+                    <span class="team-card-position-tag">Coordinator of OSAS</span>
+                  </div>
+                </div>
+                <div class="team-card-body">
+                  <button class="team-contact-btn" data-member="1" aria-label="Open contact info">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Contact Info</span>
+                  </button>
                 </div>
               </div>
             </div>
+
+            <!-- Card 3 — Scholarship President -->
+            <div class="team-card-wrap reveal reveal-zoom reveal-delay-3">
+              <div class="team-card" data-member="2" role="button" tabindex="0" aria-label="View contact info for Allan Jay Lardizabal">
+                <div class="team-card-img">
+                  <img src="allan.jpg" alt="Allan Jay Lardizabal" loading="lazy" />
+                  <div class="team-card-img-overlay"></div>
+                  <div class="team-card-spotlight"></div>
+                  <div class="team-card-shine"></div>
+                  <div class="team-card-text">
+                    <div class="team-card-name">Allan Jay Lardizabal</div>
+                    <span class="team-card-position-tag">Scholarship President</span>
+                  </div>
+                </div>
+                <div class="team-card-body">
+                  <button class="team-contact-btn" data-member="2" aria-label="Open contact info">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Contact Info</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
+      <!-- ═══ TEAM CONTACT MODAL ═══ -->
+      <div class="team-modal-overlay" id="teamModal" role="dialog" aria-modal="true" aria-labelledby="teamModalName">
+        <div class="team-modal-backdrop" id="teamModalBackdrop"></div>
+        <div class="team-modal-border">
+          <div class="team-modal-panel">
+
+            <button class="team-modal-close" id="teamModalClose" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+
+            <div class="team-modal-hero">
+              <img id="teamModalHeroImg" src="" alt="" />
+            </div>
+
+            <div class="team-modal-avatar-wrap">
+              <div class="team-modal-avatar">
+                <img id="teamModalAvatarImg" src="" alt="" />
+              </div>
+            </div>
+
+            <div class="team-modal-info">
+              <h3 id="teamModalName"></h3>
+              <span class="modal-position" id="teamModalPosition"></span>
+            </div>
+
+            <div class="team-modal-contacts" id="teamModalContacts"></div>
+          </div>
+        </div>
+      </div>
 
       <!-- LOCATION / HOURS -->
       <section class="location" id="location">
@@ -3955,38 +4627,83 @@
         </div>
       </section>
 
-      <!-- CTA -->
-      <section class="cta">
+      
+      <!-- CAMPUS EXPERIENCE — Cinematic Parallax CTA -->
+      <section class="campus-exp" id="campus-experience">
+
+        <!-- Three.js particle canvas -->
+        <canvas class="ce-canvas" id="ceCanvas"></canvas>
+
+        <!-- Parallax background -->
+        <div class="ce-bg-wrap">
+          <div class="ce-bg" id="ceBg" style="background-image:url('ispscbg.jpg')"></div>
+          <div class="ce-bg-overlay"></div>
+        </div>
+
+        <!-- Glow orbs -->
+        <div class="ce-orbs" aria-hidden="true">
+          <div class="ce-orb ce-o1"></div>
+          <div class="ce-orb ce-o2"></div>
+          <div class="ce-orb ce-o3"></div>
+          <div class="ce-orb ce-o4"></div>
+        </div>
+
+        <!-- Mouse spotlight -->
+        <div class="ce-spotlight" id="ceSpotlight"></div>
+
+        <!-- Floating glassmorphism tags -->
+        <div class="ce-floating-tags" aria-hidden="true">
+          <div class="ce-tag ce-tag-1">🎓 Scholarships</div>
+          <div class="ce-tag ce-tag-2">🏆 Leadership</div>
+          <div class="ce-tag ce-tag-3">🌟 Campus Life</div>
+          <div class="ce-tag ce-tag-4">🤝 Organizations</div>
+          <div class="ce-tag ce-tag-5">💡 Innovation</div>
+          <div class="ce-tag ce-tag-6">🎭 Culture</div>
+        </div>
+
         <div class="container">
-          <div class="cta-label">
-            <span class="section-eyebrow">Need help?</span>
-          </div>
-          <div class="cta-inner">
-            <div>
-              <h2>Have a question? We'd love to help.</h2>
-              <p>
-                Whether it's about scholarships, organizations, or just where to
-                go next — OSAS is here for you.
-              </p>
+          <div class="ce-content">
+            <div class="ce-eyebrow" id="ceEyebrow">
+              <span class="dot"></span> Student Opportunities
             </div>
-            <div class="cta-actions">
-              <a
-                href="mailto:osas.tagudin@ispsc.edu.ph"
-                class="btn btn-primary"
-              >
-                Send us an email
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a href="tel:+639171234567" class="btn btn-ghost">Call OSAS</a>
+
+            <h2 class="ce-title" id="ceTitle">
+              Your Campus<br><span class="ce-accent">Experience</span><br>Awaits
+            </h2>
+
+            <p class="ce-lead" id="ceLead">
+              Discover scholarships, join organizations, lead campus initiatives,
+              and create memories that last a lifetime at ISPSC Tagudin.
+            </p>
+
+            <!-- Glassmorphism CTA card -->
+            <div class="ce-card" id="ceTiltCard">
+              <div class="ce-card-glow"></div>
+              <div class="ce-card-inner">
+                <div class="ce-card-stats">
+                  <div class="ce-stat">
+                    <div class="ce-stat-num">50+</div>
+                    <div class="ce-stat-lbl">Scholarships</div>
+                  </div>
+                  <div class="ce-stat-divider"></div>
+                  <div class="ce-stat">
+                    <div class="ce-stat-num">20+</div>
+                    <div class="ce-stat-lbl">Organizations</div>
+                  </div>
+                  <div class="ce-stat-divider"></div>
+                  <div class="ce-stat">
+                    <div class="ce-stat-num">100%</div>
+                    <div class="ce-stat-lbl">Student-Driven</div>
+                  </div>
+                </div>
+                <div class="ce-card-actions">
+                  <a href="#contact" class="ce-btn-primary">
+                    Explore Opportunities
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                  </a>
+                  <a href="#services" class="ce-btn-ghost">View Services</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -4077,7 +4794,15 @@
               © <span id="year"></span> Ilocos Sur Polytechnic State College —
               Tagudin Campus. All rights reserved.
             </div>
-            <div>Designed with care for every Polytechnician.</div>
+            <div>
+              Designed with care for every Polytechnician. Developed by
+              <a href="https://portfolio-deo.vercel.app/" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   style="color: #1e90ff; text-decoration: underline;">
+   Deo Ongotan
+</a>
+            </div>
           </div>
         </div>
       </footer>
@@ -4349,6 +5074,7 @@
         <button class="quick-chip" data-q="Fees">Fees</button>
         <button class="quick-chip" data-q="Guidance">Guidance</button>
         <button class="quick-chip" data-q="Organizations">Organizations</button>
+        <button class="quick-chip" data-q="Meet the OSAS team">Team</button>
       </div>
 
       <form class="chat-input" id="chatForm" autocomplete="off">
@@ -4374,6 +5100,9 @@
       </form>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
     <script>
       /* ============ WELCOME LANDING ============ */
       (function () {
@@ -4600,7 +5329,7 @@
         [".hero h1, .hero .lead, .hero-meta, .hero-actions", "reveal-left"],
         [".hero-visual, .about-visual, .hours-card", "reveal-right"],
         [".stat, .service-icon", "reveal-pop"],
-        [".pillar, .contact-card", "reveal-left"],
+        [".pillar", "reveal-left"],
         [".service", "reveal-tilt"],
         [".section-head .reveal", "reveal-zoom"],
       ];
@@ -4636,6 +5365,70 @@
         const quick = document.getElementById("chatQuick");
 
         // Knowledge base — keyword groups → response
+        const teamMembers = [
+          {
+            name: "Dennis T. Millare",
+            role: "Director of OSAS",
+            keywords: ["dennis", "millare", "director"],
+            email: "millaredennis@ispsc.edu.ph",
+            phone: "+63 0917 853 5165",
+            facebook: {
+              label: "fb.com/Dhen Millare",
+              href: "https://www.facebook.com/millare.dennis",
+            },
+            instagram: {
+              label: "@Dhen Millare",
+              href: "https://instagram.com/Dhen",
+            },
+          },
+          {
+            name: "J.V. Augustine D. Realizo",
+            role: "Coordinator of OSAS",
+            keywords: ["jv", "j.v", "realizo", "augustine", "coordinator"],
+            email: "jv.realizo@ispsc.edu.ph",
+            phone: "+63 918 222 3333",
+            facebook: {
+              label: "fb.com/jv.realizo.official",
+              href: "https://www.facebook.com/JvRealizo",
+            },
+            instagram: {
+              label: "@jvrealizo",
+              href: "https://instagram.com/jvrealizo",
+            },
+          },
+          {
+            name: "Allan Jay Lardizabal",
+            role: "Scholarship President",
+            keywords: ["allan", "lardizabal", "scholarship president"],
+            email: "ana.reyes@ispsc.edu.ph",
+            phone: "+63 919 444 5555",
+            facebook: {
+              label: "fb.com/Allan Jay",
+              href: "https://www.facebook.com/eidzey",
+            },
+            instagram: {
+              label: "Allan Jay",
+              href: "https://instagram.com/anareyes.schol",
+            },
+          },
+        ];
+
+        function formatTeamMember(member) {
+          return {
+            html:
+              `${member.name} is the ${member.role}.<br>` +
+              `Email: ${member.email}<br>` +
+              `Phone: ${member.phone}<br>` +
+              `Facebook: <a href="${member.facebook.href}" target="_blank" rel="noopener noreferrer">${member.facebook.label}</a><br>` +
+              `Instagram: <a href="${member.instagram.href}" target="_blank" rel="noopener noreferrer">${member.instagram.label}</a><br>` +
+              `You can also open the Contact section and tap their Contact Info card.`,
+          };
+        }
+
+        function formatTeamList() {
+          return `The Contact / Team Showcase introduces the OSAS team: ${teamMembers.map((m) => `${m.name} - ${m.role}`).join("; ")}. Ask for a specific name to get their contact details.`;
+        }
+
         const intents = [
           {
             name: "greeting",
@@ -4786,7 +5579,7 @@
               "reach",
             ],
             reply:
-              "You can reach OSAS at osas.tagudin@ispsc.edu.ph or call/text +63 917 123 4567 during office hours.",
+              "For OSAS contact details, open the Contact / Team Showcase section. It lists Dennis T. Millare (Director of OSAS), J.V. Augustine D. Realizo (Coordinator of OSAS), and Allan Jay Lardizabal (Scholarship President). Ask me a specific name if you want their email, phone, Facebook, and Instagram details.",
           },
           {
             name: "thanks",
@@ -4797,10 +5590,29 @@
         ];
 
         const FALLBACK =
-          'Sorry, I didn\'t understand your question. Please contact OSAS directly, or try keywords like "enrollment", "scholarship", "fees", or "guidance".';
+          'Sorry, I didn\'t understand your question. Please contact OSAS directly, or try keywords like "enrollment", "scholarship", "fees", "guidance", or "team".';
 
         function findReply(text) {
           const t = (text || "").toLowerCase();
+          for (const member of teamMembers) {
+            if (member.keywords.some((kw) => t.includes(kw))) {
+              return formatTeamMember(member);
+            }
+          }
+          if (
+            [
+              "team",
+              "staff",
+              "officers",
+              "people behind osas",
+              "meet the team",
+              "contact showcase",
+              "team showcase",
+              "who are the osas",
+            ].some((kw) => t.includes(kw))
+          ) {
+            return formatTeamList();
+          }
           let best = null;
           let bestScore = 0;
           for (const intent of intents) {
@@ -4816,10 +5628,14 @@
           return best ? best.reply : FALLBACK;
         }
 
-        function addMessage(text, who) {
+        function addMessage(message, who) {
           const el = document.createElement("div");
           el.className = "msg " + who;
-          el.textContent = text;
+          if (message && typeof message === "object" && message.html) {
+            el.innerHTML = message.html;
+          } else {
+            el.textContent = message;
+          }
           body.appendChild(el);
           body.scrollTop = body.scrollHeight;
           return el;
@@ -4856,7 +5672,7 @@
             setTimeout(
               () =>
                 addMessage(
-                  "Ask me anything about enrollment, scholarships, fees, guidance, or student organizations.",
+                  "Ask me anything about enrollment, scholarships, fees, guidance, student organizations, or the OSAS team.",
                   "bot",
                 ),
               900,
@@ -5138,6 +5954,428 @@
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") closeModal();
         });
+      })();
+
+      /* ============ TEAM CARDS — INTERACTIVE EFFECTS ============ */
+      (function () {
+        /* Mouse-follow spotlight */
+        document.querySelectorAll('.team-card').forEach(card => {
+          const spotlight = card.querySelector('.team-card-spotlight');
+          card.addEventListener('mousemove', e => {
+            const r = card.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
+            const y = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
+            if (spotlight) spotlight.style.background =
+              `radial-gradient(circle 200px at ${x}% ${y}%, rgba(247,201,72,.18), transparent 70%)`;
+          });
+          card.addEventListener('mouseleave', () => {
+            if (spotlight) spotlight.style.background =
+              'radial-gradient(circle 180px at 50% 50%, rgba(247,201,72,.12), transparent 70%)';
+          });
+        });
+
+        /* Scroll-reveal .visible for card text */
+        const cardIO = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              cardIO.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.25 });
+        document.querySelectorAll('.team-card').forEach(c => cardIO.observe(c));
+
+        /* Ripple on Contact Info buttons */
+        document.querySelectorAll('.team-contact-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            const r = btn.getBoundingClientRect();
+            const rip = document.createElement('span');
+            rip.className = 'ripple';
+            const size = Math.max(r.width, r.height);
+            rip.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px`;
+            btn.appendChild(rip);
+            rip.addEventListener('animationend', () => rip.remove());
+          });
+        });
+      })();
+
+      /* ============ TEAM CONTACT MODAL ============ */
+      (function () {
+        const members = [
+          {
+            name: "Dennis T. Millare",
+            position: "Director of OSAS",
+            photo: "dennis.jpg",
+            contacts: [
+              {
+                type: "email",
+                label: "Email Address",
+                value: "millaredennis@ispsc.edu.ph",
+                href: "mailto:millaredennis@ispsc.edu.ph",
+                icon: "email",
+              },
+              {
+                type: "phone",
+                label: "Contact Number",
+                value: "+63 0917 853 5165",
+                href: "tel:+639170001111",
+                icon: "phone",
+              },
+              {
+                type: "facebook",
+                label: "Facebook",
+                value: "fb.com/Dhen Millare",
+                href: "https://www.facebook.com/millare.dennis",
+                icon: "facebook",
+              },
+              {
+                type: "instagram",
+                label: "Instagram",
+                value: "@Dhen Millare",
+                href: "https://instagram.com/Dhen",
+                icon: "instagram",
+              },
+            ],
+          },
+          {
+            name: "J.V. Augustine D. Realizo",
+            position: "Coordinator of OSAS",
+            photo: "j.v.png",
+            contacts: [
+              {
+                type: "email",
+                label: "Email Address",
+                value: "jv.realizo@ispsc.edu.ph",
+                href: "mailto:jv.realizo@ispsc.edu.ph",
+                icon: "email",
+              },
+              {
+                type: "phone",
+                label: "Contact Number",
+                value: "+63 918 222 3333",
+                href: "tel:+639182223333",
+                icon: "phone",
+              },
+              {
+                type: "facebook",
+                label: "Facebook",
+                value: "fb.com/jv.realizo.official",
+                href: "https://www.facebook.com/JvRealizo",
+                icon: "facebook",
+              },
+              {
+                type: "instagram",
+                label: "Instagram",
+                value: "@jvrealizo",
+                href: "https://instagram.com/jvrealizo",
+                icon: "instagram",
+              },
+            ],
+          },
+          {
+            name: "Allan Jay Lardizabal",
+            position: "Scholarship President",
+            photo: "allan.jpg",
+            contacts: [
+              {
+                type: "email",
+                label: "Email Address",
+                value: "ana.reyes@ispsc.edu.ph",
+                href: "mailto:ana.reyes@ispsc.edu.ph",
+                icon: "email",
+              },
+              {
+                type: "phone",
+                label: "Contact Number",
+                value: "+63 919 444 5555",
+                href: "tel:+639194445555",
+                icon: "phone",
+              },
+              {
+                type: "facebook",
+                label: "Facebook",
+                value: "fb.com/Allan Jay",
+                href: "https://www.facebook.com/eidzey",
+                icon: "facebook",
+              },
+              {
+                type: "instagram",
+                label: "Instagram",
+                value: "Allan Jay",
+                href: "https://instagram.com/anareyes.schol",
+                icon: "instagram",
+              },
+            ],
+          },
+        ];
+
+        const iconSVG = {
+          email: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+          phone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 2 4.11 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75 12 12 0 0 0 .57 2.57 1 1 0 0 1-.23 1L6.91 9.09a16 16 0 0 0 8 8l1.78-1.78a1 1 0 0 1 1-.23 12 12 0 0 0 2.57.57 1 1 0 0 1 .74 1z"/></svg>`,
+          facebook: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
+          instagram: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+        };
+
+        const overlay    = document.getElementById("teamModal");
+        const backdrop   = document.getElementById("teamModalBackdrop");
+        const closeBtn   = document.getElementById("teamModalClose");
+        const heroImg    = document.getElementById("teamModalHeroImg");
+        const avatarImg  = document.getElementById("teamModalAvatarImg");
+        const nameEl     = document.getElementById("teamModalName");
+        const posEl      = document.getElementById("teamModalPosition");
+        const contactsEl = document.getElementById("teamModalContacts");
+
+        function openTeamModal(idx) {
+          const m = members[idx];
+          if (!m) return;
+
+          heroImg.src   = m.photo;
+          heroImg.alt   = m.name;
+          avatarImg.src = m.photo;
+          avatarImg.alt = m.name;
+          nameEl.textContent = m.name;
+          posEl.textContent  = m.position;
+
+          contactsEl.innerHTML = m.contacts.map((c) => {
+            const isLink = c.href;
+            const tag = isLink ? "a" : "div";
+            const attrs = isLink
+              ? `href="${c.href}" target="${c.type === "facebook" || c.type === "instagram" ? "_blank" : "_self"}" rel="noopener noreferrer"`
+              : "";
+            return `
+              <${tag} class="team-modal-row" ${attrs}>
+                <div class="team-modal-row-icon ic-${c.icon}">${iconSVG[c.icon]}</div>
+                <div>
+                  <div class="team-modal-row-label">${c.label}</div>
+                  <div class="team-modal-row-value">${c.value}</div>
+                </div>
+              </${tag}>`;
+          }).join("");
+
+          overlay.classList.add("open");
+          document.body.style.overflow = "hidden";
+          closeBtn.focus();
+        }
+
+        function closeTeamModal() {
+          overlay.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".team-contact-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openTeamModal(+btn.dataset.member);
+          });
+        });
+
+        document.querySelectorAll(".team-card").forEach((card) => {
+          card.addEventListener("click", () => openTeamModal(+card.dataset.member));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openTeamModal(+card.dataset.member);
+            }
+          });
+        });
+
+        closeBtn.addEventListener("click", closeTeamModal);
+        backdrop.addEventListener("click", closeTeamModal);
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && overlay.classList.contains("open")) closeTeamModal();
+        });
+      })();
+
+      /* ============ CAMPUS EXPERIENCE — CINEMATIC CTA ============ */
+      (function () {
+        const section = document.querySelector(".campus-exp");
+        if (!section) return;
+
+        /* ── Mouse spotlight ── */
+        const spotlight = document.getElementById("ceSpotlight");
+        if (spotlight) {
+          section.addEventListener("mousemove", (e) => {
+            const r = section.getBoundingClientRect();
+            spotlight.style.left = (e.clientX - r.left) + "px";
+            spotlight.style.top  = (e.clientY - r.top)  + "px";
+          });
+          section.addEventListener("mouseleave", () => {
+            spotlight.style.left = "50%";
+            spotlight.style.top  = "50%";
+          });
+        }
+
+        /* ── Hover tilt on glassmorphism card ── */
+        const card = document.getElementById("ceTiltCard");
+        if (card) {
+          let tiltActive = false;
+          card.addEventListener("mousemove", (e) => {
+            const r  = card.getBoundingClientRect();
+            const cx = r.left + r.width  / 2;
+            const cy = r.top  + r.height / 2;
+            const dx = (e.clientX - cx) / (r.width  / 2);
+            const dy = (e.clientY - cy) / (r.height / 2);
+            const rx =  dy * -9;
+            const ry =  dx *  9;
+            tiltActive = true;
+            card.style.transition = "transform 120ms ease, box-shadow 400ms ease";
+            card.style.transform  =
+              `perspective(960px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.018)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            tiltActive = false;
+            card.style.transition = "transform 650ms cubic-bezier(0.16,1,0.3,1), box-shadow 400ms ease";
+            card.style.transform  = "perspective(960px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)";
+          });
+        }
+
+        /* ── Three.js floating particle field ── */
+        const canvas = document.getElementById("ceCanvas");
+        function initThree() {
+          if (!canvas || typeof THREE === "undefined") return;
+          const W = section.offsetWidth;
+          const H = section.offsetHeight;
+          const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          renderer.setSize(W, H);
+          renderer.setClearColor(0x000000, 0);
+
+          const scene  = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 200);
+          camera.position.z = 32;
+
+          const COUNT = window.innerWidth < 600 ? 120 : 280;
+          const pos   = new Float32Array(COUNT * 3);
+          for (let i = 0; i < COUNT; i++) {
+            pos[i * 3]     = (Math.random() - 0.5) * 90;
+            pos[i * 3 + 1] = (Math.random() - 0.5) * 55;
+            pos[i * 3 + 2] = (Math.random() - 0.5) * 45;
+          }
+          const geo = new THREE.BufferGeometry();
+          geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+
+          const mat = new THREE.PointsMaterial({
+            color: 0xf7c948, size: 0.32,
+            transparent: true, opacity: 0.52,
+            sizeAttenuation: true, depthWrite: false,
+          });
+          const pts = new THREE.Points(geo, mat);
+          scene.add(pts);
+
+          let mx = 0, my = 0, tx = 0, ty = 0;
+          section.addEventListener("mousemove", (e) => {
+            const r = section.getBoundingClientRect();
+            mx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+            my = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+          });
+
+          (function tick() {
+            requestAnimationFrame(tick);
+            const t = Date.now() * 0.00035;
+            pts.rotation.y = t * 0.28;
+            pts.rotation.x = t * 0.14;
+            tx += (mx * 0.9 - tx) * 0.04;
+            ty += (my * 0.6 - ty) * 0.04;
+            camera.position.x += (tx - camera.position.x) * 0.05;
+            camera.position.y += (-ty - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+            renderer.render(scene, camera);
+          })();
+
+          window.addEventListener("resize", () => {
+            const W2 = section.offsetWidth, H2 = section.offsetHeight;
+            renderer.setSize(W2, H2);
+            camera.aspect = W2 / H2;
+            camera.updateProjectionMatrix();
+          });
+        }
+
+        /* Three.js loads async (defer), so wait for it */
+        if (typeof THREE !== "undefined") {
+          initThree();
+        } else {
+          window.addEventListener("load", initThree, { once: true });
+        }
+
+        /* ── GSAP + ScrollTrigger reveals & parallax ── */
+        function initGSAP() {
+          if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+          gsap.registerPlugin(ScrollTrigger);
+
+          /* Parallax background image */
+          const bg = document.getElementById("ceBg");
+          if (bg) {
+            gsap.fromTo(bg, { scale: 1.22 }, {
+              scale: 1.06,
+              ease: "power1.inOut",
+              scrollTrigger: {
+                trigger: section, start: "top 95%", end: "center center", scrub: 2,
+              },
+            });
+            gsap.to(bg, {
+              yPercent: 14, ease: "none",
+              scrollTrigger: {
+                trigger: section, start: "top bottom", end: "bottom top", scrub: 1.8,
+              },
+            });
+          }
+
+          const st = { trigger: section, start: "top 72%" };
+
+          /* Staggered text reveals */
+          const eyebrow = section.querySelector(".ce-eyebrow");
+          if (eyebrow) gsap.to(eyebrow, {
+            opacity: 1, y: 0, duration: 0.95, ease: "power3.out", scrollTrigger: st,
+          });
+
+          const title = section.querySelector(".ce-title");
+          if (title) gsap.to(title, {
+            opacity: 1, y: 0, duration: 1.15, ease: "power3.out", scrollTrigger: st, delay: 0.14,
+          });
+
+          const lead = section.querySelector(".ce-lead");
+          if (lead) gsap.to(lead, {
+            opacity: 1, y: 0, duration: 1.05, ease: "power3.out", scrollTrigger: st, delay: 0.28,
+          });
+
+          const ceCard = section.querySelector(".ce-card");
+          if (ceCard) gsap.to(ceCard, {
+            opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: st, delay: 0.42,
+          });
+
+          /* Tags stagger */
+          const tags = section.querySelectorAll(".ce-tag");
+          tags.forEach((tag, i) => {
+            gsap.fromTo(tag,
+              { opacity: 0, scale: 0.75, y: 20 },
+              { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: "back.out(1.8)",
+                scrollTrigger: st, delay: 0.55 + i * 0.1 }
+            );
+          });
+
+          /* Stats counter animation */
+          section.querySelectorAll(".ce-stat-num").forEach((el) => {
+            const target = parseFloat(el.textContent);
+            if (isNaN(target)) return;
+            const suffix = el.textContent.replace(/[\d.]/g, "");
+            const obj    = { val: 0 };
+            gsap.to(obj, {
+              val: target, duration: 1.8, ease: "power2.out",
+              scrollTrigger: { trigger: el, start: "top 85%" },
+              onUpdate() {
+                el.textContent = (Number.isInteger(target)
+                  ? Math.round(obj.val)
+                  : obj.val.toFixed(0)) + suffix;
+              },
+            });
+          });
+        }
+
+        if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+          initGSAP();
+        } else {
+          window.addEventListener("load", initGSAP, { once: true });
+        }
       })();
     </script>
   </body>
