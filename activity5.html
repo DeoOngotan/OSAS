@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graduating Mass — ISPSC Tagudin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --o50:  #FFF8F0;
+      --o100: #FFECD9;
+      --o200: #FFD4A8;
+      --o300: #FFB066;
+      --o400: #FF8C00;
+      --o500: #E87800;
+      --o600: #C96600;
+      --o700: #A35200;
+      --o900: #3D1E00;
+      --gold: #F2B705;
+      --gold-deep: #B87900;
+      --ink9: #1C0A00;
+      --ink7: #3D1E00;
+      --ink5: #7A4A1E;
+      --ink3: #B88A62;
+      --line: rgba(200,100,0,0.12);
+      --white: #FFFFFF;
+      --radius: 18px;
+      --shadow-sm: 0 2px 10px rgba(180,80,0,0.08);
+      --shadow-md: 0 8px 32px rgba(180,80,0,0.14);
+      --shadow-lg: 0 20px 60px rgba(180,80,0,0.22);
+    }
+
+    html { scroll-behavior: smooth; overflow-x: clip; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: linear-gradient(180deg, #FFF5EB 0%, #FFFAF5 45%, #FFF2E2 100%);
+      color: var(--ink9);
+      min-height: 100dvh;
+      overflow-x: clip;
+    }
+
+    /* ─── TOPBAR ──────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255,248,240,0.92);
+      backdrop-filter: blur(16px) saturate(1.6);
+      -webkit-backdrop-filter: blur(16px) saturate(1.6);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: slide-down 500ms cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes slide-down {
+      from { opacity:0; transform: translateY(-16px); }
+      to   { opacity:1; transform: none; }
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ink7);
+      text-decoration: none;
+      background: var(--o100);
+      border: 1.5px solid var(--o200);
+      padding: 7px 15px 7px 12px;
+      border-radius: 99px;
+      transition: background 200ms, transform 200ms, border-color 200ms;
+      flex-shrink: 0;
+      letter-spacing: 0.01em;
+    }
+    .back-btn:hover {
+      background: var(--o200);
+      border-color: var(--o300);
+      transform: translateX(-3px);
+    }
+    .back-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    .topbar-divider {
+      width: 1px; height: 20px;
+      background: var(--line);
+      flex-shrink: 0;
+    }
+
+    .topbar-crumb {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink5);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .topbar-crumb span {
+      color: var(--ink9);
+      font-weight: 800;
+    }
+
+    .topbar-tag {
+      margin-left: auto;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--o400), #FFB347);
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 99px;
+      box-shadow: 0 2px 8px rgba(232,120,0,0.35);
+    }
+
+    /* ─── HERO ────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 72px 24px 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 75% 15%, rgba(255,140,0,0.38), transparent 65%),
+        radial-gradient(ellipse 62% 52% at 12% 86%, rgba(242,183,5,0.28), transparent 66%),
+        linear-gradient(175deg, #FFF5EB 0%, #FFE8CC 54%, #FFF8F0 100%);
+      pointer-events: none;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-blob-1 {
+      width: 380px; height: 380px;
+      top: -90px; left: -90px;
+      background: radial-gradient(circle, rgba(255,140,0,0.28), transparent 65%);
+      animation: float-a 8s ease-in-out infinite;
+    }
+    .hero-blob-2 {
+      width: 280px; height: 280px;
+      bottom: -40px; right: 5%;
+      background: radial-gradient(circle, rgba(242,183,5,0.22), transparent 65%);
+      animation: float-b 10s ease-in-out infinite;
+    }
+    .hero-blob-3 {
+      width: 180px; height: 180px;
+      top: 20%; right: 15%;
+      background: radial-gradient(circle, rgba(255,100,0,0.12), transparent 65%);
+      animation: float-a 12s ease-in-out infinite reverse;
+    }
+    @keyframes float-a { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(20px,15px) scale(1.06)} }
+    @keyframes float-b { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-15px,20px) scale(1.08)} }
+
+    .hero-inner {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--o600);
+      background: rgba(255,236,217,0.92);
+      border: 1.5px solid rgba(232,120,0,0.22);
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 22px;
+      animation: fade-up 600ms cubic-bezier(0.22,1,0.36,1) 100ms both;
+    }
+    .dot {
+      width: 7px; height: 7px;
+      background: var(--o500);
+      border-radius: 50%;
+      animation: dot-pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes dot-pulse {
+      0%,100% { opacity:1; transform: scale(1); }
+      50%      { opacity:0.4; transform: scale(0.6); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--ink9);
+      margin-bottom: 18px;
+      animation: fade-up 680ms cubic-bezier(0.22,1,0.36,1) 180ms both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--o500) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: underline;
+      text-decoration-color: rgba(242,183,5,0.5);
+      text-decoration-thickness: 0.06em;
+      text-underline-offset: 0.14em;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--ink5);
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto 30px;
+      animation: fade-up 700ms cubic-bezier(0.22,1,0.36,1) 260ms both;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--o500), var(--o400));
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 12px 28px;
+      border-radius: 99px;
+      text-decoration: none;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 24px rgba(232,120,0,0.38);
+      transition: transform 220ms cubic-bezier(0.22,1,0.36,1), box-shadow 220ms;
+      animation: fade-up 700ms cubic-bezier(0.22,1,0.36,1) 300ms both;
+    }
+    .hero-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 32px rgba(232,120,0,0.48);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fade-up 700ms cubic-bezier(0.22,1,0.36,1) 380ms both;
+    }
+    .hero-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink5);
+      background: rgba(255,255,255,0.85);
+      border: 1px solid var(--o200);
+      padding: 7px 15px;
+      border-radius: 99px;
+      backdrop-filter: blur(8px);
+      transition: background 200ms, transform 200ms;
+    }
+    .hero-chip:hover { background: var(--o100); transform: translateY(-2px); }
+    .hero-chip svg { width: 14px; height: 14px; color: var(--o500); flex-shrink: 0; }
+
+    /* Decorative confetti dots */
+    .confetti-dot {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: confetti-fall linear infinite;
+    }
+    @keyframes confetti-fall {
+      0%   { opacity:0; transform: translateY(-20px) rotate(0deg); }
+      10%  { opacity:1; }
+      90%  { opacity:1; }
+      100% { opacity:0; transform: translateY(120px) rotate(360deg); }
+    }
+
+    @keyframes fade-up {
+      from { opacity:0; transform: translateY(22px); }
+      to   { opacity:1; transform: none; }
+    }
+
+    /* ─── STATS STRIP ─────────────────────────────── */
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, var(--o500) 0%, var(--o400) 100%);
+      padding: 0;
+      overflow: hidden;
+      animation: fade-up 700ms cubic-bezier(0.22,1,0.36,1) 500ms both;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+      padding: 22px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      transition: background 200ms;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(255,255,255,0.1); }
+    .stat-num {
+      display: block;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-top: 4px;
+    }
+
+    /* ─── GALLERY SECTION ─────────────────────────── */
+    .gallery-wrap {
+      padding: 40px 24px 80px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+      animation: fade-up 600ms cubic-bezier(0.22,1,0.36,1) 450ms both;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--o500);
+      margin-bottom: 6px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px; height: 2px;
+      background: var(--o400);
+      border-radius: 99px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink9);
+      letter-spacing: -0.02em;
+    }
+
+    .photo-count {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.82);
+      border-left: 4px solid var(--o400);
+      border-radius: 14px;
+      box-shadow: var(--shadow-sm);
+      color: var(--ink7);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fade-up 600ms cubic-bezier(0.22,1,0.36,1) 500ms both;
+    }
+    .photo-count-badge {
+      background: linear-gradient(135deg, var(--o500), var(--gold));
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
+
+    /* Masonry grid */
+    .masonry {
+      columns: 4;
+      column-gap: 18px;
+    }
+    @media (max-width: 1100px) { .masonry { columns: 3; } }
+    @media (max-width: 720px)  { .masonry { columns: 2; column-gap: 12px; } }
+    @media (max-width: 420px)  { .masonry { columns: 1; } }
+
+    /* Gallery items */
+    .g-item {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(42px) scale(0.965);
+      filter: blur(8px) saturate(0.88);
+      transition:
+        opacity 720ms cubic-bezier(0.16,1,0.3,1),
+        filter 720ms cubic-bezier(0.16,1,0.3,1),
+        box-shadow 360ms cubic-bezier(0.22,1,0.36,1),
+        transform 720ms cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform, filter;
+    }
+    .g-item.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0) saturate(1);
+    }
+    .g-item.in-view:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px) scale(1.013);
+      border-color: var(--o300);
+    }
+
+    .g-visual {
+      width: 100%;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .g-visual img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 550ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .g-item:hover .g-visual img { transform: scale(1.03); }
+
+    .g-ph {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 32px 20px;
+      position: relative;
+      transition: filter 350ms;
+    }
+    .g-item:hover .g-ph { filter: brightness(1.06); }
+    .g-ph-icon { width: 52px; height: 52px; opacity: 0.35; }
+    .g-ph-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+    }
+
+    .g-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 38%, rgba(60,20,0,0.65) 100%);
+      opacity: 0;
+      transition: opacity 320ms;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      pointer-events: none;
+    }
+    .g-item:hover .g-overlay { opacity: 1; }
+
+    .g-caption {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+    }
+
+    .g-zoom {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.65);
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 280ms, transform 320ms cubic-bezier(0.22,1,0.36,1);
+      pointer-events: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+    }
+    .g-item:hover .g-zoom {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .g-zoom svg { width: 20px; height: 20px; color: var(--o500); }
+
+    /* ─── LIGHTBOX ────────────────────────────────── */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: rgba(8,4,0,0.95);
+      backdrop-filter: blur(18px) saturate(0.5);
+      -webkit-backdrop-filter: blur(18px) saturate(0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 420ms ease, backdrop-filter 420ms ease;
+    }
+    .lb.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lb-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1000px;
+      max-height: calc(100dvh - 140px);
+      position: relative;
+    }
+
+    .lb-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.65);
+      max-width: 100%;
+      max-height: calc(100dvh - 140px);
+      display: flex;
+      position: relative;
+      transition: transform 380ms cubic-bezier(0.22,1,0.36,1), opacity 320ms ease;
+    }
+    .lb.open .lb-frame {
+      transform: scale(1);
+      opacity: 1;
+      animation: lb-pop 520ms cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .lb:not(.open) .lb-frame {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+
+    .lb-img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100dvh - 140px);
+      object-fit: contain;
+      border-radius: 20px;
+      animation: image-pop-in 520ms cubic-bezier(0.16,1,0.3,1) 70ms both;
+    }
+
+    @keyframes lb-pop {
+      0% { opacity:0; transform: translateY(18px) scale(0.92); filter: blur(8px); }
+      65% { opacity:1; transform: translateY(-2px) scale(1.012); filter: blur(0); }
+      100% { opacity:1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    @keyframes image-pop-in {
+      from { opacity:0; transform: scale(0.975); filter: saturate(0.85) blur(5px); }
+      to   { opacity:1; transform: scale(1); filter: saturate(1) blur(0); }
+    }
+
+    .lb-ph {
+      width: min(640px, 90vw);
+      min-height: 340px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 56px 40px;
+    }
+    .lb-ph-icon { opacity: 0.4; }
+    .lb-ph h3 { font-size: 1.3rem; font-weight: 900; color: #fff; text-align: center; }
+    .lb-ph p  { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-align: center; line-height: 1.65; max-width: 400px; }
+    .lb-ph code { font-size: 0.78rem; background: rgba(255,255,255,0.1); padding: 2px 7px; border-radius: 5px; color: rgba(255,255,255,0.65); }
+
+    .lb-frame.slide-out-left  { animation: slide-out-l 360ms cubic-bezier(0.55,0,1,0.45) forwards; }
+    .lb-frame.slide-out-right { animation: slide-out-r 360ms cubic-bezier(0.55,0,1,0.45) forwards; }
+    .lb-frame.slide-in-left   { animation: slide-in-l  430ms cubic-bezier(0.16,1,0.3,1) forwards; }
+    .lb-frame.slide-in-right  { animation: slide-in-r  430ms cubic-bezier(0.16,1,0.3,1) forwards; }
+    @keyframes slide-out-l { to { opacity:0; transform: translateX(-72px) scale(0.94); filter: blur(7px); } }
+    @keyframes slide-out-r { to { opacity:0; transform: translateX( 72px) scale(0.94); filter: blur(7px); } }
+    @keyframes slide-in-l  { from { opacity:0; transform: translateX( 76px) scale(0.96); filter: blur(7px); } to { opacity:1; transform: none; filter: blur(0); } }
+    @keyframes slide-in-r  { from { opacity:0; transform: translateX(-76px) scale(0.96); filter: blur(7px); } to { opacity:1; transform: none; filter: blur(0); } }
+
+    .lb-close {
+      position: fixed;
+      top: 16px; right: 16px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 200ms, transform 200ms;
+      z-index: 10;
+    }
+    .lb-close:hover { background: rgba(255,140,0,0.35); transform: rotate(90deg); }
+
+    .lb-nav {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 200ms, transform 200ms;
+      z-index: 10;
+    }
+    .lb-nav:hover { background: rgba(255,140,0,0.35); }
+    .lb-nav.prev { left: 14px; }
+    .lb-nav.next { right: 14px; }
+    .lb-nav.prev:hover { transform: translateY(-50%) translateX(-3px); }
+    .lb-nav.next:hover { transform: translateY(-50%) translateX( 3px); }
+
+    .lb-info {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(0deg, rgba(8,4,0,0.88) 0%, transparent 100%);
+    }
+    .lb-caption { font-size: 0.88rem; font-weight: 700; color: rgba(255,255,255,0.9); }
+    .lb-counter  { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.38); letter-spacing: 0.1em; }
+
+    .lb-thumbs {
+      position: fixed;
+      bottom: 56px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      max-width: calc(100vw - 120px);
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 4px;
+    }
+    .lb-thumbs::-webkit-scrollbar { display: none; }
+    .lb-thumb {
+      width: 48px; height: 36px;
+      border-radius: 7px;
+      overflow: hidden;
+      flex-shrink: 0;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 200ms, transform 200ms, opacity 200ms;
+      opacity: 0.45;
+    }
+    .lb-thumb.active {
+      border-color: var(--o400);
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    .lb-thumb:hover { opacity: 0.82; }
+    .lb-thumb-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      .lb-nav { display: none; }
+      .lb-thumbs { display: none; }
+      .lb { padding: 50px 12px 70px; }
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 36px 24px 48px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, #FFF5EB 0%, #FFE8CC 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--o400), transparent);
+    }
+    .footer-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--ink7);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .footer p { font-size: 0.8rem; color: var(--ink3); margin-bottom: 4px; }
+    .footer a { color: var(--o500); text-decoration: none; font-weight: 700; }
+    .footer a:hover { text-decoration: underline; }
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--o200);
+      color: var(--ink5);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 99px;
+    }
+
+    /* ─── SCROLL TO TOP ───────────────────────────── */
+    .scroll-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--o500), var(--o400));
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(232,120,0,0.4);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 300ms, transform 300ms;
+      z-index: 100;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(232,120,0,0.5); }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a href="index.html#events" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Events
+    </a>
+    <span class="topbar-divider"></span>
+    <span class="topbar-crumb">Events &amp; Activities &rsaquo; <span>Graduating Mass</span></span>
+    <span class="topbar-tag">Graduation</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <span class="hero-blob hero-blob-1"></span>
+    <span class="hero-blob hero-blob-2"></span>
+    <span class="hero-blob hero-blob-3"></span>
+
+    <div class="hero-inner">
+      <span class="hero-eyebrow"><span class="dot"></span> ISPSC Tagudin · OSAS · Class of 2025</span>
+      <h1>The <em>Graduating Mass</em></h1>
+      <p class="hero-desc">
+        A solemn and joyful celebration honoring the graduating class — a sacred moment where faith, achievement, and gratitude converge as students prepare to step forward into a new chapter of their lives.
+      </p>
+      <a href="#gallery" class="hero-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        View Gallery
+      </a>
+      <div class="hero-meta">
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Graduation Ceremony
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          ISPSC Tagudin Campus
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Class of 2025
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num" id="capturedMomentsCount">21</span>
+      <span class="stat-label">Captured Moments</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Sacred Celebration</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2025</span>
+      <span class="stat-label">Graduating Class</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Memories Made</span>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <main class="gallery-wrap" id="gallery">
+    <div class="section-header">
+      <div class="section-label">Event Gallery</div>
+      <div class="section-title">Moments from the Graduating Mass</div>
+    </div>
+
+    <div class="photo-count">
+      <span id="photoCountText">21 Graduating Mass Photos</span>
+      <span class="photo-count-badge">Class of 2025</span>
+    </div>
+
+    <div class="masonry" id="galleryGrid">
+      <!-- Photos injected by script -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-title">Graduating Mass · Class of 2025</div>
+    <p>ISPSC Tagudin Campus · Office of Student Affairs &amp; Services</p>
+    <p><a href="index.html#events">← Back to Events</a></p>
+    <div class="footer-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      With pride &amp; gratitude · OSAS ISPSC Tagudin
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- LIGHTBOX -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous photo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lb-nav next" id="lbNext" aria-label="Next photo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <div class="lb-stage">
+      <div class="lb-frame" id="lbFrame"></div>
+    </div>
+
+    <div class="lb-thumbs" id="lbThumbs"></div>
+
+    <div class="lb-info">
+      <span class="lb-caption" id="lbCaption"></span>
+      <span class="lb-counter" id="lbCounter"></span>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href="index.html#events"]').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('returnToEvents', 'true');
+      });
+    });
+
+    /* ── Gallery build ───────────────────────────── */
+    const gallery = document.getElementById('galleryGrid');
+
+    const gradCaptions = [
+      'Opening Prayer', 'Processional March', 'Academic Regalia Display',
+      'Blessing of the Graduates', 'Scripture Reading', 'Homily Moment',
+      'Choir Performance', 'Offertory Procession', 'Candle Lighting Ceremony',
+      'Dean\'s Address', 'Faculty Blessing', 'Graduates in Prayer',
+      'Solemn Reflection', 'Pinning Ceremony', 'Diploma Conferment',
+      'Medal of Honor Awarding', 'Group Prayer', 'Closing Blessing',
+      'Recessional March', 'Graduates Celebration', 'Family Gathering',
+      'Congratulations Moment', 'Campus Chapel Exterior', 'Altar Decorations',
+      'Graduates Group Photo', 'Best Friends Forever', 'Faculty and Graduates',
+      'Tearful Farewell', 'Cap Toss Celebration', 'Sunrise on Graduation Day',
+      'Parents in Pride', 'Graduates in Formation', 'Candid Joy',
+      'Memories Together', 'Class Banner Display', 'Last Bell Rings',
+      'We Did It'
+    ];
+
+    const photos = Array.from({ length: 21 }, (_, i) => ({
+      src: `M${i + 1}.jpg`,
+      caption: gradCaptions[i] || `Graduating Mass Photo ${i + 1}`
+    }));
+
+    const totalPhotos = photos.length;
+    const capturedMomentsCount = document.getElementById('capturedMomentsCount');
+    const photoCountText = document.getElementById('photoCountText');
+    if (capturedMomentsCount) capturedMomentsCount.textContent = totalPhotos;
+    if (photoCountText) {
+      photoCountText.textContent = `${totalPhotos} Graduating Mass Photo${totalPhotos !== 1 ? 's' : ''}`;
+    }
+
+    const orangeGradients = [
+      'linear-gradient(135deg,#FFD4A8 0%,#FF8C00 100%)',
+      'linear-gradient(135deg,#FFE8CC 0%,#E87800 100%)',
+      'linear-gradient(135deg,#F2B705 0%,#E87800 100%)',
+      'linear-gradient(135deg,#FFB366 0%,#C96600 100%)',
+      'linear-gradient(135deg,#FFECD9 0%,#FF8C00 100%)',
+      'linear-gradient(135deg,#F2B705 0%,#FF6B00 100%)',
+    ];
+    const aspects = ['3/4','16/10','4/3','2/3','3/5','16/9','1/1','4/5'];
+
+    const zoomIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>`;
+    const personIcon = `<svg class="g-ph-icon" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><circle cx="36" cy="10" r="6"/><path d="M28 44v-6a8 8 0 0 1 16 0v6"/></svg>`;
+
+    gallery.innerHTML = photos.map((photo, i) => {
+      const bg = orangeGradients[i % orangeGradients.length];
+      const ar = aspects[i % aspects.length];
+      return `
+        <div class="g-item" data-idx="${i}" data-caption="${photo.caption}">
+          <div class="g-visual">
+            <img src="${photo.src}" alt="${photo.caption}" loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="g-ph" style="background:${bg};aspect-ratio:${ar};display:none;">
+              ${personIcon}
+              <span class="g-ph-label">${photo.caption}</span>
+            </div>
+            <div class="g-overlay"><span class="g-caption">${photo.caption}</span></div>
+            <div class="g-zoom">${zoomIcon}</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    const items = [...document.querySelectorAll('.g-item')];
+
+    /* ── Reveal on scroll ───────────────────────── */
+    const revealItems = () => {
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(item => item.classList.add('in-view'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in-view');
+          setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 900);
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      items.forEach((item, i) => {
+        item.style.transitionDelay = `${Math.min(i % 6, 5) * 70}ms`;
+        obs.observe(item);
+      });
+    };
+    revealItems();
+
+    /* ── Scroll-to-top ──────────────────────────── */
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 380);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Lightbox ────────────────────────────────── */
+    const lb       = document.getElementById('lb');
+    const lbFrame  = document.getElementById('lbFrame');
+    const lbCap    = document.getElementById('lbCaption');
+    const lbCtr    = document.getElementById('lbCounter');
+    const lbClose  = document.getElementById('lbClose');
+    const lbPrev   = document.getElementById('lbPrev');
+    const lbNext   = document.getElementById('lbNext');
+    const lbThumbs = document.getElementById('lbThumbs');
+
+    let curIdx = 0;
+    let isAnimating = false;
+
+    function visible() {
+      return items.filter(i => i.style.display !== 'none');
+    }
+
+    function open(idx) {
+      const vis = visible();
+      if (!vis.length) return;
+      curIdx = ((idx % vis.length) + vis.length) % vis.length;
+      render(vis, null);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      buildThumbs();
+      syncThumb();
+    }
+
+    function render(vis, dir) {
+      const item    = vis[curIdx];
+      const caption = item.dataset.caption || '';
+      const img     = item.querySelector('img');
+      const ph      = item.querySelector('.g-ph');
+
+      let content = '';
+      if (img && img.style.display !== 'none') {
+        content = `<img class="lb-img" src="${img.src}" alt="${caption}">`;
+      } else if (ph) {
+        const bg = ph.style.background;
+        content = `
+          <div class="lb-ph" style="background:${bg};">
+            <svg class="lb-ph-icon" width="64" height="64" viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linecap="round">
+              <rect x="4" y="8" width="40" height="32" rx="3"/><circle cx="16" cy="18" r="4"/><polyline points="4 40 16 28 24 34 32 24 44 40"/>
+            </svg>
+            <h3>${caption}</h3>
+            <p>Add your graduation photos by placing <code>${photos[curIdx]?.src || `M${curIdx + 1}.jpg`}</code> in the same folder — the gallery handles the rest automatically.</p>
+          </div>`;
+      }
+
+      if (dir) {
+        lbFrame.classList.add(dir === 1 ? 'slide-out-left' : 'slide-out-right');
+        setTimeout(() => {
+          lbFrame.innerHTML = content;
+          lbFrame.classList.remove('slide-out-left', 'slide-out-right');
+          lbFrame.classList.add(dir === 1 ? 'slide-in-left' : 'slide-in-right');
+          setTimeout(() => lbFrame.classList.remove('slide-in-left', 'slide-in-right'), 450);
+          isAnimating = false;
+        }, 360);
+      } else {
+        lbFrame.innerHTML = content;
+      }
+
+      lbCap.textContent = caption;
+      lbCtr.textContent = (curIdx + 1) + ' / ' + vis.length;
+      syncThumb();
+    }
+
+    function navigate(dir) {
+      if (isAnimating) return;
+      isAnimating = true;
+      const vis = visible();
+      curIdx = ((curIdx + dir) + vis.length) % vis.length;
+      render(vis, dir);
+    }
+
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function buildThumbs() {
+      const vis = visible();
+      lbThumbs.innerHTML = '';
+      vis.forEach((item, i) => {
+        const ph  = item.querySelector('.g-ph');
+        const img = item.querySelector('img');
+        const th  = document.createElement('div');
+        th.className = 'lb-thumb' + (i === curIdx ? ' active' : '');
+        th.dataset.i = i;
+
+        const inner = document.createElement('div');
+        inner.className = 'lb-thumb-inner';
+
+        if (img && img.style.display !== 'none') {
+          const ti = document.createElement('img');
+          ti.src = img.src; ti.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+          inner.appendChild(ti);
+        } else if (ph) {
+          inner.style.background = ph.style.background;
+        }
+
+        th.appendChild(inner);
+        th.addEventListener('click', () => {
+          const prev = curIdx;
+          curIdx = i;
+          render(vis, curIdx > prev ? 1 : -1);
+        });
+        lbThumbs.appendChild(th);
+      });
+    }
+
+    function syncThumb() {
+      document.querySelectorAll('.lb-thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === curIdx);
+      });
+      const active = lbThumbs.querySelector('.lb-thumb.active');
+      if (active) active.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const vis = visible();
+        open(vis.indexOf(item));
+      });
+    });
+
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', () => navigate(-1));
+    lbNext.addEventListener('click', () => navigate(1));
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')      close();
+      if (e.key === 'ArrowLeft')   navigate(-1);
+      if (e.key === 'ArrowRight')  navigate(1);
+    });
+
+    let tx = 0;
+    lb.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 48) navigate(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  </script>
+</body>
+</html>

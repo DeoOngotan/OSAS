@@ -1,0 +1,1868 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation Anniversary — OSAS ISPSC Tagudin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --yellow: #f4c542;
+        --yellow-light: #fff3c0;
+        --yellow-deep: #c99a1a;
+        --green: #2e8b57;
+        --green-light: #d4edda;
+        --green-deep: #1a5c39;
+        --maroon: #800000;
+        --maroon-light: #f8e8e8;
+        --maroon-deep: #500000;
+        --white: #ffffff;
+        --cream: #fffdf5;
+        --ink: #1a0a0a;
+        --ink-mid: #4a2020;
+        --ink-soft: #8a6060;
+        --line: rgba(128, 0, 0, 0.1);
+        --radius: 18px;
+        --shadow-sm: 0 2px 12px rgba(128, 0, 0, 0.08);
+        --shadow-md: 0 8px 32px rgba(128, 0, 0, 0.13);
+        --shadow-lg: 0 24px 64px rgba(128, 0, 0, 0.2);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: clip;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        min-height: 100dvh;
+        overflow-x: clip;
+      }
+
+      /* ─── PARTICLES CANVAS ─────────────────────────── */
+      #particles-canvas {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.45;
+      }
+
+      /* ─── TOPBAR ───────────────────────────────────── */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: rgba(255, 253, 245, 0.88);
+        backdrop-filter: blur(20px) saturate(1.8);
+        -webkit-backdrop-filter: blur(20px) saturate(1.8);
+        border-bottom: 2px solid var(--yellow);
+        padding: 12px 28px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        animation: slide-down 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes slide-down {
+        from {
+          opacity: 0;
+          transform: translateY(-16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: var(--maroon);
+        text-decoration: none;
+        background: var(--maroon-light);
+        border: 1.5px solid rgba(128, 0, 0, 0.2);
+        padding: 7px 15px 7px 12px;
+        border-radius: 99px;
+        transition:
+          background 200ms,
+          transform 200ms,
+          border-color 200ms;
+        flex-shrink: 0;
+      }
+      .back-btn:hover {
+        background: rgba(128, 0, 0, 0.15);
+        border-color: var(--maroon);
+        transform: translateX(-3px);
+      }
+      .back-btn svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+      }
+
+      .topbar-divider {
+        width: 1px;
+        height: 20px;
+        background: var(--line);
+        flex-shrink: 0;
+      }
+
+      .topbar-crumb {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .topbar-crumb span {
+        color: var(--maroon);
+        font-weight: 800;
+      }
+
+      .topbar-tag {
+        margin-left: auto;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, var(--maroon), #b30000);
+        color: var(--yellow);
+        font-size: 9.5px;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: 99px;
+        box-shadow: 0 2px 10px rgba(128, 0, 0, 0.3);
+      }
+
+      /* ─── HERO ─────────────────────────────────────── */
+      .hero {
+        position: relative;
+        padding: 80px 24px 70px;
+        text-align: center;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 80% 10%,
+            rgba(244, 197, 66, 0.28),
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 60% 55% at 10% 90%,
+            rgba(46, 139, 87, 0.18),
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 50% 50% at 50% 50%,
+            rgba(128, 0, 0, 0.06),
+            transparent 70%
+          ),
+          linear-gradient(175deg, #fff9e6 0%, #fff5d0 40%, #fff8e8 100%);
+        pointer-events: none;
+      }
+
+      .hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        filter: blur(2px);
+      }
+      .hero-blob-1 {
+        width: 380px;
+        height: 380px;
+        top: -100px;
+        left: -80px;
+        background: radial-gradient(
+          circle,
+          rgba(244, 197, 66, 0.22),
+          transparent 65%
+        );
+        animation: float-a 9s ease-in-out infinite;
+      }
+      .hero-blob-2 {
+        width: 280px;
+        height: 280px;
+        bottom: -50px;
+        right: 3%;
+        background: radial-gradient(
+          circle,
+          rgba(46, 139, 87, 0.16),
+          transparent 65%
+        );
+        animation: float-b 11s ease-in-out infinite;
+      }
+      .hero-blob-3 {
+        width: 200px;
+        height: 200px;
+        top: 30%;
+        left: 60%;
+        background: radial-gradient(
+          circle,
+          rgba(128, 0, 0, 0.09),
+          transparent 65%
+        );
+        animation: float-a 13s ease-in-out infinite reverse;
+      }
+
+      @keyframes float-a {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(22px, 18px) scale(1.07);
+        }
+      }
+      @keyframes float-b {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(-18px, 22px) scale(1.09);
+        }
+      }
+
+      .hero-inner {
+        position: relative;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10.5px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--green-deep);
+        background: rgba(46, 139, 87, 0.12);
+        border: 1.5px solid rgba(46, 139, 87, 0.25);
+        padding: 6px 16px;
+        border-radius: 99px;
+        margin-bottom: 24px;
+        animation: fade-up 600ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--green);
+        border-radius: 50%;
+        animation: dot-pulse 2.2s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(46, 139, 87, 0.6);
+      }
+      @keyframes dot-pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+          box-shadow: 0 0 8px rgba(46, 139, 87, 0.6);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.6);
+          box-shadow: none;
+        }
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 7vw, 4.4rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+        color: var(--maroon);
+        margin-bottom: 10px;
+        animation: fade-up 680ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
+      }
+      .hero h1 .accent {
+        color: var(--green-deep);
+        position: relative;
+        display: inline-block;
+      }
+      .hero h1 .accent::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 5px;
+        background: linear-gradient(90deg, var(--yellow), var(--yellow-deep));
+        border-radius: 99px;
+        animation: underline-grow 800ms cubic-bezier(0.22, 1, 0.36, 1) 600ms
+          both;
+        transform-origin: left;
+      }
+      @keyframes underline-grow {
+        from {
+          transform: scaleX(0);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      .hero-sub {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        font-weight: 700;
+        color: var(--maroon-deep);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        animation: fade-up 680ms cubic-bezier(0.22, 1, 0.36, 1) 240ms both;
+      }
+
+      .hero-desc {
+        font-size: clamp(0.95rem, 2.2vw, 1.08rem);
+        color: var(--ink-soft);
+        line-height: 1.75;
+        max-width: 540px;
+        margin: 0 auto 32px;
+        animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
+      }
+
+      .hero-stats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+        animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) 360ms both;
+      }
+      .stat-card {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1.5px solid var(--yellow);
+        border-radius: 16px;
+        padding: 16px 28px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-sm);
+        min-width: 110px;
+        transition:
+          transform 300ms,
+          box-shadow 300ms;
+      }
+      .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .stat-num {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--maroon);
+        line-height: 1;
+        display: block;
+      }
+      .stat-lbl {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--green);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+
+      .hero-chips {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both;
+      }
+      .hero-chip {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--maroon);
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(128, 0, 0, 0.15);
+        padding: 7px 15px;
+        border-radius: 99px;
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow-sm);
+      }
+      .hero-chip svg {
+        width: 14px;
+        height: 14px;
+        color: var(--green);
+        flex-shrink: 0;
+      }
+
+      /* Decorative ribbon */
+      .hero-ribbon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        margin: 36px 0 0;
+        animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) 480ms both;
+      }
+      .ribbon-line {
+        flex: 1;
+        max-width: 120px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--yellow),
+          var(--maroon),
+          transparent
+        );
+        border-radius: 99px;
+      }
+      .ribbon-star {
+        font-size: 1.5rem;
+        animation: spin-slow 8s linear infinite;
+      }
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* ─── SECTION DIVIDER ──────────────────────────── */
+      .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 24px;
+        max-width: 1320px;
+        margin: 0 auto 32px;
+      }
+      .section-divider-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--yellow),
+          transparent
+        );
+      }
+      .section-divider-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--maroon);
+        box-shadow: 0 0 12px rgba(128, 0, 0, 0.4);
+      }
+
+      /* ─── GALLERY SECTION ──────────────────────────── */
+      .gallery-wrap {
+        padding: 0 24px 80px;
+        max-width: 1320px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Day Tabs */
+      .day-tabs {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+        animation: fade-up 600ms cubic-bezier(0.22, 1, 0.36, 1) 500ms both;
+      }
+
+      .day-tab {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        border-radius: 14px;
+        border: 2px solid transparent;
+        background: rgba(255, 255, 255, 0.7);
+        font-size: 0.88rem;
+        font-weight: 800;
+        color: var(--ink-soft);
+        cursor: pointer;
+        transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1);
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow-sm);
+        user-select: none;
+      }
+      .day-tab:hover {
+        border-color: var(--yellow);
+        color: var(--maroon);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .day-tab.active {
+        background: linear-gradient(135deg, var(--maroon), #aa0000);
+        color: var(--yellow);
+        border-color: var(--maroon);
+        box-shadow: 0 6px 24px rgba(128, 0, 0, 0.35);
+        transform: translateY(-2px);
+      }
+      .day-tab.active .tab-count {
+        background: rgba(244, 197, 66, 0.25);
+        color: var(--yellow);
+      }
+      .tab-count {
+        background: rgba(128, 0, 0, 0.1);
+        color: var(--maroon);
+        font-size: 0.72rem;
+        font-weight: 900;
+        padding: 2px 9px;
+        border-radius: 99px;
+        letter-spacing: 0.05em;
+        transition: all 280ms;
+      }
+      .tab-icon {
+        font-size: 1rem;
+      }
+
+      /* Gallery info bar */
+      .gallery-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+        padding: 14px 20px;
+        background: rgba(255, 255, 255, 0.78);
+        border-radius: 14px;
+        border-left: 5px solid var(--yellow);
+        box-shadow: var(--shadow-sm);
+        animation: fade-up 600ms cubic-bezier(0.22, 1, 0.36, 1) 550ms both;
+        backdrop-filter: blur(8px);
+      }
+      .gallery-info-label {
+        font-size: 0.88rem;
+        font-weight: 800;
+        color: var(--maroon);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .gallery-info-sub {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        margin-top: 2px;
+      }
+      .gallery-info-count {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--green);
+        background: var(--green-light);
+        padding: 5px 14px;
+        border-radius: 99px;
+      }
+
+      /* Masonry grid */
+      .masonry {
+        columns: 4;
+        column-gap: 18px;
+      }
+      @media (max-width: 1100px) {
+        .masonry {
+          columns: 3;
+        }
+      }
+      @media (max-width: 720px) {
+        .masonry {
+          columns: 2;
+          column-gap: 12px;
+        }
+      }
+      @media (max-width: 420px) {
+        .masonry {
+          columns: 1;
+        }
+      }
+
+      /* Gallery items */
+      .g-item {
+        break-inside: avoid;
+        margin-bottom: 18px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: zoom-in;
+        position: relative;
+        border: 2px solid transparent;
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+        opacity: 0;
+        transform: translateY(42px) scale(0.965);
+        filter: blur(6px) saturate(0.8);
+        transition:
+          opacity 720ms cubic-bezier(0.16, 1, 0.3, 1),
+          filter 720ms cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 720ms cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 300ms;
+        will-change: opacity, transform, filter;
+      }
+      .g-item.in-view {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0) saturate(1);
+      }
+      .g-item.in-view:hover {
+        box-shadow:
+          0 0 0 3px var(--yellow),
+          var(--shadow-lg);
+        transform: translateY(-6px) scale(1.015);
+        border-color: var(--yellow);
+      }
+      .g-item.hidden-day {
+        display: none;
+      }
+
+      .g-visual {
+        width: 100%;
+        display: block;
+        position: relative;
+        overflow: hidden;
+      }
+      .g-visual img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+          filter 400ms;
+        filter: brightness(1.02) contrast(1.05) saturate(1.08);
+      }
+      .g-item:hover .g-visual img {
+        transform: scale(1.06);
+        filter: brightness(1.06) contrast(1.08) saturate(1.15);
+      }
+
+      /* Placeholder panel */
+      .g-ph {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 36px 20px;
+        position: relative;
+      }
+      .g-ph-icon {
+        width: 44px;
+        height: 44px;
+        opacity: 0.4;
+      }
+      .g-ph-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        text-align: center;
+      }
+      .g-ph-num {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      /* Hover overlay */
+      .g-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 35%,
+          rgba(80, 0, 0, 0.65) 100%
+        );
+        opacity: 0;
+        transition: opacity 320ms;
+        display: flex;
+        align-items: flex-end;
+        padding: 14px;
+        pointer-events: none;
+      }
+      .g-item:hover .g-overlay {
+        opacity: 1;
+      }
+
+      .g-caption {
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: var(--yellow-light);
+        line-height: 1.35;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Zoom icon */
+      .g-zoom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.6);
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition:
+          opacity 280ms,
+          transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+        box-shadow: 0 4px 20px rgba(128, 0, 0, 0.3);
+      }
+      .g-item:hover .g-zoom {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .g-zoom svg {
+        width: 20px;
+        height: 20px;
+        color: var(--maroon);
+      }
+
+      /* Day badge on each item */
+      .g-day-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 0.65rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 99px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 300ms;
+        z-index: 2;
+      }
+      .g-item:hover .g-day-badge {
+        opacity: 1;
+      }
+      [data-day="1"] .g-day-badge {
+        background: var(--maroon);
+        color: var(--yellow);
+      }
+      [data-day="2"] .g-day-badge {
+        background: var(--green);
+        color: var(--white);
+      }
+      [data-day="3"] .g-day-badge {
+        background: #8b6914;
+        color: var(--white);
+      }
+
+      /* ─── LIGHTBOX ──────────────────────────────────── */
+      .lb {
+        position: fixed;
+        inset: 0;
+        z-index: 900;
+        background: rgba(10, 2, 2, 0.94);
+        backdrop-filter: blur(20px) saturate(0.4);
+        -webkit-backdrop-filter: blur(20px) saturate(0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 24px 90px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 420ms ease,
+          backdrop-filter 420ms ease;
+      }
+      .lb.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .lb-stage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 1000px;
+        max-height: calc(100dvh - 150px);
+        position: relative;
+      }
+      .lb-frame {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow:
+          0 0 0 2px var(--yellow),
+          0 40px 100px rgba(0, 0, 0, 0.7);
+        max-width: 100%;
+        max-height: calc(100dvh - 150px);
+        display: flex;
+        position: relative;
+        transition:
+          transform 380ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 320ms ease;
+      }
+      .lb.open .lb-frame {
+        animation: lb-pop 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .lb:not(.open) .lb-frame {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+
+      .lb-img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(100dvh - 150px);
+        object-fit: contain;
+        border-radius: 20px;
+        animation: img-pop 520ms cubic-bezier(0.16, 1, 0.3, 1) 70ms both;
+        filter: brightness(1.04) contrast(1.06) saturate(1.1);
+      }
+      @keyframes lb-pop {
+        0% {
+          opacity: 0;
+          transform: translateY(20px) scale(0.9);
+          filter: blur(10px);
+        }
+        65% {
+          opacity: 1;
+          transform: translateY(-2px) scale(1.012);
+          filter: blur(0);
+        }
+        100% {
+          opacity: 1;
+          transform: none;
+          filter: blur(0);
+        }
+      }
+      @keyframes img-pop {
+        from {
+          opacity: 0;
+          transform: scale(0.97);
+          filter: saturate(0.7) blur(5px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+          filter: saturate(1.1) blur(0);
+        }
+      }
+
+      .lb-ph {
+        width: min(640px, 90vw);
+        min-height: 320px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 50px 36px;
+      }
+      .lb-ph-icon {
+        opacity: 0.35;
+      }
+      .lb-ph h3 {
+        font-size: 1.3rem;
+        font-weight: 900;
+        color: #fff;
+        text-align: center;
+      }
+      .lb-ph p {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.45);
+        text-align: center;
+        line-height: 1.6;
+        max-width: 380px;
+      }
+      .lb-ph code {
+        font-size: 0.78rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2px 7px;
+        border-radius: 5px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Slide transitions */
+      .lb-frame.slide-out-left {
+        animation: so-l 340ms cubic-bezier(0.55, 0, 1, 0.45) forwards;
+      }
+      .lb-frame.slide-out-right {
+        animation: so-r 340ms cubic-bezier(0.55, 0, 1, 0.45) forwards;
+      }
+      .lb-frame.slide-in-left {
+        animation: si-l 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .lb-frame.slide-in-right {
+        animation: si-r 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes so-l {
+        to {
+          opacity: 0;
+          transform: translateX(-80px) scale(0.93);
+          filter: blur(8px);
+        }
+      }
+      @keyframes so-r {
+        to {
+          opacity: 0;
+          transform: translateX(80px) scale(0.93);
+          filter: blur(8px);
+        }
+      }
+      @keyframes si-l {
+        from {
+          opacity: 0;
+          transform: translateX(80px) scale(0.96);
+          filter: blur(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+          filter: blur(0);
+        }
+      }
+      @keyframes si-r {
+        from {
+          opacity: 0;
+          transform: translateX(-80px) scale(0.96);
+          filter: blur(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+          filter: blur(0);
+        }
+      }
+
+      .lb-close {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(244, 197, 66, 0.15);
+        border: 1.5px solid rgba(244, 197, 66, 0.35);
+        color: var(--yellow);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 200ms,
+          transform 200ms;
+        z-index: 10;
+      }
+      .lb-close:hover {
+        background: rgba(244, 197, 66, 0.28);
+        transform: rotate(90deg);
+      }
+
+      .lb-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(244, 197, 66, 0.12);
+        border: 1.5px solid rgba(244, 197, 66, 0.3);
+        color: var(--yellow);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 200ms,
+          transform 200ms;
+        z-index: 10;
+      }
+      .lb-nav:hover {
+        background: rgba(244, 197, 66, 0.25);
+      }
+      .lb-nav.prev {
+        left: 14px;
+      }
+      .lb-nav.next {
+        right: 14px;
+      }
+      .lb-nav.prev:hover {
+        transform: translateY(-50%) translateX(-4px);
+      }
+      .lb-nav.next:hover {
+        transform: translateY(-50%) translateX(4px);
+      }
+
+      .lb-info {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(
+          0deg,
+          rgba(10, 2, 2, 0.88) 0%,
+          transparent 100%
+        );
+      }
+      .lb-caption {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.88);
+      }
+      .lb-counter {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--yellow);
+        opacity: 0.7;
+        letter-spacing: 0.1em;
+      }
+
+      .lb-thumbs {
+        position: fixed;
+        bottom: 54px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        max-width: calc(100vw - 130px);
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 4px;
+      }
+      .lb-thumbs::-webkit-scrollbar {
+        display: none;
+      }
+      .lb-thumb {
+        width: 52px;
+        height: 38px;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-shrink: 0;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition:
+          border-color 200ms,
+          transform 200ms,
+          opacity 200ms;
+        opacity: 0.42;
+      }
+      .lb-thumb.active {
+        border-color: var(--yellow);
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      .lb-thumb:hover {
+        opacity: 0.8;
+      }
+      .lb-thumb-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 640px) {
+        .lb-nav {
+          display: none;
+        }
+        .lb-thumbs {
+          display: none;
+        }
+        .lb {
+          padding: 50px 12px 70px;
+        }
+      }
+
+      /* ─── FOOTER ─────────────────────────────────────── */
+      .footer {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 32px 24px 44px;
+        border-top: 2px solid var(--yellow);
+        background: linear-gradient(
+          0deg,
+          rgba(128, 0, 0, 0.04) 0%,
+          transparent 100%
+        );
+      }
+      .footer-logo {
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: var(--maroon);
+        margin-bottom: 8px;
+      }
+      .footer p {
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+      }
+      .footer a {
+        color: var(--green);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ─── GLASS CARD utility ─────────────────────────── */
+      .glass {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* ─── Scroll reveal utility ──────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+          transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.in-view {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ─── SCROLL TO TOP ───────────────────────────── */
+      .scroll-top {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--maroon), var(--maroon-deep));
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(128, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 300ms,
+          transform 300ms;
+        z-index: 100;
+      }
+      .scroll-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .scroll-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(128, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PARTICLES -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <a href="index.html#events" class="back-btn">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 12H5M12 5l-7 7 7 7" />
+        </svg>
+        Back to Events
+      </a>
+      <span class="topbar-divider"></span>
+      <span class="topbar-crumb"
+        >Events &amp; Activities &rsaquo;
+        <span>Foundation Anniversary</span></span
+      >
+      <span class="topbar-tag">Anniversary</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <span class="hero-blob hero-blob-1"></span>
+      <span class="hero-blob hero-blob-2"></span>
+      <span class="hero-blob hero-blob-3"></span>
+
+      <div class="hero-inner">
+        <span class="hero-eyebrow"
+          ><span class="dot"></span> ISPSC Tagudin · OSAS Celebration</span
+        >
+        <h1><span class="accent">Foundation</span><br />Anniversary</h1>
+        <p class="hero-sub">OSAS · ISPSC Tagudin Campus</p>
+        <p class="hero-desc">
+          A grand celebration honoring milestones, achievements, and the vibrant
+          spirit of our institution — captured through three days of memorable
+          moments.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-num" data-target="180">0</span>
+            <span class="stat-lbl">Photos</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-lbl">Days</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="57">0</span>
+            <span class="stat-lbl">Day 1</span>
+          </div>
+        </div>
+
+        <div class="hero-chips">
+          <span class="hero-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            3-Day Celebration
+          </span>
+          <span class="hero-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            ISPSC Tagudin Campus
+          </span>
+          <span class="hero-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            Anniversary Gallery
+          </span>
+        </div>
+
+        <div class="hero-ribbon">
+          <div class="ribbon-line"></div>
+          <span class="ribbon-star">✦</span>
+          <div class="ribbon-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider reveal">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-dot"></div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <!-- GALLERY -->
+    <main class="gallery-wrap">
+      <!-- Day Tabs -->
+      <div class="day-tabs">
+        <button class="day-tab active" data-day="all">
+          <span class="tab-icon">🎉</span>
+          All Days
+          <span class="tab-count">180</span>
+        </button>
+        <button class="day-tab" data-day="1">
+          <span class="tab-icon">🌅</span>
+          Day 1
+          <span class="tab-count">57</span>
+        </button>
+        <button class="day-tab" data-day="2">
+          <span class="tab-icon">🌞</span>
+          Day 2
+          <span class="tab-count">45</span>
+        </button>
+        <button class="day-tab" data-day="3">
+          <span class="tab-icon">🌟</span>
+          Day 3
+          <span class="tab-count">78</span>
+        </button>
+      </div>
+
+      <!-- Gallery Info Bar -->
+      <div class="gallery-info">
+        <div>
+          <div class="gallery-info-label" id="gallery-title">
+            All Days — Foundation Anniversary
+          </div>
+          <div class="gallery-info-sub">
+            Click any photo to view in full screen · Use arrow keys to navigate
+          </div>
+        </div>
+        <span class="gallery-info-count" id="gallery-count">180 photos</span>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div class="masonry" id="gallery"></div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-logo">Foundation Anniversary · ISPSC Tagudin</div>
+      <p>
+        OSAS Recognition Gallery &mdash;
+        <a href="index.html">Return to main page</a>
+      </p>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+
+    <!-- LIGHTBOX -->
+    <div
+      class="lb"
+      id="lb"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo viewer"
+    >
+      <div class="lb-stage">
+        <div class="lb-frame" id="lb-frame"></div>
+      </div>
+      <button class="lb-close" id="lb-close" aria-label="Close">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <button class="lb-nav prev" id="lb-prev" aria-label="Previous">
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button class="lb-nav next" id="lb-next" aria-label="Next">
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+      <div class="lb-thumbs" id="lb-thumbs"></div>
+      <div class="lb-info">
+        <span class="lb-caption" id="lb-caption"></span>
+        <span class="lb-counter" id="lb-counter"></span>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelectorAll('a[href="index.html#events"]')
+        .forEach((link) => {
+          link.addEventListener("click", () => {
+            sessionStorage.setItem("returnToEvents", "true");
+          });
+        });
+
+      /* ── PARTICLES ──────────────────────────────────── */
+      (function () {
+        const canvas = document.getElementById("particles-canvas");
+        const ctx = canvas.getContext("2d");
+        const COLORS = ["#f4c542", "#2e8b57", "#800000", "#c99a1a", "#1a5c39"];
+        let W, H, particles;
+
+        function resize() {
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
+        }
+
+        function mkParticle() {
+          return {
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: Math.random() * 2.8 + 0.6,
+            vx: (Math.random() - 0.5) * 0.28,
+            vy: (Math.random() - 0.5) * 0.28,
+            color: COLORS[Math.floor(Math.random() * COLORS.length)],
+            alpha: Math.random() * 0.35 + 0.08,
+          };
+        }
+
+        function init() {
+          resize();
+          particles = Array.from({ length: 90 }, mkParticle);
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          for (const p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.alpha;
+            ctx.fill();
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < -10) p.x = W + 10;
+            if (p.x > W + 10) p.x = -10;
+            if (p.y < -10) p.y = H + 10;
+            if (p.y > H + 10) p.y = -10;
+          }
+          ctx.globalAlpha = 1;
+          requestAnimationFrame(draw);
+        }
+
+        init();
+        draw();
+        window.addEventListener("resize", resize);
+      })();
+
+      /* ── ANIMATED COUNTERS ──────────────────────────── */
+      function animateCounter(el, target, duration) {
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 4);
+          el.textContent = Math.round(ease * target);
+          if (t < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const counterObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const target = parseInt(e.target.dataset.target);
+              animateCounter(e.target, target, 1400);
+              counterObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      document
+        .querySelectorAll("[data-target]")
+        .forEach((el) => counterObs.observe(el));
+
+      /* ── SCROLL REVEAL ──────────────────────────────── */
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in-view");
+              revealObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObs.observe(el));
+
+      /* ── GALLERY BUILDER ─────────────────────────────── */
+      const galleryEl = document.getElementById("gallery");
+
+      // Day gradient palettes
+      const dayPalettes = {
+        1: [
+          "linear-gradient(135deg,#b30000 0%,#800000 100%)",
+          "linear-gradient(135deg,#c00000 0%,#960000 50%,#7a0000 100%)",
+          "linear-gradient(135deg,#8b0000 0%,#b22222 100%)",
+        ],
+        2: [
+          "linear-gradient(135deg,#1a5c39 0%,#2e8b57 100%)",
+          "linear-gradient(135deg,#2e8b57 0%,#3cb371 100%)",
+          "linear-gradient(135deg,#145a32 0%,#239b56 100%)",
+        ],
+        3: [
+          "linear-gradient(135deg,#7d5c00 0%,#c99a1a 100%)",
+          "linear-gradient(135deg,#a07800 0%,#f4c542 100%)",
+          "linear-gradient(135deg,#8B6914 0%,#d4a017 100%)",
+        ],
+      };
+
+      const dayLabels = { 1: "Day 1", 2: "Day 2", 3: "Day 3" };
+
+      // Image configs: day → prefix, count
+      const dayConfig = [
+        { day: 1, prefix: "f", count: 57 },
+        { day: 2, prefix: "fa", count: 45 },
+        { day: 3, prefix: "fb", count: 78 },
+      ];
+
+      let allItems = []; // { el, day, src, caption }
+
+      dayConfig.forEach(({ day, prefix, count }) => {
+        for (let i = 1; i <= count; i++) {
+          const src = `${prefix}${i}.jpg`;
+          const caption = `${dayLabels[day]} — Photo ${i}`;
+          const idx = allItems.length;
+          const pal = dayPalettes[day];
+          const bg = pal[i % pal.length];
+
+          const item = document.createElement("div");
+          item.className = "g-item";
+          item.dataset.day = day;
+          item.dataset.idx = idx;
+          item.dataset.caption = caption;
+
+          item.innerHTML = `
+          <span class="g-day-badge">${dayLabels[day]}</span>
+          <div class="g-visual">
+            <img
+              src="${src}"
+              alt="${caption}"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\\'g-ph\\' style=\\'${bg};aspect-ratio:4/3;\\'><div class=\\'g-ph-num\\'>${i}</div><svg class=\\'g-ph-icon\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'rgba(255,255,255,0.5)\\' stroke-width=\\'1.5\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><circle cx=\\'8.5\\' cy=\\'8.5\\' r=\\'1.5\\'/><polyline points=\\'21 15 16 10 5 21\\'/></svg><div class=\\'g-ph-label\\'>${caption}</div></div>'"
+            />
+          </div>
+          <div class="g-overlay"><span class="g-caption">${caption}</span></div>
+          <div class="g-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+          </div>`;
+
+          galleryEl.appendChild(item);
+          allItems.push({ el: item, day, src, caption });
+        }
+      });
+
+      /* ── INTERSECTION OBSERVER for gallery reveal ─── */
+      const gObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in-view");
+              gObs.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -60px 0px", threshold: 0.05 },
+      );
+      document.querySelectorAll(".g-item").forEach((el) => gObs.observe(el));
+
+      /* ── DAY TABS ─────────────────────────────────── */
+      const tabs = document.querySelectorAll(".day-tab");
+      const galleryTitle = document.getElementById("gallery-title");
+      const galleryCount = document.getElementById("gallery-count");
+      let activeDay = "all";
+
+      function setDay(day) {
+        activeDay = day;
+        tabs.forEach((t) =>
+          t.classList.toggle("active", t.dataset.day === String(day)),
+        );
+
+        let visible = 0;
+        allItems.forEach(({ el, day: d }) => {
+          const show = day === "all" || d === parseInt(day);
+          el.classList.toggle("hidden-day", !show);
+          if (show) visible++;
+        });
+
+        const labels = { all: "All Days", 1: "Day 1", 2: "Day 2", 3: "Day 3" };
+        galleryTitle.textContent = `${labels[day] || day} — Foundation Anniversary`;
+        galleryCount.textContent = `${visible} photo${visible !== 1 ? "s" : ""}`;
+      }
+
+      tabs.forEach((t) =>
+        t.addEventListener("click", () => setDay(t.dataset.day)),
+      );
+
+      /* ── LIGHTBOX ─────────────────────────────────── */
+      const lb = document.getElementById("lb");
+      const lbFrame = document.getElementById("lb-frame");
+      const lbClose = document.getElementById("lb-close");
+      const lbPrev = document.getElementById("lb-prev");
+      const lbNext = document.getElementById("lb-next");
+      const lbCap = document.getElementById("lb-caption");
+      const lbCtr = document.getElementById("lb-counter");
+      const lbThumbs = document.getElementById("lb-thumbs");
+
+      let curIdx = 0;
+      let isAnimating = false;
+
+      function visible() {
+        return allItems.filter(
+          ({ el }) => !el.classList.contains("hidden-day"),
+        );
+      }
+
+      function contentFor(item) {
+        const img = item.el.querySelector("img");
+        if (img && img.complete && img.naturalWidth > 0) {
+          const i = document.createElement("img");
+          i.className = "lb-img";
+          i.src = img.src;
+          i.alt = item.caption;
+          const div = document.createElement("div");
+          div.appendChild(i);
+          return div.innerHTML;
+        }
+        const ph = item.el.querySelector(".g-ph");
+        if (ph) {
+          return `<div class="lb-ph" style="${ph.style.cssText}">
+          <svg class="lb-ph-icon" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <h3>${item.caption}</h3>
+          <p>Place <code>${item.src}</code> in the same folder as this HTML file to display the image.</p>
+        </div>`;
+        }
+        return `<div class="lb-ph">
+        <h3>${item.caption}</h3>
+        <p>Image file: <code>${item.src}</code></p>
+      </div>`;
+      }
+
+      function openLb(idx) {
+        curIdx = idx;
+        document.body.style.overflow = "hidden";
+        buildThumbs();
+        renderLb(visible(), null);
+        lb.classList.add("open");
+      }
+
+      function renderLb(vis, dir) {
+        const item = vis[curIdx];
+        const content = contentFor(item);
+
+        if (dir !== null && lbFrame.innerHTML) {
+          const outClass = dir > 0 ? "slide-out-left" : "slide-out-right";
+          const inClass = dir > 0 ? "slide-in-left" : "slide-in-right";
+          lbFrame.classList.add(outClass);
+          setTimeout(() => {
+            lbFrame.classList.remove(outClass);
+            lbFrame.innerHTML = content;
+            lbFrame.classList.add(inClass);
+            setTimeout(() => {
+              lbFrame.classList.remove(inClass);
+              isAnimating = false;
+            }, 450);
+          }, 340);
+        } else {
+          lbFrame.innerHTML = content;
+        }
+
+        lbCap.textContent = item.caption;
+        lbCtr.textContent = `${curIdx + 1} / ${vis.length}`;
+        syncThumb();
+      }
+
+      function navigate(dir) {
+        if (isAnimating) return;
+        isAnimating = true;
+        const vis = visible();
+        curIdx = (curIdx + dir + vis.length) % vis.length;
+        renderLb(vis, dir);
+      }
+
+      function closeLb() {
+        lb.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function buildThumbs() {
+        const vis = visible();
+        lbThumbs.innerHTML = "";
+        vis.forEach((item, i) => {
+          const img = item.el.querySelector("img");
+          const ph = item.el.querySelector(".g-ph");
+          const th = document.createElement("div");
+          th.className = "lb-thumb" + (i === curIdx ? " active" : "");
+          th.dataset.i = i;
+          const inner = document.createElement("div");
+          inner.className = "lb-thumb-inner";
+          if (img && img.complete && img.naturalWidth > 0) {
+            const ti = document.createElement("img");
+            ti.src = img.src;
+            ti.style.cssText = "width:100%;height:100%;object-fit:cover;";
+            inner.appendChild(ti);
+          } else if (ph) {
+            inner.style.background = ph.style.background || "#800000";
+          } else {
+            inner.style.background = "#800000";
+          }
+          th.appendChild(inner);
+          th.addEventListener("click", () => {
+            const prev = curIdx;
+            curIdx = i;
+            renderLb(vis, curIdx > prev ? 1 : -1);
+          });
+          lbThumbs.appendChild(th);
+        });
+      }
+
+      function syncThumb() {
+        document.querySelectorAll(".lb-thumb").forEach((t, i) => {
+          t.classList.toggle("active", i === curIdx);
+        });
+        const active = lbThumbs.querySelector(".lb-thumb.active");
+        if (active)
+          active.scrollIntoView({
+            inline: "center",
+            behavior: "smooth",
+            block: "nearest",
+          });
+      }
+
+      /* Attach click to items */
+      allItems.forEach(({ el }, i) => {
+        el.addEventListener("click", () => {
+          const vis = visible();
+          const visItem = vis.find((v) => v.el === el);
+          if (!visItem) return;
+          openLb(vis.indexOf(visItem));
+        });
+      });
+
+      lbClose.addEventListener("click", closeLb);
+      lbPrev.addEventListener("click", () => navigate(-1));
+      lbNext.addEventListener("click", () => navigate(1));
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLb();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLb();
+        if (e.key === "ArrowLeft") navigate(-1);
+        if (e.key === "ArrowRight") navigate(1);
+      });
+
+      let tx = 0;
+      lb.addEventListener(
+        "touchstart",
+        (e) => {
+          tx = e.changedTouches[0].clientX;
+        },
+        { passive: true },
+      );
+      lb.addEventListener(
+        "touchend",
+        (e) => {
+          const dx = e.changedTouches[0].clientX - tx;
+          if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
+        },
+        { passive: true },
+      );
+
+      /* ── Scroll-to-top ──────────────────────────── */
+      const scrollTopBtn = document.getElementById("scrollTop");
+      window.addEventListener(
+        "scroll",
+        () => {
+          scrollTopBtn.classList.toggle("visible", window.scrollY > 380);
+        },
+        { passive: true },
+      );
+      scrollTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+    </script>
+  </body>
+</html>
