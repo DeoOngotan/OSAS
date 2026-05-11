@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Office of Student Affairs and Services (OSAS) — ISPSC Tagudin Campus
+      Office of Student Affairs and Services (OSAS) â€” ISPSC Tagudin Campus
     </title>
     <meta
       name="description"
-      content="Office of Student Affairs and Services (OSAS) of Ilocos Sur Polytechnic State College – Tagudin Campus. Supporting students through services, programs, and community."
+      content="Office of Student Affairs and Services (OSAS) of Ilocos Sur Polytechnic State College â€“ Tagudin Campus. Supporting students through services, programs, and community."
     />
     <link rel="icon" type="image/png" href="ispsc_logo_2.png" />
 
@@ -792,7 +792,7 @@
         color: var(--ink-500);
       }
 
-      /* ============ CONTACT / TEAM SHOWCASE — CINEMATIC ============ */
+      /* ============ CONTACT / TEAM SHOWCASE â€” CINEMATIC ============ */
       .contact {
         background-image: url("ispscbg.jpg");
         background-size: cover;
@@ -821,7 +821,7 @@
           0 8px 20px rgba(0,0,0,.65);
       }
 
-      /* ── Animated ambient orbs ── */
+      /* â”€â”€ Animated ambient orbs â”€â”€ */
       .contact-orbs {
         position: absolute; inset: 0;
         pointer-events: none; overflow: hidden;
@@ -845,7 +845,7 @@
         100% { opacity:0; transform:translate(-20px,20px) scale(.95); }
       }
 
-      /* ── Ambient light streaks ── */
+      /* â”€â”€ Ambient light streaks â”€â”€ */
       .contact-streaks {
         position: absolute; inset: 0;
         pointer-events: none; overflow: hidden;
@@ -868,7 +868,7 @@
         100% { opacity:0; transform:translateY(100vh); }
       }
 
-      /* ── Floating particles ── */
+      /* â”€â”€ Floating particles â”€â”€ */
       .contact-particles {
         position: absolute; inset: 0;
         pointer-events: none; overflow: hidden;
@@ -890,7 +890,7 @@
         100% { opacity:0; transform:translateY(-100px) scale(1.3); }
       }
 
-      /* ── Team grid ── */
+      /* â”€â”€ Team grid â”€â”€ */
       .team-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -899,7 +899,7 @@
         z-index: 2;
       }
 
-      /* ── Card wrapper — animated gradient border ── */
+      /* â”€â”€ Card wrapper â€” animated gradient border â”€â”€ */
       .team-card-wrap {
         position: relative;
         border-radius: 26px;
@@ -920,7 +920,7 @@
         100% { background-position: 0% 50%; }
       }
 
-      /* ── Card ── */
+      /* â”€â”€ Card â”€â”€ */
       .team-card {
         position: relative;
         border-radius: 24px;
@@ -940,7 +940,7 @@
           0 0 40px rgba(240,180,41,.18);
       }
 
-      /* ── Image area — full card height ── */
+      /* â”€â”€ Image area â€” full card height â”€â”€ */
       .team-card-img {
         position: relative;
         height: 420px;
@@ -1003,7 +1003,7 @@
         left: 140%;
       }
 
-      /* Text overlay — name + position directly on image */
+      /* Text overlay â€” name + position directly on image */
       .team-card-text {
         position: absolute;
         bottom: 0; left: 0; right: 0;
@@ -1056,7 +1056,7 @@
         text-align: center;
       }
 
-      /* Contact Info button — magnetic style */
+      /* Contact Info button â€” magnetic style */
       .team-contact-btn {
         display: inline-flex;
         align-items: center;
@@ -1113,7 +1113,7 @@
         to { transform: scale(4); opacity: 0; }
       }
 
-      /* ============ TEAM MODAL — GLASSMORPHISM DARK ============ */
+      /* ============ TEAM MODAL â€” GLASSMORPHISM DARK ============ */
       .team-modal-overlay {
         position: fixed; inset: 0; z-index: 900;
         display: flex; align-items: center; justify-content: center;
@@ -1305,7 +1305,7 @@
         margin-top: 1px; word-break: break-all;
       }
 
-      /* ── Responsive ── */
+      /* â”€â”€ Responsive â”€â”€ */
       @media (max-width: 860px) {
         .team-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
         .team-grid > :last-child { grid-column: 1 / -1; max-width: 360px; margin: 0 auto; }
@@ -1414,286 +1414,281 @@
         color: rgba(255, 253, 247, 0.45);
       }
 
-      /* ============ CAMPUS EXPERIENCE (Cinematic CTA) ============ */
+      /* ============ EMAIL SECTION ============ */
       .campus-exp {
         position: relative;
+        background:
+          linear-gradient(135deg, rgba(255, 253, 247, 0.98), rgba(255, 251, 234, 0.92)),
+          radial-gradient(circle at 12% 20%, rgba(247, 201, 72, 0.16), transparent 28%),
+          radial-gradient(circle at 90% 75%, rgba(31, 36, 48, 0.08), transparent 28%);
+        padding: 104px 0;
+        overflow: hidden;
+      }
+      .campus-exp::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(31, 36, 48, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(31, 36, 48, 0.035) 1px, transparent 1px);
+        background-size: 42px 42px;
+        pointer-events: none;
+      }
+      .email-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 34px;
+        align-items: start;
+      }
+      .email-copy {
+        padding: 14px 0;
+      }
+      .email-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(247, 201, 72, 0.22);
+        border: 1px solid rgba(222, 145, 29, 0.22);
+        color: var(--yellow-700);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+      }
+      .email-kicker svg,
+      .email-card-icon svg,
+      .email-submit svg {
+        width: 18px;
+        height: 18px;
+      }
+      .email-copy h2 {
+        font-size: clamp(2.2rem, 5vw, 4.3rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+        color: var(--ink-900);
+      }
+      .email-copy p {
+        max-width: 540px;
+        color: var(--ink-500);
+        font-size: 1.02rem;
+        line-height: 1.75;
+      }
+      .email-direct {
+        display: grid;
+        gap: 14px;
+        margin-top: 32px;
+      }
+      .email-info-card {
+        display: grid;
+        grid-template-columns: 46px 1fr;
+        gap: 14px;
+        align-items: center;
+        padding: 16px;
+        border: 1px solid rgba(31, 36, 48, 0.08);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: var(--shadow-sm);
+      }
+      .email-card-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: var(--ink-900);
+        color: var(--yellow-300);
+      }
+      .email-info-card span {
+        display: block;
+        color: var(--ink-300);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .email-info-card strong,
+      .email-info-card a {
+        color: var(--ink-900);
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .email-panel {
+        border: 1px solid rgba(31, 36, 48, 0.08);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: var(--shadow-lg);
+        padding: 30px;
+      }
+      .email-panel-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+        margin-bottom: 24px;
+      }
+      .email-panel-head h3 {
+        font-size: 1.45rem;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+      .email-panel-head p {
+        color: var(--ink-500);
+        font-size: 14px;
+      }
+      .email-status {
+        flex: 0 0 auto;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(46, 125, 50, 0.1);
+        color: #2e7d32;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .email-status.sending {
+        background: rgba(222, 145, 29, 0.12);
+        color: var(--yellow-700);
+      }
+      .email-status.sent {
+        background: rgba(46, 125, 50, 0.12);
+        color: #2e7d32;
+      }
+      .email-status.error {
+        background: rgba(183, 28, 28, 0.1);
+        color: #b71c1c;
+      }
+      .email-form {
+        display: grid;
+        gap: 16px;
+      }
+      .email-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .email-field label {
+        display: block;
+        color: var(--ink-700);
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .email-field input,
+      .email-field select,
+      .email-field textarea {
         width: 100%;
-        max-width: 100%;
-        min-height: 100vh;
+        border: 1px solid rgba(31, 36, 48, 0.12);
+        border-radius: 14px;
+        background: var(--white);
+        color: var(--ink-900);
+        font: inherit;
+        font-size: 14px;
+        padding: 13px 14px;
+        outline: none;
+        transition:
+          border-color var(--transition),
+          box-shadow var(--transition),
+          background var(--transition);
+      }
+      .email-field textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+      .email-field input:focus,
+      .email-field select:focus,
+      .email-field textarea:focus {
+        border-color: var(--yellow-500);
+        box-shadow: 0 0 0 4px rgba(247, 201, 72, 0.18);
+      }
+      .email-actions {
         display: flex;
         align-items: center;
-        overflow: hidden;
-        padding: 130px 0;
-        isolation: isolate;
-        contain: paint;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 4px;
       }
-      .ce-canvas {
-        position: absolute; inset: 0;
-        width: 100%; height: 100%;
-        display: block;
-        z-index: 1; pointer-events: none; opacity: 0.6;
+      .email-note {
+        color: var(--ink-500);
+        font-size: 13px;
       }
-      .ce-bg-wrap {
-        position: absolute;
-        inset: -25% 0;
-        max-width: none;
-        z-index: 0;
-        will-change: transform;
+      .email-submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 22px;
+        border: 0;
+        border-radius: 14px;
+        background: var(--ink-900);
+        color: var(--white);
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 14px 28px rgba(31, 36, 48, 0.18);
+        transition:
+          transform var(--transition),
+          background var(--transition),
+          box-shadow var(--transition);
       }
-      .ce-bg {
-        width: 100%; height: 100%;
-        max-width: none;
-        background-size: cover;
-        background-position: center;
-        will-change: transform;
-        transform: scale(1.15);
-        transform-origin: center center;
+      .email-submit:hover {
+        transform: translateY(-2px);
+        background: #111621;
+        box-shadow: 0 18px 34px rgba(31, 36, 48, 0.22);
       }
-      .ce-bg-overlay {
-        position: absolute; inset: 0;
-        max-width: none;
-        background:
-          linear-gradient(180deg, rgba(6,8,14,0.78) 0%, rgba(8,10,18,0.52) 45%, rgba(6,8,14,0.88) 100%),
-          radial-gradient(ellipse 90% 70% at 50% 40%, rgba(0,0,0,0.05), rgba(0,0,0,0.55) 100%),
-          linear-gradient(90deg, rgba(240,180,41,0.06) 0%, transparent 40%, rgba(240,180,41,0.05) 100%);
-      }
-      /* Animated glow orbs */
-      .ce-orbs { position: absolute; inset: 0; max-width: none; pointer-events: none; overflow: hidden; z-index: 2; }
-      .ce-orb {
-        position: absolute; border-radius: 50%;
-        filter: blur(100px);
-        animation: ce-orb-float 20s ease-in-out infinite;
-      }
-      .ce-o1 { width: 650px; height: 650px; background: rgba(240,180,41,0.11); top: -160px; left: -110px; animation-delay: 0s; }
-      .ce-o2 { width: 520px; height: 520px; background: rgba(222,145,29,0.09); bottom: -110px; right: -90px; animation-delay: 7s; animation-duration: 26s; }
-      .ce-o3 { width: 380px; height: 380px; background: rgba(247,201,72,0.07); top: 55%; left: 50%; transform: translate(-50%,-50%); animation-delay: 3s; animation-duration: 18s; }
-      .ce-o4 { width: 260px; height: 260px; background: rgba(255,210,80,0.06); top: 18%; right: 22%; animation-delay: 11s; animation-duration: 23s; }
-      @keyframes ce-orb-float {
-        0%, 100% { transform: translate(0,0) scale(1); opacity: 0.65; }
-        33%  { transform: translate(55px,-45px) scale(1.12); opacity: 0.95; }
-        66%  { transform: translate(-35px,35px) scale(0.93); opacity: 0.72; }
-      }
-      /* Mouse spotlight */
-      .ce-spotlight {
-        position: absolute; width: 520px; height: 520px;
-        border-radius: 50%; pointer-events: none; z-index: 3;
-        background: radial-gradient(circle, rgba(247,201,72,0.09) 0%, transparent 70%);
-        transform: translate(-50%,-50%);
-        left: 50%; top: 50%;
-        will-change: left, top;
-        transition: left 80ms linear, top 80ms linear;
-      }
-      /* Floating glassmorphism tags */
-      .ce-floating-tags { position: absolute; inset: 0; max-width: none; pointer-events: none; overflow: hidden; z-index: 4; }
-      .ce-tag {
-        position: absolute;
-        padding: 10px 20px;
-        background: rgba(255,255,255,0.06);
-        backdrop-filter: blur(18px) saturate(1.9);
-        -webkit-backdrop-filter: blur(18px) saturate(1.9);
-        border: 1px solid rgba(247,201,72,0.22);
-        border-radius: 100px;
-        color: rgba(255,255,255,0.86);
-        font-size: 13px; font-weight: 700;
-        letter-spacing: 0.025em;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.03) inset, 0 4px 20px rgba(247,201,72,0.07);
-        will-change: transform;
-      }
-      .ce-tag-1 { top: 13%; left: 5%;  animation: ce-float1 8.5s ease-in-out infinite; }
-      .ce-tag-2 { top: 20%; right: 7%; animation: ce-float2 10s ease-in-out infinite; }
-      .ce-tag-3 { bottom: 26%; left: 4%; animation: ce-float3 9s ease-in-out infinite; }
-      .ce-tag-4 { bottom: 20%; right: 6%; animation: ce-float4 11.5s ease-in-out infinite; }
-      .ce-tag-5 { top: 53%; left: 3%;  animation: ce-float1 12s ease-in-out infinite 2s; }
-      .ce-tag-6 { top: 38%; right: 4%; animation: ce-float2 8.5s ease-in-out infinite 1.2s; }
-      @keyframes ce-float1 {
-        0%, 100% { transform: translate3d(0,0,0) rotate(-2deg); }
-        50%       { transform: translate3d(15px,-20px,0) rotate(2.5deg); }
-      }
-      @keyframes ce-float2 {
-        0%, 100% { transform: translate3d(0,0,0) rotate(3deg); }
-        50%       { transform: translate3d(-13px,-16px,0) rotate(-1.5deg); }
-      }
-      @keyframes ce-float3 {
-        0%, 100% { transform: translate3d(0,0,0) rotate(-1.5deg); }
-        50%       { transform: translate3d(18px,14px,0) rotate(3deg); }
-      }
-      @keyframes ce-float4 {
-        0%, 100% { transform: translate3d(0,0,0) rotate(2deg); }
-        50%       { transform: translate3d(-11px,18px,0) rotate(-2.5deg); }
-      }
-      /* Content */
-      .ce-content {
-        position: relative; z-index: 5;
-        width: min(100%, 780px);
-        margin: 0 auto;
-        padding: 0 8px;
-        text-align: center;
-      }
-      .ce-eyebrow {
-        display: inline-flex; align-items: center; gap: 9px;
-        padding: 9px 20px; border-radius: 100px;
-        background: rgba(247,201,72,0.1);
-        border: 1px solid rgba(247,201,72,0.28);
-        backdrop-filter: blur(12px);
-        color: var(--yellow-300);
-        font-size: 12px; font-weight: 700;
-        letter-spacing: 0.13em; text-transform: uppercase;
-        margin-bottom: 30px;
-        opacity: 0; transform: translateY(22px);
-      }
-      .ce-eyebrow .dot {
-        width: 7px; height: 7px; border-radius: 50%;
-        background: var(--yellow-400);
-        animation: ce-dot-pulse 2s ease-in-out infinite;
-        flex-shrink: 0;
-      }
-      @keyframes ce-dot-pulse {
-        0%, 100% { box-shadow: 0 0 0 3px rgba(247,201,72,0.2), 0 0 8px rgba(247,201,72,0.4); }
-        50%       { box-shadow: 0 0 0 6px rgba(247,201,72,0.1), 0 0 22px rgba(247,201,72,0.65); }
-      }
-      .ce-title {
-        font-size: clamp(3rem, 7.5vw, 5.8rem);
-        font-weight: 800; line-height: 1.04;
-        letter-spacing: -0.03em; color: #fff;
-        text-shadow: 0 4px 28px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.65);
-        -webkit-text-stroke: 0.5px rgba(255,255,255,0.08);
-        margin-bottom: 26px; opacity: 0; transform: translateY(32px);
-      }
-      .ce-accent {
-        background: linear-gradient(120deg, var(--yellow-300), var(--yellow-500), var(--yellow-300));
-        background-size: 200% auto;
-        -webkit-background-clip: text; background-clip: text; color: transparent;
-        animation: ce-shine 4s linear infinite;
-        text-shadow: none; display: inline-block;
-      }
-      @keyframes ce-shine {
-        0%   { background-position: 0% center; }
-        100% { background-position: 200% center; }
-      }
-      .ce-lead {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        color: rgba(255,255,255,0.68);
-        max-width: 560px; margin: 0 auto 52px;
-        line-height: 1.75; opacity: 0; transform: translateY(22px);
-      }
-      /* Glassmorphism CTA card */
-      .ce-card {
-        position: relative; border-radius: 30px;
-        padding: 2px;
-        background: linear-gradient(135deg,
-          rgba(247,201,72,0.55), rgba(240,180,41,0.22),
-          rgba(255,255,255,0.08), rgba(247,201,72,0.45));
-        background-size: 300% 300%;
-        animation: ce-border-anim 6s linear infinite;
-        box-shadow: 0 0 70px rgba(240,180,41,0.13), 0 28px 90px rgba(0,0,0,0.55);
-        opacity: 0; transform: translateY(42px) scale(0.97);
-        will-change: transform;
-        width: min(100%, 700px);
-        max-width: calc(100vw - 48px);
-        margin: 0 auto;
-        transform-style: preserve-3d;
-        transition: box-shadow 400ms ease;
-      }
-      .ce-card:hover {
-        box-shadow: 0 0 90px rgba(240,180,41,0.22), 0 36px 100px rgba(0,0,0,0.6);
-      }
-      @keyframes ce-border-anim {
-        0%   { background-position: 0% 50%; }
-        50%  { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      .ce-card-glow {
-        position: absolute; inset: -2px; border-radius: 32px;
-        background: radial-gradient(ellipse 80% 55% at 50% -15%, rgba(247,201,72,0.16), transparent 60%);
-        pointer-events: none; z-index: 0;
-      }
-      .ce-card-inner {
-        position: relative; z-index: 1; border-radius: 28px;
-        background: rgba(10,12,20,0.75);
-        backdrop-filter: blur(28px) saturate(1.7);
-        -webkit-backdrop-filter: blur(28px) saturate(1.7);
-        padding: 46px 52px;
-      }
-      .ce-card-stats {
-        display: flex; align-items: center; justify-content: center;
-        gap: 0; margin-bottom: 38px;
-      }
-      .ce-stat { flex: 1; text-align: center; padding: 0 22px; }
-      .ce-stat-num {
-        font-size: 2.4rem; font-weight: 800;
-        letter-spacing: -0.035em; line-height: 1; margin-bottom: 7px;
-        background: linear-gradient(135deg, var(--yellow-300), var(--yellow-500));
-        -webkit-background-clip: text; background-clip: text; color: transparent;
-      }
-      .ce-stat-lbl {
-        font-size: 11px; font-weight: 700;
-        letter-spacing: 0.1em; text-transform: uppercase;
-        color: rgba(255,255,255,0.42);
-      }
-      .ce-stat-divider {
-        width: 1px; height: 44px;
-        background: rgba(247,201,72,0.18); flex-shrink: 0;
-      }
-      .ce-card-actions {
-        display: flex; align-items: center;
-        justify-content: center; gap: 14px; flex-wrap: wrap;
-      }
-      .ce-btn-primary {
-        display: inline-flex; align-items: center; gap: 10px;
-        padding: 15px 30px; border-radius: 16px;
-        background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600));
-        color: var(--ink-900); font-weight: 700; font-size: 15px;
-        text-decoration: none;
-        box-shadow: 0 12px 36px rgba(240,180,41,0.38);
-        transition: transform 320ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 320ms ease, filter 320ms ease;
-        will-change: transform;
-      }
-      .ce-btn-primary svg { width: 16px; height: 16px; transition: transform 300ms ease; }
-      .ce-btn-primary:hover {
-        transform: translateY(-4px) scale(1.04);
-        box-shadow: 0 20px 52px rgba(240,180,41,0.52);
-        filter: brightness(1.06);
-      }
-      .ce-btn-primary:hover svg { transform: translateX(4px); }
-      .ce-btn-ghost {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 15px 30px; border-radius: 16px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.16);
-        color: rgba(255,255,255,0.82); font-weight: 600; font-size: 15px;
-        text-decoration: none;
-        backdrop-filter: blur(8px);
-        transition: transform 320ms cubic-bezier(0.34,1.56,0.64,1), background 320ms ease, border-color 320ms ease;
-      }
-      .ce-btn-ghost:hover {
-        transform: translateY(-4px);
-        background: rgba(255,255,255,0.11);
-        border-color: rgba(247,201,72,0.38);
+      .email-submit:disabled {
+        cursor: wait;
+        opacity: 0.72;
+        transform: none;
       }
       @media (max-width: 960px) {
-        .campus-exp { padding: 100px 0; min-height: auto; }
-        .ce-content { padding: 0; }
-        .ce-tag-5, .ce-tag-6 { display: none; }
-        .ce-card-inner { padding: 36px 32px; }
-        .ce-stat-num { font-size: 2rem; }
+        .campus-exp {
+          padding: 86px 0;
+        }
+        .email-grid {
+          grid-template-columns: 1fr;
+        }
+        .email-copy {
+          padding: 0;
+        }
       }
       @media (max-width: 720px) {
-        .campus-exp { padding: 80px 0; }
-        .ce-tag { display: none; }
-        .ce-stat { padding: 0 14px; }
-        .ce-stat-num { font-size: 1.7rem; }
-        .ce-title { font-size: clamp(2.6rem, 10vw, 4rem); }
+        .email-row {
+          grid-template-columns: 1fr;
+        }
+        .email-panel {
+          padding: 24px;
+        }
+        .email-panel-head {
+          display: block;
+        }
+        .email-status {
+          display: inline-flex;
+          margin-top: 14px;
+        }
       }
       @media (max-width: 480px) {
-        .campus-exp { padding: 64px 0; }
-        .ce-card { max-width: calc(100vw - 32px); }
-        .ce-card-inner { padding: 28px 22px; }
-        .ce-card-stats { flex-direction: column; gap: 22px; }
-        .ce-stat-divider { width: 60%; height: 1px; }
-        .ce-card-actions { flex-direction: column; align-items: stretch; }
-        .ce-btn-primary, .ce-btn-ghost { justify-content: center; }
-        .ce-title { font-size: clamp(2.3rem, 9.5vw, 3rem); }
-        .ce-lead { font-size: 0.96rem; }
+        .campus-exp {
+          padding: 66px 0;
+        }
+        .email-info-card {
+          grid-template-columns: 40px 1fr;
+          padding: 14px;
+        }
+        .email-card-icon {
+          width: 40px;
+          height: 40px;
+        }
+        .email-actions {
+          align-items: stretch;
+        }
+        .email-submit {
+          width: 100%;
+        }
       }
 
       /* ============ FOOTER ============ */
@@ -3266,7 +3261,7 @@
         }
       }
 
-      /* ─── EVENTS SECTION ─── */
+      /* â”€â”€â”€ EVENTS SECTION â”€â”€â”€ */
       .events {
         background: var(--paper);
       }
@@ -3299,7 +3294,6 @@
       .event-carousel.is-dragging {
         cursor: grabbing;
       }
-
       .event-grid {
         display: flex;
         gap: 24px;
@@ -3309,9 +3303,21 @@
       }
 
       .event-card {
-        background: #fff;
+        --event-accent: var(--yellow-600);
+        --event-accent-2: var(--yellow-400);
+        --event-soft: rgba(247, 201, 72, 0.1);
+        --event-border: rgba(222, 145, 29, 0.2);
+        --event-shadow: rgba(222, 145, 29, 0.16);
+        --event-tag-bg: var(--yellow-400);
+        --event-tag-color: var(--ink-900);
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%),
+          linear-gradient(135deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.24) 100%);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), #fff),
+          linear-gradient(135deg, var(--event-soft), transparent);
         border-radius: 20px;
-        border: 1px solid var(--line);
+        border: 1px solid var(--event-border);
         overflow: hidden;
         cursor: pointer;
         text-decoration: none;
@@ -3319,7 +3325,9 @@
         display: flex;
         flex-direction: column;
         flex: 0 0 clamp(250px, 22vw, 277px);
-        box-shadow: 0 2px 12px rgba(31, 36, 48, 0.06);
+        box-shadow:
+          0 2px 12px rgba(31, 36, 48, 0.06),
+          0 0 0 1px rgba(255, 255, 255, 0.7) inset;
         transition:
           transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
           box-shadow 340ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -3329,7 +3337,8 @@
         transform: translateY(-8px);
         box-shadow:
           0 18px 48px rgba(31, 36, 48, 0.14),
-          0 4px 16px rgba(31, 36, 48, 0.07);
+          0 4px 16px rgba(31, 36, 48, 0.07),
+          0 0 26px var(--event-shadow);
       }
 
       .event-card-img {
@@ -3338,6 +3347,16 @@
         overflow: hidden;
         position: relative;
         flex-shrink: 0;
+      }
+      .event-card-img::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--event-accent), var(--event-accent-2));
+        z-index: 2;
       }
       .event-card-img img {
         width: 100%;
@@ -3358,11 +3377,7 @@
       .event-card-img .evt-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          160deg,
-          rgba(0, 0, 0, 0) 50%,
-          rgba(0, 0, 0, 0.22) 100%
-        );
+        background: var(--event-image-overlay);
         transition: opacity 340ms;
       }
       .event-card:hover .evt-overlay {
@@ -3373,8 +3388,8 @@
         position: absolute;
         top: 12px;
         left: 12px;
-        background: var(--yellow-400);
-        color: var(--ink-900);
+        background: var(--event-tag-bg);
+        color: var(--event-tag-color);
         font-size: 10px;
         font-weight: 800;
         letter-spacing: 0.13em;
@@ -3382,6 +3397,7 @@
         padding: 4px 10px;
         border-radius: 99px;
         z-index: 2;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
       }
 
       .event-card-body {
@@ -3390,17 +3406,21 @@
         flex-direction: column;
         flex: 1;
         gap: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), #fff 64%),
+          linear-gradient(135deg, var(--event-soft), transparent 72%);
+        border-top: 3px solid var(--event-accent);
       }
       .event-card-body h3 {
         font-size: 1.05rem;
         font-weight: 800;
-        color: var(--ink-900);
+        color: #171923;
         line-height: 1.3;
         margin: 0;
       }
       .event-card-body p {
         font-size: 0.86rem;
-        color: var(--ink-500);
+        color: #404858;
         line-height: 1.55;
         margin: 0;
         flex: 1;
@@ -3411,7 +3431,7 @@
         gap: 6px;
         font-size: 0.82rem;
         font-weight: 700;
-        color: var(--yellow-600);
+        color: var(--event-accent);
         margin-top: 10px;
         transition: gap 220ms ease;
       }
@@ -3424,18 +3444,97 @@
         flex-shrink: 0;
       }
 
-      /* Placeholder gradient covers */
+      /* Event card themes and image fallbacks */
+      .theme-pammadayaw {
+        --event-accent: #006bff;
+        --event-accent-2: #f2b705;
+        --event-soft: rgba(0, 107, 255, 0.1);
+        --event-border: rgba(0, 107, 255, 0.22);
+        --event-shadow: rgba(0, 107, 255, 0.2);
+        --event-tag-bg: #f2b705;
+        --event-tag-color: #071a36;
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(4, 30, 85, 0.05) 0%, rgba(4, 30, 85, 0.58) 100%),
+          linear-gradient(135deg, rgba(0, 107, 255, 0.06), rgba(242, 183, 5, 0.22));
+      }
+      .theme-foundation {
+        --event-accent: #800000;
+        --event-accent-2: #f4c542;
+        --event-soft: rgba(128, 0, 0, 0.08);
+        --event-border: rgba(128, 0, 0, 0.22);
+        --event-shadow: rgba(128, 0, 0, 0.2);
+        --event-tag-bg: #f4c542;
+        --event-tag-color: #500000;
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(80, 0, 0, 0.04) 0%, rgba(80, 0, 0, 0.62) 100%),
+          linear-gradient(135deg, rgba(244, 197, 66, 0.14), rgba(46, 139, 87, 0.16));
+      }
+      .theme-kalahi {
+        --event-accent: #1a5c39;
+        --event-accent-2: #0077b6;
+        --event-soft: rgba(46, 139, 87, 0.11);
+        --event-border: rgba(46, 139, 87, 0.24);
+        --event-shadow: rgba(46, 139, 87, 0.2);
+        --event-tag-bg: #2e8b57;
+        --event-tag-color: #ffffff;
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(0, 58, 89, 0.05) 0%, rgba(10, 71, 46, 0.62) 100%),
+          linear-gradient(135deg, rgba(46, 139, 87, 0.18), rgba(0, 119, 182, 0.18));
+      }
+      .theme-ssc {
+        --event-accent: #b91c1c;
+        --event-accent-2: #166534;
+        --event-soft: rgba(185, 28, 28, 0.1);
+        --event-border: rgba(185, 28, 28, 0.24);
+        --event-shadow: rgba(185, 28, 28, 0.2);
+        --event-tag-bg: #b91c1c;
+        --event-tag-color: #ffffff;
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(127, 29, 29, 0.05) 0%, rgba(69, 10, 10, 0.64) 100%),
+          linear-gradient(135deg, rgba(185, 28, 28, 0.2), rgba(22, 101, 52, 0.18));
+      }
+      .theme-mass {
+        --event-accent: #e87800;
+        --event-accent-2: #ff8c00;
+        --event-soft: rgba(232, 120, 0, 0.11);
+        --event-border: rgba(232, 120, 0, 0.24);
+        --event-shadow: rgba(232, 120, 0, 0.22);
+        --event-tag-bg: #ffedd5;
+        --event-tag-color: #9a3412;
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(124, 45, 18, 0.04) 0%, rgba(124, 45, 18, 0.6) 100%),
+          linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(154, 52, 18, 0.12));
+      }
+      .theme-graduation {
+        --event-accent: #9a7209;
+        --event-accent-2: #d4a017;
+        --event-soft: rgba(212, 160, 23, 0.12);
+        --event-border: rgba(154, 114, 9, 0.28);
+        --event-shadow: rgba(154, 114, 9, 0.24);
+        --event-tag-bg: #d4a017;
+        --event-tag-color: #080808;
+        --event-image-overlay:
+          linear-gradient(180deg, rgba(8, 8, 8, 0.12) 0%, rgba(8, 8, 8, 0.68) 100%),
+          linear-gradient(135deg, rgba(212, 160, 23, 0.2), rgba(8, 8, 8, 0.12));
+      }
+
       .evt-bg-1 {
-        background: #fff;
+        background: linear-gradient(135deg, #eaf4ff 0%, #dcebff 54%, #f4f9ff 100%);
       }
       .evt-bg-2 {
-        background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+        background: linear-gradient(135deg, #fff3c0 0%, #f4c542 48%, #800000 100%);
       }
       .evt-bg-3 {
-        background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+        background: linear-gradient(135deg, #e8f7ef 0%, #2e8b57 52%, #0077b6 100%);
       }
       .evt-bg-4 {
-        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        background: linear-gradient(135deg, #fff1f2 0%, #b91c1c 50%, #166534 100%);
+      }
+      .evt-bg-5 {
+        background: linear-gradient(135deg, #fff7ed 0%, #ff8c00 55%, #9a3412 100%);
+      }
+      .evt-bg-6 {
+        background: linear-gradient(135deg, #080808 0%, #1a1200 50%, #d4a017 100%);
       }
 
       .evt-icon {
@@ -3550,6 +3649,12 @@
       .event-card.reveal.in:nth-child(4) {
         animation-delay: 270ms;
       }
+      .event-card.reveal.in:nth-child(5) {
+        animation-delay: 360ms;
+      }
+      .event-card.reveal.in:nth-child(6) {
+        animation-delay: 450ms;
+      }
       @keyframes evt-rise {
         from {
           opacity: 0;
@@ -3632,7 +3737,7 @@
 
         <div class="welcome-content">
           <span class="welcome-eyebrow"
-            ><span class="dot"></span> ISPSC Tagudin · OSAS</span
+            ><span class="dot"></span> ISPSC Tagudin Â· OSAS</span
           >
           <h1>Welcome, <span class="accent">ISPSC Students!</span></h1>
           <div class="sub">Your journey starts here.</div>
@@ -3736,11 +3841,11 @@
             </h1>
             <p class="lead reveal reveal-delay-2">
               The Office of Student Affairs and Services exists to nurture the
-              holistic development of every student — through guidance,
+              holistic development of every student â€” through guidance,
               programs, and a community that genuinely cares.
             </p>
             <p class="hero-meta reveal reveal-delay-3">
-              Ilocos Sur Polytechnic State College — Tagudin Campus
+              Ilocos Sur Polytechnic State College â€” Tagudin Campus
             </p>
             <div class="hero-actions reveal reveal-delay-4">
               <a href="#contact" class="btn btn-primary">
@@ -3794,7 +3899,7 @@
               </div>
               <div>
                 <div class="label">Open Today</div>
-                <div class="val">8:00 AM – 5:00 PM</div>
+                <div class="val">8:00 AM â€“ 5:00 PM</div>
               </div>
             </div>
             <div class="crest">
@@ -3853,7 +3958,7 @@
               </h2>
               <p class="reveal reveal-delay-2">
                 The Office of Student Affairs and Services (OSAS) is committed
-                to the holistic development of every Polytechnician —
+                to the holistic development of every Polytechnician â€”
                 academically, socially, and personally. We design programs and
                 services that respond to real student needs, while creating a
                 campus culture that is inclusive, safe, and inspiring.
@@ -3934,10 +4039,10 @@
             <div class="about-visual reveal reveal-delay-2">
               <div class="about-quote">
                 <p>
-                  "Our work is simple — make sure every student feels seen,
+                  "Our work is simple â€” make sure every student feels seen,
                   supported, and set up to succeed."
                 </p>
-                <div class="who">— OSAS Tagudin Campus</div>
+                <div class="who">â€” OSAS Tagudin Campus</div>
               </div>
             </div>
           </div>
@@ -4166,34 +4271,29 @@
             <span class="section-eyebrow reveal">Student Life</span>
             <h2 class="reveal reveal-delay-1">Events &amp; Activities</h2>
             <p class="reveal reveal-delay-2">
-              Celebrations, leadership, and milestones — where every student
+              Celebrations, leadership, and milestones â€” where every student
               gets to shine.
             </p>
           </div>
 
           <div class="event-carousel" id="eventCarousel">
             <div class="event-grid" id="eventTrack">
-              <!-- CARD 1: Pammadayaw — links to activity1.html -->
+              <!-- CARD 1: Pammadayaw â€” links to activity1.html -->
               <a
-                class="event-card reveal"
+                class="event-card theme-pammadayaw reveal"
                 href="activity1.html"
                 aria-label="View Pammadayaw gallery"
               >
                 <div class="event-card-img evt-bg-1">
-                  <img
-                    class="evt-icon evt-photo-icon"
-                    src="Pammadayaw.png"
-                    alt=""
-                    aria-hidden="true"
-                  />
+                  <img src="P1.jpg" alt="Pammadayaw recognition gallery preview" />
                   <div class="evt-overlay"></div>
                   <span class="event-card-tag">Recognition</span>
                 </div>
                 <div class="event-card-body">
                   <h3>Pammadayaw</h3>
                   <p>
-                    ISPSC Tagudin's grandest cultural showcase celebrating the
-                    rich heritage, talents, and unity of every student.
+                    OSAS recognition moments honoring student achievement,
+                    service, and excellence at ISPSC Tagudin Campus.
                   </p>
                   <span class="event-card-cta">
                     View Gallery
@@ -4211,49 +4311,25 @@
                 </div>
               </a>
 
-              <!-- CARD 2: Student Leadership Summit -->
-              <div
-                class="event-card reveal"
-                data-event="2"
-                aria-label="Student Leadership Summit details"
-                tabindex="0"
-                role="button"
+              <!-- CARD 2: Foundation Anniversary - links to activity2.html -->
+              <a
+                class="event-card theme-foundation reveal"
+                href="activity2.html"
+                aria-label="View Foundation Anniversary gallery"
               >
-                <div class="event-card-img evt-bg-2 placeholder">
-                  <svg
-                    class="evt-icon"
-                    viewBox="0 0 80 80"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="20"
-                      y="36"
-                      width="40"
-                      height="26"
-                      rx="5"
-                      stroke="white"
-                      stroke-width="3.5"
-                    />
-                    <path
-                      d="M30 36V28a10 10 0 0 1 20 0v8"
-                      stroke="white"
-                      stroke-width="3.5"
-                      stroke-linecap="round"
-                    />
-                    <circle cx="40" cy="52" r="4" fill="white" opacity="0.8" />
-                  </svg>
+                <div class="event-card-img evt-bg-2">
+                  <img src="f1.jpg" alt="Foundation Anniversary gallery preview" />
                   <div class="evt-overlay"></div>
-                  <span class="event-card-tag">Leadership</span>
+                  <span class="event-card-tag">Founding Anniversary</span>
                 </div>
                 <div class="event-card-body">
-                  <h3>Student Leadership Summit</h3>
+                  <h3>Foundation Anniversary</h3>
                   <p>
-                    An annual convergence empowering student leaders with
-                    skills, vision, and strategies for positive campus impact.
+                    A three-day celebration of institutional milestones,
+                    campus pride, and memorable OSAS moments.
                   </p>
                   <span class="event-card-cta">
-                    Learn More
+                    View Gallery
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -4266,49 +4342,27 @@
                     </svg>
                   </span>
                 </div>
-              </div>
+              </a>
 
-              <!-- CARD 3: Sports Fest -->
-              <div
-                class="event-card reveal"
-                data-event="3"
-                aria-label="Sports Fest details"
-                tabindex="0"
-                role="button"
+              <!-- CARD 3: KALAHI CIDSS — links to activity3.html -->
+              <a
+                class="event-card theme-kalahi reveal"
+                href="activity3.html"
+                aria-label="View KALAHI CIDSS Cash For Work gallery"
               >
-                <div class="event-card-img evt-bg-3 placeholder">
-                  <svg
-                    class="evt-icon"
-                    viewBox="0 0 80 80"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="40"
-                      cy="40"
-                      r="22"
-                      stroke="white"
-                      stroke-width="3.5"
-                    />
-                    <path
-                      d="M22 28c5 3 11 5 18 5s13-2 18-5M22 52c5-3 11-5 18-5s13 2 18 5M40 18v44"
-                      stroke="white"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                    />
-                  </svg>
+                <div class="event-card-img evt-bg-3">
+                  <img src="CFW1.jpg" alt="KALAHI CIDSS Cash For Work Program gallery preview" />
                   <div class="evt-overlay"></div>
-                  <span class="event-card-tag">Sports</span>
+                  <span class="event-card-tag">KALAHI CIDSS</span>
                 </div>
                 <div class="event-card-body">
-                  <h3>ISPSC Sports Fest</h3>
+                  <h3>Cash For Work Program</h3>
                   <p>
-                    Multi-discipline inter-department competition fostering
-                    teamwork, sportsmanship, and school pride on every court and
-                    field.
+                    Student and community contributions documented through a
+                    community-driven Cash For Work Program gallery.
                   </p>
                   <span class="event-card-cta">
-                    Learn More
+                    View Gallery
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -4321,54 +4375,27 @@
                     </svg>
                   </span>
                 </div>
-              </div>
+              </a>
 
-              <!-- CARD 4: Scholarship Orientation -->
-              <div
-                class="event-card reveal"
-                data-event="4"
-                aria-label="Scholarship Orientation details"
-                tabindex="0"
-                role="button"
+              <!-- CARD 4: SSC Election — links to activity4.html -->
+              <a
+                class="event-card theme-ssc reveal"
+                href="activity4.html"
+                aria-label="View SSC Election gallery"
               >
-                <div class="event-card-img evt-bg-4 placeholder">
-                  <svg
-                    class="evt-icon"
-                    viewBox="0 0 80 80"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M40 14L12 28l28 14 28-14z"
-                      stroke="white"
-                      stroke-width="3.5"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M20 35v18c0 6 9 12 20 12s20-6 20-12V35"
-                      stroke="white"
-                      stroke-width="3.5"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M60 28v14"
-                      stroke="white"
-                      stroke-width="3.5"
-                      stroke-linecap="round"
-                    />
-                  </svg>
+                <div class="event-card-img evt-bg-4">
+                  <img src="ssc1.jpg" alt="SSC Election 2026 gallery preview" />
                   <div class="evt-overlay"></div>
-                  <span class="event-card-tag">Scholarship</span>
+                  <span class="event-card-tag">SSC Election</span>
                 </div>
                 <div class="event-card-body">
-                  <h3>Scholarship Orientation</h3>
+                  <h3>SSC Election 2026</h3>
                   <p>
-                    Helping students navigate available scholarships, grants,
-                    and financial aid programs to support their academic
-                    journey.
+                    Student voting documentation for the Supreme Student
+                    Council Election at ISPSC Tagudin Campus.
                   </p>
                   <span class="event-card-cta">
-                    Learn More
+                    View Gallery
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -4381,7 +4408,73 @@
                     </svg>
                   </span>
                 </div>
-              </div>
+              </a>
+
+              <!-- CARD 5: Graduating Mass - links to activity5.html -->
+              <a
+                class="event-card theme-mass reveal"
+                href="activity5.html"
+                aria-label="View Graduating Mass gallery"
+              >
+                <div class="event-card-img evt-bg-5">
+                  <img src="M1.jpg" alt="Graduating Mass gallery preview" />
+                  <div class="evt-overlay"></div>
+                  <span class="event-card-tag">Graduation Mass</span>
+                </div>
+                <div class="event-card-body">
+                  <h3>Graduating Mass</h3>
+                  <p>
+                    A solemn and joyful celebration where faith, achievement,
+                    and gratitude converge for the Class of 2025.
+                  </p>
+                  <span class="event-card-cta">
+                    View Gallery
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+
+              <!-- CARD 6: Graduation Day — links to activity6.html -->
+              <a
+                class="event-card theme-graduation reveal"
+                href="activity6.html"
+                aria-label="View Graduation Day gallery"
+              >
+                <div class="event-card-img evt-bg-6">
+                  <img src="C1.jpg" alt="Graduation Day gallery preview" />
+                  <div class="evt-overlay"></div>
+                  <span class="event-card-tag">Graduation Day</span>
+                </div>
+                <div class="event-card-body">
+                  <h3>Graduation Day</h3>
+                  <p>
+                    A milestone gallery for TFCC and CANDON graduates as the
+                    Class of 2025 steps into its next chapter.
+                  </p>
+                  <span class="event-card-cta">
+                    View Gallery
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
             </div>
             <!-- /event-grid -->
           </div>
@@ -4389,7 +4482,7 @@
         </div>
       </section>
 
-      <!-- Event Modal (for cards 2-4) -->
+      <!-- Event Modal -->
       <div
         class="event-modal-bg"
         id="eventModalBg"
@@ -4462,7 +4555,7 @@
 
           <div class="team-grid">
 
-            <!-- Card 1 — Director -->
+            <!-- Card 1 â€” Director -->
             <div class="team-card-wrap reveal reveal-zoom reveal-delay-1">
               <div class="team-card" data-member="0" role="button" tabindex="0" aria-label="View contact info for Dennis Millare">
                 <div class="team-card-img">
@@ -4486,7 +4579,7 @@
               </div>
             </div>
 
-            <!-- Card 2 — Coordinator -->
+            <!-- Card 2 â€” Coordinator -->
             <div class="team-card-wrap reveal reveal-zoom reveal-delay-2">
               <div class="team-card" data-member="1" role="button" tabindex="0" aria-label="View contact info for J.V. Augustine Realizo">
                 <div class="team-card-img">
@@ -4510,7 +4603,7 @@
               </div>
             </div>
 
-            <!-- Card 3 — Scholarship President -->
+            <!-- Card 3 â€” Scholarship President -->
             <div class="team-card-wrap reveal reveal-zoom reveal-delay-3">
               <div class="team-card" data-member="2" role="button" tabindex="0" aria-label="View contact info for Allan Jay Lardizabal">
                 <div class="team-card-img">
@@ -4538,7 +4631,7 @@
         </div>
       </section>
 
-      <!-- ═══ TEAM CONTACT MODAL ═══ -->
+      <!-- â•â•â• TEAM CONTACT MODAL â•â•â• -->
       <div class="team-modal-overlay" id="teamModal" role="dialog" aria-modal="true" aria-labelledby="teamModalName">
         <div class="team-modal-backdrop" id="teamModalBackdrop"></div>
         <div class="team-modal-border">
@@ -4577,7 +4670,7 @@
             <span class="section-eyebrow reveal">Visit us</span>
             <h2 class="reveal reveal-delay-1">Find the office, anytime.</h2>
             <p class="reveal reveal-delay-2">
-              Drop by during office hours — we always welcome students at the
+              Drop by during office hours â€” we always welcome students at the
               OSAS office.
             </p>
           </div>
@@ -4599,23 +4692,23 @@
               <div class="hours-list">
                 <div class="hours-row">
                   <span class="day">Monday</span
-                  ><span class="time">8:00 AM – 5:00 PM</span>
+                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Tuesday</span
-                  ><span class="time">8:00 AM – 5:00 PM</span>
+                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Wednesday</span
-                  ><span class="time">8:00 AM – 5:00 PM</span>
+                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Thursday</span
-                  ><span class="time">8:00 AM – 5:00 PM</span>
+                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Friday</span
-                  ><span class="time">8:00 AM – 5:00 PM</span>
+                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
                 </div>
                 <div class="hours-row closed">
                   <span class="day">Saturday &amp; Sunday</span
@@ -4628,82 +4721,171 @@
       </section>
 
       
-      <!-- CAMPUS EXPERIENCE — Cinematic Parallax CTA -->
+      <!-- EMAIL SECTION -->
       <section class="campus-exp" id="campus-experience">
-
-        <!-- Three.js particle canvas -->
-        <canvas class="ce-canvas" id="ceCanvas"></canvas>
-
-        <!-- Parallax background -->
-        <div class="ce-bg-wrap">
-          <div class="ce-bg" id="ceBg" style="background-image:url('ispscbg.jpg')"></div>
-          <div class="ce-bg-overlay"></div>
-        </div>
-
-        <!-- Glow orbs -->
-        <div class="ce-orbs" aria-hidden="true">
-          <div class="ce-orb ce-o1"></div>
-          <div class="ce-orb ce-o2"></div>
-          <div class="ce-orb ce-o3"></div>
-          <div class="ce-orb ce-o4"></div>
-        </div>
-
-        <!-- Mouse spotlight -->
-        <div class="ce-spotlight" id="ceSpotlight"></div>
-
-        <!-- Floating glassmorphism tags -->
-        <div class="ce-floating-tags" aria-hidden="true">
-          <div class="ce-tag ce-tag-1">🎓 Scholarships</div>
-          <div class="ce-tag ce-tag-2">🏆 Leadership</div>
-          <div class="ce-tag ce-tag-3">🌟 Campus Life</div>
-          <div class="ce-tag ce-tag-4">🤝 Organizations</div>
-          <div class="ce-tag ce-tag-5">💡 Innovation</div>
-          <div class="ce-tag ce-tag-6">🎭 Culture</div>
-        </div>
-
         <div class="container">
-          <div class="ce-content">
-            <div class="ce-eyebrow" id="ceEyebrow">
-              <span class="dot"></span> Student Opportunities
-            </div>
+          <div class="email-grid">
+            <div class="email-copy reveal reveal-left">
+              <span class="email-kicker">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 7 13.03 12.7a2 2 0 0 1-2.06 0L2 7" />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg>
+                Send us an email
+              </span>
 
-            <h2 class="ce-title" id="ceTitle">
-              Your Campus<br><span class="ce-accent">Experience</span><br>Awaits
-            </h2>
+              <h2>Need help from OSAS?</h2>
+              <p>
+                Send your concern directly to the Office of Student Affairs and
+                Services. Share the important details so the team can review
+                your message and guide you to the right next step.
+              </p>
 
-            <p class="ce-lead" id="ceLead">
-              Discover scholarships, join organizations, lead campus initiatives,
-              and create memories that last a lifetime at ISPSC Tagudin.
-            </p>
-
-            <!-- Glassmorphism CTA card -->
-            <div class="ce-card" id="ceTiltCard">
-              <div class="ce-card-glow"></div>
-              <div class="ce-card-inner">
-                <div class="ce-card-stats">
-                  <div class="ce-stat">
-                    <div class="ce-stat-num">50+</div>
-                    <div class="ce-stat-lbl">Scholarships</div>
+              <div class="email-direct" aria-label="Direct contact details">
+                <div class="email-info-card">
+                  <div class="email-card-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 7 13.03 12.7a2 2 0 0 1-2.06 0L2 7" />
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                    </svg>
                   </div>
-                  <div class="ce-stat-divider"></div>
-                  <div class="ce-stat">
-                    <div class="ce-stat-num">20+</div>
-                    <div class="ce-stat-lbl">Organizations</div>
-                  </div>
-                  <div class="ce-stat-divider"></div>
-                  <div class="ce-stat">
-                    <div class="ce-stat-num">100%</div>
-                    <div class="ce-stat-lbl">Student-Driven</div>
+                  <div>
+                    <span>Email address</span>
+                    <a href="mailto:osas.tagudin@ispsc.edu.ph"
+                      >osas.tagudin@ispsc.edu.ph</a
+                    >
                   </div>
                 </div>
-                <div class="ce-card-actions">
-                  <a href="#contact" class="ce-btn-primary">
-                    Explore Opportunities
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                  </a>
-                  <a href="#services" class="ce-btn-ghost">View Services</a>
+                <div class="email-info-card">
+                  <div class="email-card-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M8 2v4" />
+                      <path d="M16 2v4" />
+                      <rect x="3" y="4" width="18" height="18" rx="2" />
+                      <path d="M3 10h18" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span>Office hours</span>
+                    <strong>Monday to Friday, 8:00 AM - 5:00 PM</strong>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div class="email-panel reveal reveal-right">
+              <div class="email-panel-head">
+                <div>
+                  <h3>Compose Message</h3>
+                  <p>Your message will be sent directly through EmailJS.</p>
+                </div>
+                <span class="email-status" id="emailStatus">Ready to send</span>
+              </div>
+
+              <form class="email-form" id="osasEmailForm">
+                <input type="hidden" id="emailTitle" name="title" />
+                <input type="hidden" id="emailTime" name="time" />
+                <div class="email-row">
+                  <div class="email-field">
+                    <label for="emailName">Full name</label>
+                    <input
+                      id="emailName"
+                      name="name"
+                      type="text"
+                      placeholder="Juan Dela Cruz"
+                      required
+                    />
+                  </div>
+                  <div class="email-field">
+                    <label for="emailAddress">Email address</label>
+                    <input
+                      id="emailAddress"
+                      name="email"
+                      type="email"
+                      placeholder="name@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="email-row">
+                  <div class="email-field">
+                    <label for="emailTopic">Concern type</label>
+                    <select id="emailTopic" name="topic" required>
+                      <option value="">Select a concern</option>
+                      <option>Scholarship inquiry</option>
+                      <option>Student organization</option>
+                      <option>Guidance and counseling</option>
+                      <option>Student activity</option>
+                      <option>General concern</option>
+                    </select>
+                  </div>
+                  <div class="email-field">
+                    <label for="emailSubject">Subject</label>
+                    <input
+                      id="emailSubject"
+                      name="subject"
+                      type="text"
+                      placeholder="How can OSAS help?"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="email-field">
+                  <label for="emailMessage">Message</label>
+                  <textarea
+                    id="emailMessage"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="email-actions">
+                  <p class="email-note">
+                    OSAS will receive your name, email, concern type, subject,
+                    and message.
+                  </p>
+                  <button class="email-submit" id="emailSubmit" type="submit">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 2-7 20-4-9-9-4Z" />
+                      <path d="M22 2 11 13" />
+                    </svg>
+                    Send Message
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -4727,7 +4909,7 @@
               </a>
               <p>
                 The Office of Student Affairs and Services of Ilocos Sur
-                Polytechnic State College — Tagudin Campus. Walking with every
+                Polytechnic State College â€” Tagudin Campus. Walking with every
                 Polytechnician toward growth, leadership, and success.
               </p>
               <div class="socials">
@@ -4791,7 +4973,7 @@
 
           <div class="footer-bottom">
             <div>
-              © <span id="year"></span> Ilocos Sur Polytechnic State College —
+              Â© <span id="year"></span> Ilocos Sur Polytechnic State College â€”
               Tagudin Campus. All rights reserved.
             </div>
             <div>
@@ -5049,7 +5231,7 @@
         </div>
         <div class="chat-title">
           <strong>OSAS Assistant</strong>
-          <small>Online · Ready to help</small>
+          <small>Online Â· Ready to help</small>
         </div>
         <button class="chat-close" id="chatClose" aria-label="Close chat">
           <svg
@@ -5081,7 +5263,7 @@
         <input
           type="text"
           id="chatInput"
-          placeholder="Ask about enrollment, fees, scholarships…"
+          placeholder="Ask about enrollment, fees, scholarshipsâ€¦"
           aria-label="Type your message"
         />
         <button class="chat-send" type="submit" aria-label="Send message">
@@ -5100,9 +5282,10 @@
       </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+      defer
+    ></script>
     <script>
       /* ============ WELCOME LANDING ============ */
       (function () {
@@ -5364,7 +5547,7 @@
         const input = document.getElementById("chatInput");
         const quick = document.getElementById("chatQuick");
 
-        // Knowledge base — keyword groups → response
+        // Knowledge base â€” keyword groups â†’ response
         const teamMembers = [
           {
             name: "Dennis T. Millare",
@@ -5479,7 +5662,7 @@
               "discount",
             ],
             reply:
-              "OSAS handles scholarship coordination — including government and private grants. Visit the OSAS office or email us to inquire about active programs and eligibility requirements.",
+              "OSAS handles scholarship coordination â€” including government and private grants. Visit the OSAS office or email us to inquire about active programs and eligibility requirements.",
           },
           {
             name: "osas-services",
@@ -5516,7 +5699,7 @@
               "amount due",
             ],
             reply:
-              "For payment inquiries and fee details, please visit the Cashier's Office during working hours (Mon–Fri, 8:00 AM – 5:00 PM).",
+              "For payment inquiries and fee details, please visit the Cashier's Office during working hours (Monâ€“Fri, 8:00 AM â€“ 5:00 PM).",
           },
           {
             name: "guidance",
@@ -5585,7 +5768,7 @@
             name: "thanks",
             keywords: ["thank", "thanks", "salamat", "appreciate"],
             reply:
-              "You're very welcome! If you have more questions, just ask — I'm here to help.",
+              "You're very welcome! If you have more questions, just ask â€” I'm here to help.",
           },
         ];
 
@@ -5666,7 +5849,7 @@
           if (!body.dataset.greeted) {
             body.dataset.greeted = "1";
             setTimeout(
-              () => addMessage("Hello! I'm the OSAS Assistant 👋", "bot"),
+              () => addMessage("Hello! I'm the OSAS Assistant ðŸ‘‹", "bot"),
               200,
             );
             setTimeout(
@@ -5715,7 +5898,7 @@
         });
       })();
 
-      // ── Event Modal ──────────────────────────────────────────────
+      // â”€â”€ Event Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // Event cards carousel
       (function () {
         const carousel = document.getElementById("eventCarousel");
@@ -5815,7 +5998,7 @@
           if (!smallScreen.matches) resume();
         });
 
-        // ── Drag ──────────────────────────────────────────────────
+        // â”€â”€ Drag â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         carousel.addEventListener("pointerdown", (e) => {
           if (e.pointerType === "mouse" && e.button !== 0) return;
           pointerDown = true;
@@ -5851,7 +6034,7 @@
           if (!pointerDown) return;
           pointerDown = false;
           // Latch justDragged so the synthetic click right after
-          // pointerup gets swallowed — but the NEXT click goes through
+          // pointerup gets swallowed â€” but the NEXT click goes through
           justDragged = dragged;
           dragged = false;
           carousel.classList.remove("is-dragging");
@@ -5872,7 +6055,7 @@
         carousel.addEventListener("pointerup", endDrag);
         carousel.addEventListener("pointercancel", endDrag);
 
-        // Capture-phase click guard — only blocks the one click that immediately
+        // Capture-phase click guard â€” only blocks the one click that immediately
         // follows a drag gesture, then resets so subsequent clicks work normally
         carousel.addEventListener(
           "click",
@@ -5901,19 +6084,29 @@
       (function () {
         const events = {
           2: {
-            tag: "Leadership",
-            title: "Student Leadership Summit",
-            desc: "An annual convergence bringing together student leaders across departments to learn, collaborate, and craft strategies that uplift the entire ISPSC Tagudin community. Workshops, panels, and team challenges await.",
+            tag: "Founding Anniversary",
+            title: "Foundation Anniversary",
+            desc: "A three-day celebration of institutional milestones, campus pride, and memorable OSAS moments.",
           },
           3: {
-            tag: "Sports",
-            title: "ISPSC Sports Fest",
-            desc: "A week-long multi-discipline competition where departments battle it out in basketball, volleyball, badminton, athletics, and more — all in the spirit of camaraderie, sportsmanship, and campus pride.",
+            tag: "KALAHI CIDSS",
+            title: "Cash For Work Program",
+            desc: "Student and community contributions documented through a community-driven Cash For Work Program gallery.",
           },
           4: {
-            tag: "Scholarship",
-            title: "Scholarship Orientation",
-            desc: "A semestral orientation session guiding students through available scholarships, CHED grants, Local Government Unit scholarships, and OSAS-managed financial aid programs. Bring your documents and questions!",
+            tag: "SSC Election",
+            title: "SSC Election 2026",
+            desc: "Student voting documentation for the Supreme Student Council Election at ISPSC Tagudin Campus.",
+          },
+          5: {
+            tag: "Graduation Mass",
+            title: "Graduating Mass",
+            desc: "A solemn and joyful celebration where faith, achievement, and gratitude converge for the Class of 2025.",
+          },
+          6: {
+            tag: "Graduation Day",
+            title: "Graduation Day",
+            desc: "A milestone gallery for TFCC and CANDON graduates as the Class of 2025 steps into its next chapter.",
           },
         };
 
@@ -5956,50 +6149,7 @@
         });
       })();
 
-      /* ============ TEAM CARDS — INTERACTIVE EFFECTS ============ */
-      (function () {
-        /* Mouse-follow spotlight */
-        document.querySelectorAll('.team-card').forEach(card => {
-          const spotlight = card.querySelector('.team-card-spotlight');
-          card.addEventListener('mousemove', e => {
-            const r = card.getBoundingClientRect();
-            const x = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
-            const y = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
-            if (spotlight) spotlight.style.background =
-              `radial-gradient(circle 200px at ${x}% ${y}%, rgba(247,201,72,.18), transparent 70%)`;
-          });
-          card.addEventListener('mouseleave', () => {
-            if (spotlight) spotlight.style.background =
-              'radial-gradient(circle 180px at 50% 50%, rgba(247,201,72,.12), transparent 70%)';
-          });
-        });
-
-        /* Scroll-reveal .visible for card text */
-        const cardIO = new IntersectionObserver(entries => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add('visible');
-              cardIO.unobserve(e.target);
-            }
-          });
-        }, { threshold: 0.25 });
-        document.querySelectorAll('.team-card').forEach(c => cardIO.observe(c));
-
-        /* Ripple on Contact Info buttons */
-        document.querySelectorAll('.team-contact-btn').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            const r = btn.getBoundingClientRect();
-            const rip = document.createElement('span');
-            rip.className = 'ripple';
-            const size = Math.max(r.width, r.height);
-            rip.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px`;
-            btn.appendChild(rip);
-            rip.addEventListener('animationend', () => rip.remove());
-          });
-        });
-      })();
-
-      /* ============ TEAM CONTACT MODAL ============ */
+      // Team contact modal
       (function () {
         const members = [
           {
@@ -6007,34 +6157,10 @@
             position: "Director of OSAS",
             photo: "dennis.jpg",
             contacts: [
-              {
-                type: "email",
-                label: "Email Address",
-                value: "millaredennis@ispsc.edu.ph",
-                href: "mailto:millaredennis@ispsc.edu.ph",
-                icon: "email",
-              },
-              {
-                type: "phone",
-                label: "Contact Number",
-                value: "+63 0917 853 5165",
-                href: "tel:+639170001111",
-                icon: "phone",
-              },
-              {
-                type: "facebook",
-                label: "Facebook",
-                value: "fb.com/Dhen Millare",
-                href: "https://www.facebook.com/millare.dennis",
-                icon: "facebook",
-              },
-              {
-                type: "instagram",
-                label: "Instagram",
-                value: "@Dhen Millare",
-                href: "https://instagram.com/Dhen",
-                icon: "instagram",
-              },
+              ["Email Address", "millaredennis@ispsc.edu.ph", "mailto:millaredennis@ispsc.edu.ph"],
+              ["Contact Number", "+63 0917 853 5165", "tel:+6309178535165"],
+              ["Facebook", "fb.com/Dhen Millare", "https://www.facebook.com/millare.dennis"],
+              ["Instagram", "@Dhen Millare", "https://instagram.com/Dhen"],
             ],
           },
           {
@@ -6042,34 +6168,10 @@
             position: "Coordinator of OSAS",
             photo: "j.v.png",
             contacts: [
-              {
-                type: "email",
-                label: "Email Address",
-                value: "jv.realizo@ispsc.edu.ph",
-                href: "mailto:jv.realizo@ispsc.edu.ph",
-                icon: "email",
-              },
-              {
-                type: "phone",
-                label: "Contact Number",
-                value: "+63 918 222 3333",
-                href: "tel:+639182223333",
-                icon: "phone",
-              },
-              {
-                type: "facebook",
-                label: "Facebook",
-                value: "fb.com/jv.realizo.official",
-                href: "https://www.facebook.com/JvRealizo",
-                icon: "facebook",
-              },
-              {
-                type: "instagram",
-                label: "Instagram",
-                value: "@jvrealizo",
-                href: "https://instagram.com/jvrealizo",
-                icon: "instagram",
-              },
+              ["Email Address", "jv.realizo@ispsc.edu.ph", "mailto:jv.realizo@ispsc.edu.ph"],
+              ["Contact Number", "+63 918 222 3333", "tel:+639182223333"],
+              ["Facebook", "fb.com/jv.realizo.official", "https://www.facebook.com/JvRealizo"],
+              ["Instagram", "@jvrealizo", "https://www.instagram.com/j.v.augustine/"],
             ],
           },
           {
@@ -6077,81 +6179,41 @@
             position: "Scholarship President",
             photo: "allan.jpg",
             contacts: [
-              {
-                type: "email",
-                label: "Email Address",
-                value: "ana.reyes@ispsc.edu.ph",
-                href: "mailto:ana.reyes@ispsc.edu.ph",
-                icon: "email",
-              },
-              {
-                type: "phone",
-                label: "Contact Number",
-                value: "+63 919 444 5555",
-                href: "tel:+639194445555",
-                icon: "phone",
-              },
-              {
-                type: "facebook",
-                label: "Facebook",
-                value: "fb.com/Allan Jay",
-                href: "https://www.facebook.com/eidzey",
-                icon: "facebook",
-              },
-              {
-                type: "instagram",
-                label: "Instagram",
-                value: "Allan Jay",
-                href: "https://instagram.com/anareyes.schol",
-                icon: "instagram",
-              },
+              ["Email Address", "ana.reyes@ispsc.edu.ph", "mailto:ana.reyes@ispsc.edu.ph"],
+              ["Contact Number", "+63 919 444 5555", "tel:+639194445555"],
+              ["Facebook", "fb.com/Allan Jay", "https://www.facebook.com/eidzey"],
+              ["Instagram", "Allan Jay", "https://instagram.com/anareyes.schol"],
             ],
           },
         ];
 
-        const iconSVG = {
-          email: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
-          phone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 2 4.11 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75 12 12 0 0 0 .57 2.57 1 1 0 0 1-.23 1L6.91 9.09a16 16 0 0 0 8 8l1.78-1.78a1 1 0 0 1 1-.23 12 12 0 0 0 2.57.57 1 1 0 0 1 .74 1z"/></svg>`,
-          facebook: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
-          instagram: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
-        };
-
-        const overlay    = document.getElementById("teamModal");
-        const backdrop   = document.getElementById("teamModalBackdrop");
-        const closeBtn   = document.getElementById("teamModalClose");
-        const heroImg    = document.getElementById("teamModalHeroImg");
-        const avatarImg  = document.getElementById("teamModalAvatarImg");
-        const nameEl     = document.getElementById("teamModalName");
-        const posEl      = document.getElementById("teamModalPosition");
+        const overlay = document.getElementById("teamModal");
+        const backdrop = document.getElementById("teamModalBackdrop");
+        const closeBtn = document.getElementById("teamModalClose");
+        const heroImg = document.getElementById("teamModalHeroImg");
+        const avatarImg = document.getElementById("teamModalAvatarImg");
+        const nameEl = document.getElementById("teamModalName");
+        const posEl = document.getElementById("teamModalPosition");
         const contactsEl = document.getElementById("teamModalContacts");
+        if (!overlay) return;
 
         function openTeamModal(idx) {
-          const m = members[idx];
-          if (!m) return;
-
-          heroImg.src   = m.photo;
-          heroImg.alt   = m.name;
-          avatarImg.src = m.photo;
-          avatarImg.alt = m.name;
-          nameEl.textContent = m.name;
-          posEl.textContent  = m.position;
-
-          contactsEl.innerHTML = m.contacts.map((c) => {
-            const isLink = c.href;
-            const tag = isLink ? "a" : "div";
-            const attrs = isLink
-              ? `href="${c.href}" target="${c.type === "facebook" || c.type === "instagram" ? "_blank" : "_self"}" rel="noopener noreferrer"`
-              : "";
-            return `
-              <${tag} class="team-modal-row" ${attrs}>
-                <div class="team-modal-row-icon ic-${c.icon}">${iconSVG[c.icon]}</div>
-                <div>
-                  <div class="team-modal-row-label">${c.label}</div>
-                  <div class="team-modal-row-value">${c.value}</div>
-                </div>
-              </${tag}>`;
-          }).join("");
-
+          const member = members[idx];
+          if (!member) return;
+          heroImg.src = member.photo;
+          heroImg.alt = member.name;
+          avatarImg.src = member.photo;
+          avatarImg.alt = member.name;
+          nameEl.textContent = member.name;
+          posEl.textContent = member.position;
+          contactsEl.innerHTML = member.contacts.map(([label, value, href]) => `
+            <a class="team-modal-row" href="${href}" target="${href.startsWith("http") ? "_blank" : "_self"}" rel="noopener noreferrer">
+              <div>
+                <div class="team-modal-row-label">${label}</div>
+                <div class="team-modal-row-value">${value}</div>
+              </div>
+            </a>
+          `).join("");
           overlay.classList.add("open");
           document.body.style.overflow = "hidden";
           closeBtn.focus();
@@ -6165,16 +6227,16 @@
         document.querySelectorAll(".team-contact-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
-            openTeamModal(+btn.dataset.member);
+            openTeamModal(Number(btn.dataset.member));
           });
         });
 
         document.querySelectorAll(".team-card").forEach((card) => {
-          card.addEventListener("click", () => openTeamModal(+card.dataset.member));
+          card.addEventListener("click", () => openTeamModal(Number(card.dataset.member)));
           card.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              openTeamModal(+card.dataset.member);
+              openTeamModal(Number(card.dataset.member));
             }
           });
         });
@@ -6186,197 +6248,73 @@
         });
       })();
 
-      /* ============ CAMPUS EXPERIENCE — CINEMATIC CTA ============ */
+      /* ============ EMAIL FORM ============ */
       (function () {
-        const section = document.querySelector(".campus-exp");
-        if (!section) return;
+        const emailJsConfig = {
+          publicKey: "BVw0LsdKrq74EOCyi",
+          serviceId: "service_msmlbtq",
+          templateId: "template_6xmvivj",
+        };
+        const form = document.getElementById("osasEmailForm");
+        const status = document.getElementById("emailStatus");
+        const submit = document.getElementById("emailSubmit");
+        const titleInput = document.getElementById("emailTitle");
+        const timeInput = document.getElementById("emailTime");
+        if (!form) return;
 
-        /* ── Mouse spotlight ── */
-        const spotlight = document.getElementById("ceSpotlight");
-        if (spotlight) {
-          section.addEventListener("mousemove", (e) => {
-            const r = section.getBoundingClientRect();
-            spotlight.style.left = (e.clientX - r.left) + "px";
-            spotlight.style.top  = (e.clientY - r.top)  + "px";
-          });
-          section.addEventListener("mouseleave", () => {
-            spotlight.style.left = "50%";
-            spotlight.style.top  = "50%";
-          });
+        function setStatus(message, state) {
+          if (!status) return;
+          status.textContent = message;
+          status.className = `email-status ${state || ""}`.trim();
         }
 
-        /* ── Hover tilt on glassmorphism card ── */
-        const card = document.getElementById("ceTiltCard");
-        if (card) {
-          let tiltActive = false;
-          card.addEventListener("mousemove", (e) => {
-            const r  = card.getBoundingClientRect();
-            const cx = r.left + r.width  / 2;
-            const cy = r.top  + r.height / 2;
-            const dx = (e.clientX - cx) / (r.width  / 2);
-            const dy = (e.clientY - cy) / (r.height / 2);
-            const rx =  dy * -9;
-            const ry =  dx *  9;
-            tiltActive = true;
-            card.style.transition = "transform 120ms ease, box-shadow 400ms ease";
-            card.style.transform  =
-              `perspective(960px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.018)`;
-          });
-          card.addEventListener("mouseleave", () => {
-            tiltActive = false;
-            card.style.transition = "transform 650ms cubic-bezier(0.16,1,0.3,1), box-shadow 400ms ease";
-            card.style.transform  = "perspective(960px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)";
-          });
+        function hasEmailJsConfig() {
+          return Object.values(emailJsConfig).every(
+            (value) => value && !value.startsWith("YOUR_EMAILJS_"),
+          );
         }
 
-        /* ── Three.js floating particle field ── */
-        const canvas = document.getElementById("ceCanvas");
-        function initThree() {
-          if (!canvas || typeof THREE === "undefined") return;
-          const W = section.offsetWidth;
-          const H = section.offsetHeight;
-          const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-          renderer.setSize(W, H);
-          renderer.setClearColor(0x000000, 0);
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (!form.reportValidity()) return;
 
-          const scene  = new THREE.Scene();
-          const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 200);
-          camera.position.z = 32;
-
-          const COUNT = window.innerWidth < 600 ? 120 : 280;
-          const pos   = new Float32Array(COUNT * 3);
-          for (let i = 0; i < COUNT; i++) {
-            pos[i * 3]     = (Math.random() - 0.5) * 90;
-            pos[i * 3 + 1] = (Math.random() - 0.5) * 55;
-            pos[i * 3 + 2] = (Math.random() - 0.5) * 45;
-          }
-          const geo = new THREE.BufferGeometry();
-          geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-
-          const mat = new THREE.PointsMaterial({
-            color: 0xf7c948, size: 0.32,
-            transparent: true, opacity: 0.52,
-            sizeAttenuation: true, depthWrite: false,
-          });
-          const pts = new THREE.Points(geo, mat);
-          scene.add(pts);
-
-          let mx = 0, my = 0, tx = 0, ty = 0;
-          section.addEventListener("mousemove", (e) => {
-            const r = section.getBoundingClientRect();
-            mx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
-            my = ((e.clientY - r.top)  / r.height - 0.5) * 2;
-          });
-
-          (function tick() {
-            requestAnimationFrame(tick);
-            const t = Date.now() * 0.00035;
-            pts.rotation.y = t * 0.28;
-            pts.rotation.x = t * 0.14;
-            tx += (mx * 0.9 - tx) * 0.04;
-            ty += (my * 0.6 - ty) * 0.04;
-            camera.position.x += (tx - camera.position.x) * 0.05;
-            camera.position.y += (-ty - camera.position.y) * 0.05;
-            camera.lookAt(scene.position);
-            renderer.render(scene, camera);
-          })();
-
-          window.addEventListener("resize", () => {
-            const W2 = section.offsetWidth, H2 = section.offsetHeight;
-            renderer.setSize(W2, H2);
-            camera.aspect = W2 / H2;
-            camera.updateProjectionMatrix();
-          });
-        }
-
-        /* Three.js loads async (defer), so wait for it */
-        if (typeof THREE !== "undefined") {
-          initThree();
-        } else {
-          window.addEventListener("load", initThree, { once: true });
-        }
-
-        /* ── GSAP + ScrollTrigger reveals & parallax ── */
-        function initGSAP() {
-          if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
-          gsap.registerPlugin(ScrollTrigger);
-
-          /* Parallax background image */
-          const bg = document.getElementById("ceBg");
-          if (bg) {
-            gsap.fromTo(bg, { scale: 1.22 }, {
-              scale: 1.06,
-              ease: "power1.inOut",
-              scrollTrigger: {
-                trigger: section, start: "top 95%", end: "center center", scrub: 2,
-              },
-            });
-            gsap.to(bg, {
-              yPercent: 14, ease: "none",
-              scrollTrigger: {
-                trigger: section, start: "top bottom", end: "bottom top", scrub: 1.8,
-              },
-            });
+          if (!window.emailjs || !hasEmailJsConfig()) {
+            setStatus("Add EmailJS keys first", "error");
+            return;
           }
 
-          const st = { trigger: section, start: "top 72%" };
+          submit.disabled = true;
+          setStatus("Sending...", "sending");
 
-          /* Staggered text reveals */
-          const eyebrow = section.querySelector(".ce-eyebrow");
-          if (eyebrow) gsap.to(eyebrow, {
-            opacity: 1, y: 0, duration: 0.95, ease: "power3.out", scrollTrigger: st,
-          });
+          try {
+            const data = new FormData(form);
+            if (titleInput) {
+              titleInput.value = data.get("subject").toString().trim();
+            }
+            if (timeInput) {
+              timeInput.value = new Date().toLocaleString("en-PH", {
+                dateStyle: "medium",
+                timeStyle: "short",
+              });
+            }
 
-          const title = section.querySelector(".ce-title");
-          if (title) gsap.to(title, {
-            opacity: 1, y: 0, duration: 1.15, ease: "power3.out", scrollTrigger: st, delay: 0.14,
-          });
-
-          const lead = section.querySelector(".ce-lead");
-          if (lead) gsap.to(lead, {
-            opacity: 1, y: 0, duration: 1.05, ease: "power3.out", scrollTrigger: st, delay: 0.28,
-          });
-
-          const ceCard = section.querySelector(".ce-card");
-          if (ceCard) gsap.to(ceCard, {
-            opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: st, delay: 0.42,
-          });
-
-          /* Tags stagger */
-          const tags = section.querySelectorAll(".ce-tag");
-          tags.forEach((tag, i) => {
-            gsap.fromTo(tag,
-              { opacity: 0, scale: 0.75, y: 20 },
-              { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: "back.out(1.8)",
-                scrollTrigger: st, delay: 0.55 + i * 0.1 }
+            await emailjs.sendForm(
+              emailJsConfig.serviceId,
+              emailJsConfig.templateId,
+              form,
+              { publicKey: emailJsConfig.publicKey },
             );
-          });
-
-          /* Stats counter animation */
-          section.querySelectorAll(".ce-stat-num").forEach((el) => {
-            const target = parseFloat(el.textContent);
-            if (isNaN(target)) return;
-            const suffix = el.textContent.replace(/[\d.]/g, "");
-            const obj    = { val: 0 };
-            gsap.to(obj, {
-              val: target, duration: 1.8, ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 85%" },
-              onUpdate() {
-                el.textContent = (Number.isInteger(target)
-                  ? Math.round(obj.val)
-                  : obj.val.toFixed(0)) + suffix;
-              },
-            });
-          });
-        }
-
-        if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-          initGSAP();
-        } else {
-          window.addEventListener("load", initGSAP, { once: true });
-        }
+            form.reset();
+            setStatus("Message sent", "sent");
+          } catch (error) {
+            console.error("EmailJS send failed:", error);
+            setStatus("Send failed. Try again", "error");
+          } finally {
+            submit.disabled = false;
+          }
+        });
       })();
     </script>
   </body>
 </html>
+
