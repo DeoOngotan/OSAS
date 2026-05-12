@@ -796,7 +796,7 @@
         color: var(--ink-500);
       }
 
-      /* ============ CONTACT / TEAM SHOWCASE â€” CINEMATIC ============ */
+      /* ============ CONTACT / TEAM SHOWCASE CINEMATIC ============ */
       .contact {
         background-image: url("ispscbg.jpg");
         background-size: cover;
@@ -825,7 +825,7 @@
           0 8px 20px rgba(0, 0, 0, 0.65);
       }
 
-      /* â”€â”€ Animated ambient orbs â”€â”€ */
+      /*  Animated ambient orbs  */
       .contact-orbs {
         position: absolute;
         inset: 0;
@@ -886,7 +886,7 @@
         }
       }
 
-      /* â”€â”€ Ambient light streaks â”€â”€ */
+      /*  Ambient light streaks  */
       .contact-streaks {
         position: absolute;
         inset: 0;
@@ -943,7 +943,7 @@
         }
       }
 
-      /* â”€â”€ Floating particles â”€â”€ */
+      /*  Floating particles  */
       .contact-particles {
         position: absolute;
         inset: 0;
@@ -1027,7 +1027,7 @@
         }
       }
 
-      /* â”€â”€ Team grid â”€â”€ */
+      /*  Team grid  */
       .team-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1036,7 +1036,7 @@
         z-index: 2;
       }
 
-      /* â”€â”€ Card wrapper â€” animated gradient border â”€â”€ */
+      /*  Card wrapper animated gradient border  */
       .team-card-wrap {
         position: relative;
         border-radius: 26px;
@@ -1074,7 +1074,7 @@
         }
       }
 
-      /* â”€â”€ Card â”€â”€ */
+      /*  Card  */
       .team-card {
         position: relative;
         border-radius: 24px;
@@ -1094,7 +1094,7 @@
           0 0 40px rgba(240, 180, 41, 0.18);
       }
 
-      /* â”€â”€ Image area â€” full card height â”€â”€ */
+      /*  Image area full card height  */
       .team-card-img {
         position: relative;
         height: 420px;
@@ -1176,7 +1176,7 @@
         left: 140%;
       }
 
-      /* Text overlay â€” name + position directly on image */
+      /* Text overlay name + position directly on image */
       .team-card-text {
         position: absolute;
         bottom: 0;
@@ -1244,7 +1244,7 @@
         text-align: center;
       }
 
-      /* Contact Info button â€” magnetic style */
+      /* Contact Info button magnetic style */
       .team-contact-btn {
         display: inline-flex;
         align-items: center;
@@ -1320,7 +1320,7 @@
         }
       }
 
-      /* ============ TEAM MODAL â€” GLASSMORPHISM DARK ============ */
+      /* ============ TEAM MODAL GLASSMORPHISM DARK ============ */
       .team-modal-overlay {
         position: fixed;
         inset: 0;
@@ -1629,7 +1629,7 @@
         word-break: break-all;
       }
 
-      /* â”€â”€ Responsive â”€â”€ */
+      /*  Responsive  */
       @media (max-width: 860px) {
         .team-grid {
           grid-template-columns: 1fr 1fr;
@@ -2782,6 +2782,121 @@
         font-weight: 600;
         border-bottom-right-radius: 6px;
       }
+
+      /* ============ DEO ONGOTAN CARD DESIGN ============ */
+      .msg.bot.deo-card {
+        max-width: 100% !important;
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+        color: var(--white) !important;
+        border: 2px solid #2563eb !important;
+        border-bottom-left-radius: 6px !important;
+        padding: 0 !important;
+        box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3), 0 4px 12px rgba(15, 23, 42, 0.4) !important;
+        overflow: visible !important;
+        position: relative !important;
+        display: block !important;
+        white-space: normal !important;
+        animation: msg-in 320ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+      }
+
+      .deo-card-header {
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.15) 100%);
+        border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .deo-card-avatar {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .deo-card-name {
+        font-size: 18px;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -0.5px;
+        color: white;
+      }
+
+      .deo-card-role {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        margin: 4px 0 0 0;
+      }
+
+      .deo-card-content {
+        padding: 20px;
+      }
+
+      .deo-card-item {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.25);
+      }
+
+      .deo-card-item:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .deo-card-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #93c5fd;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .deo-card-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.95);
+        word-break: break-word;
+      }
+
+      .deo-card-link {
+        color: #60a5fa !important;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 220ms ease;
+        padding: 4px 8px;
+        border-radius: 6px;
+        display: inline-block;
+      }
+
+      .deo-card-link:hover {
+        color: #93c5fd !important;
+        background: rgba(59, 130, 246, 0.2) !important;
+      }
+
+      .deo-card-footer {
+        padding: 14px 20px;
+        background: rgba(59, 130, 246, 0.12);
+        border-top: 1px solid rgba(59, 130, 246, 0.25);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 600;
+        text-align: center;
+      }
+
       @keyframes msg-in {
         from {
           opacity: 0;
@@ -3138,13 +3253,13 @@
         display: grid;
         place-items: center;
         cursor: pointer;
+        perspective: 900px;
         touch-action: manipulation;
         user-select: none;
         -webkit-user-select: none;
         -webkit-user-drag: none;
       }
-      .welcome-media img,
-      .welcome-media video {
+      .welcome-media img {
         grid-area: 1 / 1;
         width: 100%;
         max-width: 320px;
@@ -3152,37 +3267,40 @@
         filter: none;
         animation: none;
         transition:
-          opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
           transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
-        will-change: opacity, transform;
+        transform-style: preserve-3d;
+        backface-visibility: visible;
+        will-change: transform;
         -webkit-user-drag: none;
       }
-      .welcome-media video {
-        opacity: 0;
-        pointer-events: none;
-        transform: scale(0.985);
-      }
-      .welcome-media.is-playing .welcome-photo {
-        opacity: 0;
-        transform: scale(1.025);
-      }
-      .welcome-media.is-playing .welcome-video {
-        opacity: 1;
-        transform: scale(1);
-      }
       @media (hover: hover) and (pointer: fine) {
-        .welcome-media:hover .welcome-photo {
-          opacity: 0;
-          transform: scale(1.025);
+        .welcome-image.left .welcome-media:hover .welcome-photo {
+          animation: welcome-flip-right-to-left 900ms linear infinite;
         }
-        .welcome-media:hover .welcome-video {
-          opacity: 1;
-          transform: scale(1);
+        .welcome-image.right .welcome-media:hover .welcome-photo {
+          animation: welcome-flip-left-to-right 900ms linear infinite;
         }
       }
-      .welcome-image.right img,
       .welcome-image.right .welcome-media {
         animation-delay: 1.2s;
+      }
+
+      @keyframes welcome-flip-right-to-left {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(-360deg);
+        }
+      }
+
+      @keyframes welcome-flip-left-to-right {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(360deg);
+        }
       }
 
       @keyframes floaty-welcome {
@@ -3422,8 +3540,7 @@
         }
         .welcome-image img,
         .welcome-media,
-        .welcome-media img,
-        .welcome-media video {
+        .welcome-media img {
           max-width: min(180px, 42vw);
         }
         .scroll-hint {
@@ -3457,8 +3574,7 @@
         }
         .welcome-image img,
         .welcome-media,
-        .welcome-media img,
-        .welcome-media video {
+        .welcome-media img {
           max-width: min(142px, 43vw);
         }
       }
@@ -3603,8 +3719,7 @@
         }
         .welcome-image img,
         .welcome-media,
-        .welcome-media img,
-        .welcome-media video {
+        .welcome-media img {
           max-width: min(118px, 40vw);
         }
         .scroll-hint {
@@ -3627,7 +3742,7 @@
         }
       }
 
-      /* â”€â”€â”€ EVENTS SECTION â”€â”€â”€ */
+      /*” EVENTS SECTION” */
       .events {
         background: var(--paper);
       }
@@ -4168,28 +4283,19 @@
           <div
             class="welcome-media"
             id="jvDanceMedia"
-            aria-label="Hold or hover to play J.V. dancing video"
+            aria-label="Hover to flip student photo"
           >
             <img
               class="welcome-photo"
-              src="j.v.png"
+              src="2.png"
               alt="Smiling ISPSC student"
             />
-            <video
-              class="welcome-video"
-              src="j.v_vid.mp4"
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              aria-hidden="true"
-            ></video>
           </div>
         </div>
 
         <div class="welcome-content">
           <span class="welcome-eyebrow"
-            ><span class="dot"></span> ISPSC Tagudin Â· OSAS</span
+            ><span class="dot"></span> ISPSC Tagudin OSAS</span
           >
           <h1>Welcome, <span class="accent">ISPSC Students!</span></h1>
           <div class="sub">Your journey starts here.</div>
@@ -4216,22 +4322,13 @@
           <div
             class="welcome-media"
             id="allanDanceMedia"
-            aria-label="Hold or hover to play Allan dancing video"
+            aria-label="Hover to flip student photo"
           >
             <img
               class="welcome-photo"
-              src="allan.png"
+              src="1.png"
               alt="Smiling ISPSC student"
             />
-            <video
-              class="welcome-video"
-              src="allan_vid.mp4"
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              aria-hidden="true"
-            ></video>
           </div>
         </div>
       </div>
@@ -4293,11 +4390,11 @@
             </h1>
             <p class="lead reveal reveal-delay-2">
               The Office of Student Affairs and Services exists to nurture the
-              holistic development of every student â€” through guidance,
+              holistic development of every student through guidance,
               programs, and a community that genuinely cares.
             </p>
             <p class="hero-meta reveal reveal-delay-3">
-              Ilocos Sur Polytechnic State College â€” Tagudin Campus
+              Ilocos Sur Polytechnic State College - Tagudin Campus
             </p>
             <div class="hero-actions reveal reveal-delay-4">
               <a href="#contact" class="btn btn-primary">
@@ -4351,7 +4448,7 @@
               </div>
               <div>
                 <div class="label">Open Today</div>
-                <div class="val">8:00 AM â€“ 5:00 PM</div>
+                <div class="val">8:00 AM to 5:00 PM</div>
               </div>
             </div>
             <div class="crest">
@@ -4410,7 +4507,7 @@
               </h2>
               <p class="reveal reveal-delay-2">
                 The Office of Student Affairs and Services (OSAS) is committed
-                to the holistic development of every Polytechnician â€”
+                to the holistic development of every Polytechnician
                 academically, socially, and personally. We design programs and
                 services that respond to real student needs, while creating a
                 campus culture that is inclusive, safe, and inspiring.
@@ -4491,10 +4588,10 @@
             <div class="about-visual reveal reveal-delay-2">
               <div class="about-quote">
                 <p>
-                  "Our work is simple â€” make sure every student feels seen,
+                  "Our work is simple” make sure every student feels seen,
                   supported, and set up to succeed."
                 </p>
-                <div class="who">â€” OSAS Tagudin Campus</div>
+                <div class="who">OSAS Tagudin Campus</div>
               </div>
             </div>
           </div>
@@ -4723,14 +4820,14 @@
             <span class="section-eyebrow reveal">Student Life</span>
             <h2 class="reveal reveal-delay-1">Events &amp; Activities</h2>
             <p class="reveal reveal-delay-2">
-              Celebrations, leadership, and milestones â€” where every student
+              Celebrations, leadership, and milestones where every student
               gets to shine.
             </p>
           </div>
 
           <div class="event-carousel" id="eventCarousel">
             <div class="event-grid" id="eventTrack">
-              <!-- CARD 1: Pammadayaw â€” links to activity1.html -->
+              <!-- CARD 1: Pammadayaw links to activity1.html -->
               <a
                 class="event-card theme-pammadayaw reveal"
                 href="activity1.html"
@@ -5015,7 +5112,7 @@
           </div>
 
           <div class="team-grid">
-            <!-- Card 1 â€” Director -->
+            <!-- Card 1 Director -->
             <div class="team-card-wrap reveal reveal-zoom reveal-delay-1">
               <div
                 class="team-card"
@@ -5061,7 +5158,7 @@
               </div>
             </div>
 
-            <!-- Card 2 â€” Coordinator -->
+            <!-- Card 2 Coordinator -->
             <div class="team-card-wrap reveal reveal-zoom reveal-delay-2">
               <div
                 class="team-card"
@@ -5072,7 +5169,7 @@
               >
                 <div class="team-card-img">
                   <img
-                    src="j.v.png"
+                    src="1.png"
                     alt="J.V. Augustine D. Realizo"
                     loading="lazy"
                   />
@@ -5109,7 +5206,7 @@
               </div>
             </div>
 
-            <!-- Card 3 â€” Scholarship President -->
+            <!-- Card 3 Scholarship President -->
             <div class="team-card-wrap reveal reveal-zoom reveal-delay-3">
               <div
                 class="team-card"
@@ -5120,7 +5217,7 @@
               >
                 <div class="team-card-img">
                   <img
-                    src="allan.jpg"
+                    src="2.png"
                     alt="Allan Jay Lardizabal"
                     loading="lazy"
                   />
@@ -5160,7 +5257,7 @@
         </div>
       </section>
 
-      <!-- â•â•â• TEAM CONTACT MODAL â•â•â• -->
+      <!--•â•â• TEAM CONTACT MODAL•â•â• -->
       <div
         class="team-modal-overlay"
         id="teamModal"
@@ -5215,7 +5312,7 @@
             <span class="section-eyebrow reveal">Visit us</span>
             <h2 class="reveal reveal-delay-1">Find the office, anytime.</h2>
             <p class="reveal reveal-delay-2">
-              Drop by during office hours â€” we always welcome students at the
+              Drop by during office hours we always welcome students at the
               OSAS office.
             </p>
           </div>
@@ -5237,23 +5334,23 @@
               <div class="hours-list">
                 <div class="hours-row">
                   <span class="day">Monday</span
-                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
+                  ><span class="time">8:00 AM“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Tuesday</span
-                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
+                  ><span class="time">8:00 AM“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Wednesday</span
-                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
+                  ><span class="time">8:00 AM“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Thursday</span
-                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
+                  ><span class="time">8:00 AM“ 5:00 PM</span>
                 </div>
                 <div class="hours-row">
                   <span class="day">Friday</span
-                  ><span class="time">8:00 AM â€“ 5:00 PM</span>
+                  ><span class="time">8:00 AM“ 5:00 PM</span>
                 </div>
                 <div class="hours-row closed">
                   <span class="day">Saturday &amp; Sunday</span
@@ -5310,8 +5407,8 @@
                   </div>
                   <div>
                     <span>Email address</span>
-                    <a href="mailto:osas.tagudin@ispsc.edu.ph"
-                      >osas.tagudin@ispsc.edu.ph</a
+                    <a href="mailto:millaredennis@ispsc.edu.ph"
+                      >millaredennis@ispsc.edu.ph</a
                     >
                   </div>
                 </div>
@@ -5453,7 +5550,7 @@
               </a>
               <p>
                 The Office of Student Affairs and Services of Ilocos Sur
-                Polytechnic State College â€” Tagudin Campus. Walking with every
+                Polytechnic State College Tagudin Campus. Walking with every
                 Polytechnician toward growth, leadership, and success.
               </p>
               <div class="socials">
@@ -5495,30 +5592,22 @@
               <a href="#contact">Contact</a>
               <a href="#location">Location</a>
             </div>
-
-            <div class="footer-col">
-              <h5>Resources</h5>
-              <a href="#">Student Handbook</a>
-              <a href="#">Scholarship Portal</a>
-              <a href="#">Forms &amp; Downloads</a>
-              <a href="#">Announcements</a>
-            </div>
+    
 
             <div class="footer-col">
               <h5>Reach Us</h5>
-              <a href="mailto:osas.tagudin@ispsc.edu.ph"
-                >osas.tagudin@ispsc.edu.ph</a
+              <a href="mailto:millaredennis@ispsc.edu.ph"
+                >millaredennis@ispsc.edu.ph</a
               >
-              <a href="tel:+639171234567">+63 917 123 4567</a>
-              <a href="#location">OSAS Building, 2F</a>
+              <a href="tel:+639452888442">+63 945 288 8442</a>
               <a href="#location">Tagudin, Ilocos Sur</a>
             </div>
           </div>
 
           <div class="footer-bottom">
             <div>
-              Â© <span id="year"></span> Ilocos Sur Polytechnic State College
-              â€” Tagudin Campus. All rights reserved.
+              <span id="year"></span> Ilocos Sur Polytechnic State College
+              Tagudin Campus. All rights reserved.
             </div>
             <div>
               Designed with care for every Polytechnician. Developed by
@@ -5673,11 +5762,10 @@
           </a>
 
           <a
-            href="#"
+            href="https://web.facebook.com/profile.php?id=61588929008474&_rdc=1&_rdr#"
             class="fb-link-card"
-            data-placeholder-link
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <span class="fb-link-icon">
               <svg
@@ -5777,7 +5865,7 @@
         </div>
         <div class="chat-title">
           <strong>OSAS Assistant</strong>
-          <small>Online Â· Ready to help</small>
+          <small>Online· Ready to help</small>
         </div>
         <button class="chat-close" id="chatClose" aria-label="Close chat">
           <svg
@@ -5809,7 +5897,7 @@
         <input
           type="text"
           id="chatInput"
-          placeholder="Ask about enrollment, fees, scholarshipsâ€¦"
+          placeholder="Ask about enrollment, fees, scholarshipsâ¦"
           aria-label="Type your message"
         />
         <button class="chat-send" type="submit" aria-label="Send message">
@@ -5931,56 +6019,7 @@
         window.addEventListener("touchmove", onTouchMove, { passive: false });
 
         document.querySelectorAll(".welcome-media").forEach((media) => {
-          const video = media.querySelector("video");
-          if (!video) return;
-
-          let pressTimer = null;
-          let pressPoint = null;
-
-          function playVideo() {
-            media.classList.add("is-playing");
-            const playAttempt = video.play();
-            if (playAttempt)
-              playAttempt.catch(() => media.classList.remove("is-playing"));
-          }
-
-          function stopVideo() {
-            media.classList.remove("is-playing");
-            video.pause();
-            video.currentTime = 0;
-          }
-
-          function clearPressTimer() {
-            if (!pressTimer) return;
-            clearTimeout(pressTimer);
-            pressTimer = null;
-          }
-
           media.addEventListener("contextmenu", (e) => e.preventDefault());
-          media.addEventListener("mouseenter", playVideo);
-          media.addEventListener("mouseleave", stopVideo);
-          media.addEventListener("pointerdown", (e) => {
-            if (e.pointerType !== "touch") return;
-            pressPoint = { x: e.clientX, y: e.clientY };
-            clearPressTimer();
-            pressTimer = setTimeout(playVideo, 260);
-          });
-          media.addEventListener("pointermove", (e) => {
-            if (!pressPoint || e.pointerType !== "touch") return;
-            const moved = Math.hypot(
-              e.clientX - pressPoint.x,
-              e.clientY - pressPoint.y,
-            );
-            if (moved > 12) clearPressTimer();
-          });
-          ["pointerup", "pointercancel", "pointerleave"].forEach((type) => {
-            media.addEventListener(type, (e) => {
-              if (e.pointerType !== "touch") return;
-              clearPressTimer();
-              pressPoint = null;
-              stopVideo();
-            });
-          });
         });
       })();
 
@@ -6093,7 +6132,7 @@
         const input = document.getElementById("chatInput");
         const quick = document.getElementById("chatQuick");
 
-        // Knowledge base â€” keyword groups â†’ response
+        // Knowledge base keyword groups†’ response
         const teamMembers = [
           {
             name: "Dennis T. Millare",
@@ -6140,9 +6179,58 @@
               href: "https://instagram.com/anareyes.schol",
             },
           },
+          {
+            name: "Deo Ongotan",
+            role: "Web Developer",
+            keywords: ["deo", "ongotan", "developer"],
+            email: "deeongotan@gmail.com",
+            phone: "+63 946 0133 217",
+            portfolio: "https://portfolio-deo.vercel.app/",
+            facebook: {
+              label: "fb.com/deo.ongotan.2025",
+              href: "https://web.facebook.com/deo.ongotan.2025/",
+            },
+            instagram: {
+              label: "@deoongotan",
+              href: "https://www.instagram.com/kazuma_0.1/",
+            },
+          },
         ];
 
         function formatTeamMember(member) {
+          // Special design for Deo Ongotan
+          if (member.name === "Deo Ongotan") {
+            return {
+              html:
+                `<div class="deo-card-header">` +
+                `<div class="deo-card-avatar">👨‍💻</div>` +
+                `<div><div class="deo-card-name">${member.name}</div>` +
+                `<div class="deo-card-role">${member.role}</div></div>` +
+                `</div>` +
+                `<div class="deo-card-content">` +
+                `<div class="deo-card-item">` +
+                `<div class="deo-card-label">📧 Email</div>` +
+                `<div class="deo-card-value">${member.email}</div>` +
+                `</div>` +
+                `<div class="deo-card-item">` +
+                `<div class="deo-card-label">📱 Phone</div>` +
+                `<div class="deo-card-value">${member.phone}</div>` +
+                `</div>` +
+                `<div class="deo-card-item">` +
+                `<div class="deo-card-label">🌐 Portfolio</div>` +
+                `<div class="deo-card-value"><a class="deo-card-link" href="${member.portfolio}" target="_blank">View Portfolio</a></div>` +
+                `</div>` +
+                `<div class="deo-card-item">` +
+                `<div class="deo-card-label">👥 Facebook</div>` +
+                `<div class="deo-card-value"><a class="deo-card-link" href="${member.facebook.href}" target="_blank">Visit Facebook</a></div>` +
+                `</div>` +
+                `</div>` +
+                `<div class="deo-card-footer">✨ Web Developer at OSAS</div>`,
+              isDeoCard: true,
+            };
+          }
+          
+          // Regular format for other team members
           return {
             html:
               `${member.name} is the ${member.role}.<br>` +
@@ -6208,7 +6296,7 @@
               "discount",
             ],
             reply:
-              "OSAS handles scholarship coordination â€” including government and private grants. Visit the OSAS office or email us to inquire about active programs and eligibility requirements.",
+              "OSAS handles scholarship coordination including government and private grants. Visit the OSAS office or email us to inquire about active programs and eligibility requirements.",
           },
           {
             name: "osas-services",
@@ -6245,7 +6333,7 @@
               "amount due",
             ],
             reply:
-              "For payment inquiries and fee details, please visit the Cashier's Office during working hours (Monâ€“Fri, 8:00 AM â€“ 5:00 PM).",
+              "For payment inquiries and fee details, please visit the Cashier's Office during working hours (Monâ“Fri, 8:00 AM“ 5:00 PM).",
           },
           {
             name: "guidance",
@@ -6314,7 +6402,7 @@
             name: "thanks",
             keywords: ["thank", "thanks", "salamat", "appreciate"],
             reply:
-              "You're very welcome! If you have more questions, just ask â€” I'm here to help.",
+              "You're very welcome! If you have more questions, just ask I'm here to help.",
           },
         ];
 
@@ -6362,6 +6450,9 @@
           el.className = "msg " + who;
           if (message && typeof message === "object" && message.html) {
             el.innerHTML = message.html;
+            if (message.isDeoCard) {
+              el.classList.add("deo-card");
+            }
           } else {
             el.textContent = message;
           }
@@ -6395,7 +6486,7 @@
           if (!body.dataset.greeted) {
             body.dataset.greeted = "1";
             setTimeout(
-              () => addMessage("Hello! I'm the OSAS Assistant ðŸ‘‹", "bot"),
+              () => addMessage("Hello! I'm the OSAS Assistant", "bot"),
               200,
             );
             setTimeout(
@@ -6444,7 +6535,7 @@
         });
       })();
 
-      // â”€â”€ Event Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+      
       // Event cards carousel
       (function () {
         const carousel = document.getElementById("eventCarousel");
@@ -6544,7 +6635,7 @@
           if (!smallScreen.matches) resume();
         });
 
-        // â”€â”€ Drag â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        //  Drag 
         carousel.addEventListener("pointerdown", (e) => {
           if (e.pointerType === "mouse" && e.button !== 0) return;
           pointerDown = true;
@@ -6580,7 +6671,7 @@
           if (!pointerDown) return;
           pointerDown = false;
           // Latch justDragged so the synthetic click right after
-          // pointerup gets swallowed â€” but the NEXT click goes through
+          // pointerup gets swallowed but the NEXT click goes through
           justDragged = dragged;
           dragged = false;
           carousel.classList.remove("is-dragging");
@@ -6601,7 +6692,7 @@
         carousel.addEventListener("pointerup", endDrag);
         carousel.addEventListener("pointercancel", endDrag);
 
-        // Capture-phase click guard â€” only blocks the one click that immediately
+        // Capture-phase click guard only blocks the one click that immediately
         // follows a drag gesture, then resets so subsequent clicks work normally
         carousel.addEventListener(
           "click",
@@ -6708,7 +6799,7 @@
                 "millaredennis@ispsc.edu.ph",
                 "mailto:millaredennis@ispsc.edu.ph",
               ],
-              ["Contact Number", "+63 0917 853 5165", "tel:+6309178535165"],
+              ["Contact Number", "+63 917 853 5165", "tel:+639178535165"],
               [
                 "Facebook",
                 "fb.com/Dhen Millare",
@@ -6720,14 +6811,14 @@
           {
             name: "J.V. Augustine D. Realizo",
             position: "Coordinator of OSAS",
-            photo: "j.v.png",
+            photo: "1.png",
             contacts: [
               [
                 "Email Address",
                 "jv.realizo@ispsc.edu.ph",
                 "mailto:jv.realizo@ispsc.edu.ph",
               ],
-              ["Contact Number", "+63 918 222 3333", "tel:+639182223333"],
+              ["Contact Number", "+63 945 288 8442", "tel:+639452888442"],
               [
                 "Facebook",
                 "fb.com/jv.realizo.official",
@@ -6743,14 +6834,14 @@
           {
             name: "Allan Jay Lardizabal",
             position: "Scholarship President",
-            photo: "allan.jpg",
+            photo: "2.png",
             contacts: [
               [
                 "Email Address",
                 "ana.reyes@ispsc.edu.ph",
                 "mailto:ana.reyes@ispsc.edu.ph",
               ],
-              ["Contact Number", "+63 919 444 5555", "tel:+639194445555"],
+              ["Contact Number", "+63 945 288 8442", "tel:+639452888442"],
               [
                 "Facebook",
                 "fb.com/Allan Jay",
