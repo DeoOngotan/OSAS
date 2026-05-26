@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Organizations — OSAS ISPSC Tagudin</title>
+  <link rel="icon" href="ispsc_logo_2.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red-500:    #ef4444;
+      --red-600:    #dc2626;
+      --red-700:    #b91c1c;
+      --red-100:    #fee2e2;
+      --red-50:     #fef2f2;
+      --yellow-400: #facc15;
+      --yellow-500: #eab308;
+      --yellow-100: #fef9c3;
+      --yellow-50:  #fefce8;
+      --green-500:  #22c55e;
+      --green-600:  #16a34a;
+      --green-700:  #15803d;
+      --green-100:  #dcfce7;
+      --green-50:   #f0fdf4;
+      --ink:        #1a0a0a;
+      --muted:      #4b1c1c;
+      --paper:      #fffafa;
+      --white:      #ffffff;
+      --radius:     16px;
+      --shadow-sm:  0 2px 8px rgba(185,28,28,.09);
+      --shadow-md:  0 8px 32px rgba(185,28,28,.13);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; min-height: 100vh; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(255,250,250,.88); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--red-100);
+    }
+    .nav-logo { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: .95rem; color: var(--red-700); text-decoration: none; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 50%; }
+    .nav-back { display: flex; align-items: center; gap: .4rem; font-size: .875rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-back:hover { color: var(--red-600); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 100px 2rem 4rem;
+      position: relative; overflow: hidden;
+      background: linear-gradient(150deg, #fff5f5 0%, #fffafa 40%, #fef9c3 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 10% 20%, rgba(239,68,68,.22) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 45% at 90% 80%, rgba(34,197,94,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 50% 55%, rgba(250,204,21,.20) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .22; pointer-events: none; }
+    .hero-orb-1 { width: 380px; height: 380px; background: var(--red-500); top: -100px; left: -80px; }
+    .hero-orb-2 { width: 260px; height: 260px; background: var(--green-500); bottom: 40px; right: -60px; }
+    .hero-orb-3 { width: 220px; height: 220px; background: var(--yellow-400); top: 40%; right: 10%; }
+
+    .hero-stripe {
+      display: flex; gap: 6px; margin-bottom: 1.6rem; position: relative;
+    }
+    .stripe { width: 32px; height: 6px; border-radius: 99px; }
+    .stripe-r { background: var(--red-600); }
+    .stripe-y { background: var(--yellow-500); }
+    .stripe-g { background: var(--green-600); }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--white); border: 1px solid var(--red-100); border-radius: 99px;
+      padding: .35rem 1rem; font-size: .8rem; font-weight: 600;
+      color: var(--red-700); letter-spacing: .05em; text-transform: uppercase;
+      margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); position: relative;
+    }
+    .hero-badge-dot { width: 8px; height: 8px; background: var(--red-500); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:.7} }
+
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem,6vw,4.2rem); font-weight: 700; line-height: 1.15; color: var(--ink); position: relative; margin-bottom: 1rem; }
+    .hero h1 .red   { color: var(--red-600); }
+    .hero h1 .gold  { color: var(--yellow-500); }
+    .hero h1 .green { color: var(--green-600); }
+    .hero p { max-width: 580px; font-size: 1.1rem; color: var(--muted); position: relative; margin-bottom: 2.4rem; }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.8rem; border-radius: 99px; font-size: .925rem; font-weight: 600; text-decoration: none; transition: all .25s; cursor: pointer; border: none; }
+    .btn-red { background: var(--red-600); color: var(--white); box-shadow: 0 4px 20px rgba(220,38,38,.35); }
+    .btn-red:hover { background: var(--red-700); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(220,38,38,.45); }
+    .btn-outline { background: var(--white); color: var(--red-700); border: 1.5px solid var(--red-100); box-shadow: var(--shadow-sm); }
+    .btn-outline:hover { border-color: var(--red-500); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn svg { width: 18px; height: 18px; }
+
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .4rem; color: var(--red-500); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; opacity:.6; }
+    .scroll-arrow { width: 28px; height: 28px; border: 1.5px solid var(--red-200,#fecaca); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+    .scroll-arrow svg { width: 13px; height: 13px; color: var(--red-500); }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .9rem; border-radius: 99px; margin-bottom: 1rem; }
+    .label-red    { color: var(--red-700);   background: var(--red-100); }
+    .label-green  { color: var(--green-700); background: var(--green-100); }
+    .label-yellow { color: #92400e;          background: var(--yellow-100); }
+    .label-white  { color: var(--white);     background: rgba(255,255,255,.15); }
+
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 700; color: var(--ink); margin-bottom: .8rem; line-height: 1.2; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 560px; margin-bottom: 3rem; }
+
+    /* ABOUT */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: .975rem; line-height: 1.8; }
+    .color-pills { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.4rem; }
+    .cpill { display: flex; align-items: center; gap: .5rem; font-size: .85rem; font-weight: 600; padding: .4rem 1rem; border-radius: 99px; }
+    .cpill-r { background: var(--red-100);    color: var(--red-700); }
+    .cpill-y { background: var(--yellow-100); color: #92400e; }
+    .cpill-g { background: var(--green-100);  color: var(--green-700); }
+    .cpill span { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .cpill-r span { background: var(--red-600); }
+    .cpill-y span { background: var(--yellow-500); }
+    .cpill-g span { background: var(--green-600); }
+
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .stat-card { border-radius: var(--radius); padding: 1.4rem; text-align: center; }
+    .stat-card-r { background: var(--red-50);    border: 1px solid var(--red-100); }
+    .stat-card-y { background: var(--yellow-50); border: 1px solid var(--yellow-100); }
+    .stat-card-g { background: var(--green-50);  border: 1px solid var(--green-100); }
+    .stat-card-n { background: #f9fafb;          border: 1px solid #e5e7eb; }
+    .stat-card .num { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; display: block; }
+    .stat-card-r .num { color: var(--red-600); }
+    .stat-card-y .num { color: var(--yellow-500); }
+    .stat-card-g .num { color: var(--green-600); }
+    .stat-card-n .num { color: #374151; }
+    .stat-card .lbl { font-size: .8rem; color: var(--muted); font-weight: 500; margin-top: .2rem; }
+
+    /* SERVICES */
+    .services-sec { background: var(--paper); }
+    .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .svc-card { background: var(--white); border-radius: var(--radius); padding: 1.8rem; transition: all .3s; position: relative; overflow: hidden; }
+    .svc-card-r { border: 1px solid var(--red-100); }
+    .svc-card-y { border: 1px solid #fde68a; }
+    .svc-card-g { border: 1px solid var(--green-100); }
+    .svc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0; transition: opacity .3s; }
+    .svc-card-r::before { background: linear-gradient(90deg, var(--red-500), var(--red-700)); }
+    .svc-card-y::before { background: linear-gradient(90deg, var(--yellow-400), var(--yellow-500)); }
+    .svc-card-g::before { background: linear-gradient(90deg, var(--green-500), var(--green-700)); }
+    .svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .svc-icon-r { background: var(--red-100);    color: var(--red-600); }
+    .svc-icon-y { background: var(--yellow-100); color: #a16207; }
+    .svc-icon-g { background: var(--green-100);  color: var(--green-600); }
+    .svc-icon svg { width: 24px; height: 24px; }
+    .svc-card h3 { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: .5rem; }
+    .svc-card p  { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+
+    /* BANNER */
+    .banner-sec {
+      background: linear-gradient(135deg, var(--red-700) 0%, #991b1b 50%, #7f1d1d 100%);
+      position: relative; overflow: hidden;
+    }
+    .banner-sec::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(250,204,21,.15) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 60% at 10% 30%, rgba(34,197,94,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-sec .section-title { color: var(--white); }
+    .banner-sec .section-sub   { color: rgba(255,255,255,.75); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+    .benefit-card { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius); padding: 1.4rem; backdrop-filter: blur(6px); transition: background .25s; }
+    .benefit-card:hover { background: rgba(255,255,255,.17); }
+    .benefit-dot { width: 10px; height: 10px; border-radius: 50%; margin-bottom: .8rem; }
+    .dot-r { background: var(--red-500); }
+    .dot-y { background: var(--yellow-400); }
+    .dot-g { background: var(--green-500); }
+    .benefit-card h4 { font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: .4rem; }
+    .benefit-card p  { font-size: .825rem; color: rgba(255,255,255,.7); line-height: 1.6; }
+
+    /* HOW TO JOIN */
+    .join-sec { background: var(--white); }
+    .join-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .join-step { text-align: center; padding: 1.6rem 1.2rem; background: var(--paper); border-radius: var(--radius); border: 1px solid #f3f4f6; transition: box-shadow .3s; }
+    .join-step:hover { box-shadow: var(--shadow-md); }
+    .join-step-num { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto .9rem; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
+    .num-r { background: var(--red-600); }
+    .num-y { background: var(--yellow-500); color: var(--ink); }
+    .num-g { background: var(--green-600); }
+    .num-n { background: #6b7280; }
+    .join-step h4 { font-size: .9rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+    .join-step p  { font-size: .825rem; color: var(--muted); line-height: 1.6; }
+
+    /* CONTACT */
+    .contact-sec { background: var(--paper); }
+    .contact-card { background: var(--white); border-radius: 24px; padding: 3rem; display: flex; gap: 3rem; align-items: flex-start; flex-wrap: wrap; box-shadow: var(--shadow-md); border: 1px solid #f3f4f6; }
+    .contact-main { flex: 1; min-width: 260px; }
+    .contact-main h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ink); margin-bottom: .6rem; }
+    .contact-main p { color: var(--muted); font-size: .9rem; margin-bottom: 1.6rem; line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; gap: .8rem; }
+    .contact-link { display: flex; align-items: center; gap: .7rem; font-size: .9rem; color: var(--red-700); text-decoration: none; font-weight: 500; transition: color .2s; }
+    .contact-link:hover { color: var(--red-500); }
+    .contact-link .icon-wrap { width: 36px; height: 36px; background: var(--red-50); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .contact-link svg { width: 18px; height: 18px; }
+    .info-box { background: linear-gradient(135deg,var(--red-50) 0%,var(--yellow-50) 50%,var(--green-50) 100%); border-radius: var(--radius); padding: 1.6rem 2rem; min-width: 220px; border: 1px solid #f3f4f6; }
+    .info-box h4 { font-size: .875rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: .06em; }
+    .info-row { display: flex; gap: .8rem; font-size: .85rem; margin-bottom: .7rem; align-items: flex-start; }
+    .info-row svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--red-600); margin-top: 2px; }
+    .info-row span { color: var(--muted); line-height: 1.5; }
+    .info-row strong { color: var(--ink); }
+
+    footer { background: var(--ink); color: #fca5a5; text-align: center; padding: 2rem; font-size: .85rem; }
+    footer a { color: var(--red-500); text-decoration: none; }
+    footer a:hover { color: #f87171; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } .contact-card { padding: 2rem; flex-direction: column; gap: 2rem; } }
+    @media (max-width: 480px) { nav { padding: 0 1rem; } section { padding: 4rem 1.2rem; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html#services" class="nav-logo">
+      <img src="ispsc_logo_2.png" alt="ISPSC Logo" />
+      OSAS · ISPSC Tagudin
+    </a>
+    <a href="index.html#services" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Services
+    </a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-stripe">
+      <span class="stripe stripe-r"></span>
+      <span class="stripe stripe-y"></span>
+      <span class="stripe stripe-g"></span>
+    </div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>OSAS · Student Organizations</div>
+    <h1>
+      <span class="red">Unite.</span> <span class="gold">Lead.</span><br />
+      <span class="green">Make an Impact.</span>
+    </h1>
+    <p>The Student Organizations Unit of OSAS ISPSC Tagudin empowers campus organizations — from recognition to activities — building leaders who shape the future of the institution.</p>
+    <div class="hero-cta">
+      <a href="#services" class="btn btn-red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+        Our Services
+      </a>
+      <a href="#join" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        Get Involved
+      </a>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-label label-red">Who We Are</span>
+          <h2 class="section-title">The Heart of Campus Life</h2>
+          <p>The Student Organizations Unit under OSAS oversees all recognized student organizations at ISPSC Tagudin Campus. We handle the accreditation and recognition of student groups, coordinate their activities, provide mentorship, and ensure that all organizations operate within university policies and ethical standards.</p>
+          <p>From academic clubs and cultural groups to sports associations and civic organizations — we believe that student organizations are essential to holistic education. They develop leadership, teamwork, and a sense of community that goes beyond the classroom.</p>
+          <div class="color-pills">
+            <span class="cpill cpill-r"><span></span>Leadership</span>
+            <span class="cpill cpill-y"><span></span>Unity</span>
+            <span class="cpill cpill-g"><span></span>Growth</span>
+          </div>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card stat-card-r"><span class="num">Recog.</span><span class="lbl">Accredited Organizations</span></div>
+          <div class="stat-card stat-card-y"><span class="num">Multi</span><span class="lbl">Org. Types Supported</span></div>
+          <div class="stat-card stat-card-g"><span class="num">Fair</span><span class="lbl">Transparent Recognition</span></div>
+          <div class="stat-card stat-card-n"><span class="num">Active</span><span class="lbl">Year-Round Coordination</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-sec" id="services">
+    <div class="container">
+      <span class="section-label label-red reveal">What We Do</span>
+      <h2 class="section-title reveal">Services for Student Organizations</h2>
+      <p class="section-sub reveal">Everything your organization needs to thrive on campus — we coordinate it all.</p>
+      <div class="svc-grid">
+
+        <div class="svc-card svc-card-r reveal">
+          <div class="svc-icon svc-icon-r">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Organization Recognition & Accreditation</h3>
+          <p>Process and approve the formal recognition of student organizations. We review constitutions, rosters, and activity plans to ensure compliance with ISPSC policies and CHED guidelines.</p>
+        </div>
+
+        <div class="svc-card svc-card-y reveal">
+          <div class="svc-icon svc-icon-y">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Activity Coordination & Permits</h3>
+          <p>Assist student organizations in planning, coordinating, and securing permits for on-campus and off-campus activities, events, seminars, and community outreach programs.</p>
+        </div>
+
+        <div class="svc-card svc-card-g reveal">
+          <div class="svc-icon svc-icon-g">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Leadership Mentoring & Training</h3>
+          <p>Provide leadership training seminars, mentoring sessions, and development workshops designed to equip student leaders with the skills needed for effective organization management.</p>
+        </div>
+
+        <div class="svc-card svc-card-r reveal">
+          <div class="svc-icon svc-icon-r">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <h3>Annual Renewal Processing</h3>
+          <p>Guide organizations through the annual accreditation renewal process — reviewing financial reports, updated membership lists, accomplishment reports, and plans for the coming year.</p>
+        </div>
+
+        <div class="svc-card svc-card-y reveal">
+          <div class="svc-icon svc-icon-y">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Inter-Organization Coordination</h3>
+          <p>Facilitate communication and collaboration between different student organizations, especially for joint events, campus-wide initiatives, and student government activities.</p>
+        </div>
+
+        <div class="svc-card svc-card-g reveal">
+          <div class="svc-icon svc-icon-g">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Policy Compliance & Advisory</h3>
+          <p>Advise student organizations on proper governance, ethical conduct, financial management, and compliance with school policies, CHED memoranda, and relevant government regulations.</p>
+        </div>
+
+        <div class="svc-card svc-card-r reveal">
+          <div class="svc-icon svc-icon-r">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3>Campus-Wide Events Support</h3>
+          <p>Coordinate and support major campus events like foundation days, leadership summits, intramurals, cultural presentations, and other student-driven celebrations that foster school spirit.</p>
+        </div>
+
+        <div class="svc-card svc-card-g reveal">
+          <div class="svc-icon svc-icon-g">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+          <h3>Community Service Programs</h3>
+          <p>Encourage and support student organizations in conducting extension activities and community service projects that contribute to social development and the institution's community engagement goals.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-sec">
+    <div class="container">
+      <span class="section-label label-white reveal">Why Get Involved</span>
+      <h2 class="section-title reveal" style="color:var(--white);">Benefits of Joining an Organization</h2>
+      <p class="section-sub reveal" style="color:rgba(255,255,255,.75);">Student organizations are where leaders are made. Here's what you gain by getting involved.</p>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card"><div class="benefit-dot dot-r"></div><h4>Leadership Skills</h4><p>Take on roles that build decision-making, communication, and team management abilities you'll carry for life.</p></div>
+        <div class="benefit-card"><div class="benefit-dot dot-y"></div><h4>Lasting Friendships</h4><p>Connect with like-minded students who share your passions — building friendships and professional networks that last beyond graduation.</p></div>
+        <div class="benefit-card"><div class="benefit-dot dot-g"></div><h4>Portfolio & Resume Builder</h4><p>Org membership, events organized, and positions held are valuable credentials that boost your résumé and graduate school applications.</p></div>
+        <div class="benefit-card"><div class="benefit-dot dot-r"></div><h4>Campus Representation</h4><p>Represent your course, college, or advocacy in official campus forums, inter-school competitions, and community programs.</p></div>
+        <div class="benefit-card"><div class="benefit-dot dot-y"></div><h4>Personal Growth</h4><p>Gain confidence, cultural awareness, and a broader perspective through exposure to diverse events, workshops, and collaborative projects.</p></div>
+        <div class="benefit-card"><div class="benefit-dot dot-g"></div><h4>Community Impact</h4><p>Channel your org's energy into outreach programs, charity drives, and campus improvements that leave a real mark on the community.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join-sec" id="join">
+    <div class="container">
+      <span class="section-label label-green reveal">Get Involved</span>
+      <h2 class="section-title reveal">How to Join or Register an Org</h2>
+      <p class="section-sub reveal">Whether you're joining an existing organization or founding a new one, here's how to get started.</p>
+      <div class="join-steps reveal">
+        <div class="join-step">
+          <div class="join-step-num num-r">1</div>
+          <h4>Explore & Choose</h4>
+          <p>Browse recognized organizations on the OSAS bulletin board or ask at the office. Find one that matches your interest or advocacy.</p>
+        </div>
+        <div class="join-step">
+          <div class="join-step-num num-y">2</div>
+          <h4>Contact the Org</h4>
+          <p>Reach out to the organization's officers directly during recruitment drives or at the start of the semester.</p>
+        </div>
+        <div class="join-step">
+          <div class="join-step-num num-g">3</div>
+          <h4>Complete Membership</h4>
+          <p>Fill out membership forms, pay dues if applicable, and attend orientation sessions required by the organization.</p>
+        </div>
+        <div class="join-step">
+          <div class="join-step-num num-n">4</div>
+          <h4>Register with OSAS</h4>
+          <p>New organizations must submit a constitution, roster, and activity plan to OSAS for formal recognition before operating on campus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-sec" id="contact">
+    <div class="container">
+      <span class="section-label label-red reveal">Contact</span>
+      <h2 class="section-title reveal">Talk to the Student Organizations Unit</h2>
+      <p class="section-sub reveal">Visit or reach out to the OSAS office for accreditation, activity permits, or any organization-related concerns.</p>
+      <div class="contact-card reveal">
+        <div class="contact-main">
+          <h3>Student Organizations Unit — OSAS</h3>
+          <p>Located within the OSAS office at ISPSC Tagudin Campus. Walk-in consultations for accreditation and activity coordination are welcome during regular office hours.</p>
+          <div class="contact-links">
+            <a href="index.html" class="contact-link">
+              <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--red-600)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+              ISPSC OSAS Main Website
+            </a>
+            <a href="#services" class="contact-link">
+              <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--red-600)"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
+              View All Org Services
+            </a>
+          </div>
+        </div>
+        <div class="info-box">
+          <h4>Office Hours</h4>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><strong>Mon – Fri</strong><br />8:00 AM – 5:00 PM</span>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Walk-ins welcome for <strong>org concerns</strong></span>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <span>Activity permits: submit <strong>5 days prior</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Office of Student Affairs and Services — ISPSC Tagudin Campus &nbsp;·&nbsp; <a href="index.html#services">Back to Services</a></p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); }));
+    document.querySelectorAll('a[href="index.html#services"]').forEach(link => { link.addEventListener('click', () => { sessionStorage.setItem('returnToEvents', 'true'); }); });
+  </script>
+</body>
+</html>
