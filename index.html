@@ -66,7 +66,8 @@
       }
 
       #top,
-      #events {
+      #events,
+      #services {
         scroll-margin-top: 82px;
       }
 
@@ -2786,12 +2787,18 @@
       /* ============ DEO ONGOTAN CARD DESIGN ============ */
       .msg.bot.deo-card {
         max-width: 100% !important;
-        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e3a8a 100%
+        ) !important;
         color: var(--white) !important;
         border: 2px solid #2563eb !important;
         border-bottom-left-radius: 6px !important;
         padding: 0 !important;
-        box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3), 0 4px 12px rgba(15, 23, 42, 0.4) !important;
+        box-shadow:
+          0 10px 40px rgba(37, 99, 235, 0.3),
+          0 4px 12px rgba(15, 23, 42, 0.4) !important;
         overflow: visible !important;
         position: relative !important;
         display: block !important;
@@ -2801,7 +2808,11 @@
 
       .deo-card-header {
         padding: 20px;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.15) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.25) 0%,
+          rgba(37, 99, 235, 0.15) 100%
+        );
         border-bottom: 2px solid rgba(59, 130, 246, 0.4);
         display: flex;
         align-items: center;
@@ -3266,8 +3277,7 @@
         height: auto;
         filter: none;
         animation: none;
-        transition:
-          transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+        transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
         transform-style: preserve-3d;
         backface-visibility: visible;
         will-change: transform;
@@ -4390,8 +4400,8 @@
             </h1>
             <p class="lead reveal reveal-delay-2">
               The Office of Student Affairs and Services exists to nurture the
-              holistic development of every student through guidance,
-              programs, and a community that genuinely cares.
+              holistic development of every student through guidance, programs,
+              and a community that genuinely cares.
             </p>
             <p class="hero-meta reveal reveal-delay-3">
               Ilocos Sur Polytechnic State College - Tagudin Campus
@@ -4613,7 +4623,16 @@
           </div>
 
           <div class="services-grid">
-            <div class="service reveal reveal-delay-1">
+            <a
+              href="scholarship.html"
+              class="service reveal reveal-delay-1"
+              style="
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+              "
+            >
               <div class="service-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -4632,9 +4651,18 @@
                 Coordination and assistance for government and private
                 scholarship programs.
               </p>
-            </div>
+            </a>
 
-            <div class="service reveal reveal-delay-2">
+            <a
+              href="guidance.html"
+              class="service reveal reveal-delay-2"
+              style="
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+              "
+            >
               <div class="service-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -4654,9 +4682,18 @@
                 A safe space to talk through academic, personal, and career
                 concerns.
               </p>
-            </div>
+            </a>
 
-            <div class="service reveal reveal-delay-3">
+            <a
+              href="organization.html"
+              class="service reveal reveal-delay-3"
+              style="
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+              "
+            >
               <div class="service-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -4675,9 +4712,18 @@
                 Recognition, mentoring, and activity coordination for campus
                 orgs.
               </p>
-            </div>
+            </a>
 
-            <div class="service reveal reveal-delay-4">
+            <a
+              href="clinic.html"
+              class="service reveal reveal-delay-4"
+              style="
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+              "
+            >
               <div class="service-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -4696,52 +4742,18 @@
                 Basic medical and dental support to keep students healthy on
                 campus.
               </p>
-            </div>
+            </a>
 
-            <div class="service reveal reveal-delay-5">
-              <div class="service-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="3 12 6 9 11 14 21 4" />
-                  <polyline points="14 4 21 4 21 11" />
-                </svg>
-              </div>
-              <h4>Leadership Programs</h4>
-              <p>
-                Trainings, seminars, and workshops to develop tomorrow's
-                leaders.
-              </p>
-            </div>
-
-            <div class="service reveal reveal-delay-6">
-              <div class="service-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="3" y="4" width="18" height="18" rx="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-              </div>
-              <h4>Events &amp; Activities</h4>
-              <p>
-                Campus-wide celebrations, competitions, and student gatherings.
-              </p>
-            </div>
-
-            <a href="registrar.html" class="service reveal reveal-delay-1" style="display:block;text-decoration:none;color:inherit;cursor:pointer;">
+            <a
+              href="registrar.html"
+              class="service reveal reveal-delay-1"
+              style="
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+              "
+            >
               <div class="service-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -4766,7 +4778,16 @@
               </p>
             </a>
 
-            <div class="service reveal reveal-delay-2">
+            <a
+              href="cashier.html"
+              class="service reveal reveal-delay-2"
+              style="
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+              "
+            >
               <div class="service-icon">
                 <svg
                   viewBox="0 0 24 24"
@@ -4786,29 +4807,7 @@
                 Direction for payment concerns, fees, and tuition-related
                 questions.
               </p>
-            </div>
-
-            <div class="service reveal reveal-delay-3">
-              <div class="service-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                  />
-                </svg>
-              </div>
-              <h4>Guidance Office</h4>
-              <p>
-                Personal counseling, appointments, and a safe space to talk
-                things through.
-              </p>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -4820,8 +4819,8 @@
             <span class="section-eyebrow reveal">Student Life</span>
             <h2 class="reveal reveal-delay-1">Events &amp; Activities</h2>
             <p class="reveal reveal-delay-2">
-              Celebrations, leadership, and milestones where every student
-              gets to shine.
+              Celebrations, leadership, and milestones where every student gets
+              to shine.
             </p>
           </div>
 
@@ -5216,11 +5215,7 @@
                 aria-label="View contact info for Allan Jay Lardizabal"
               >
                 <div class="team-card-img">
-                  <img
-                    src="2.png"
-                    alt="Allan Jay Lardizabal"
-                    loading="lazy"
-                  />
+                  <img src="2.png" alt="Allan Jay Lardizabal" loading="lazy" />
                   <div class="team-card-img-overlay"></div>
                   <div class="team-card-spotlight"></div>
                   <div class="team-card-shine"></div>
@@ -5312,8 +5307,8 @@
             <span class="section-eyebrow reveal">Visit us</span>
             <h2 class="reveal reveal-delay-1">Find the office, anytime.</h2>
             <p class="reveal reveal-delay-2">
-              Drop by during office hours we always welcome students at the
-              OSAS office.
+              Drop by during office hours we always welcome students at the OSAS
+              office.
             </p>
           </div>
 
@@ -5592,7 +5587,6 @@
               <a href="#contact">Contact</a>
               <a href="#location">Location</a>
             </div>
-    
 
             <div class="footer-col">
               <h5>Reach Us</h5>
@@ -6243,7 +6237,7 @@
               isDeoCard: true,
             };
           }
-          
+
           // Regular format for other team members
           return {
             html:
@@ -6549,7 +6543,6 @@
         });
       })();
 
-      
       // Event cards carousel
       (function () {
         const carousel = document.getElementById("eventCarousel");
@@ -6649,7 +6642,7 @@
           if (!smallScreen.matches) resume();
         });
 
-        //  Drag 
+        //  Drag
         carousel.addEventListener("pointerdown", (e) => {
           if (e.pointerType === "mouse" && e.button !== 0) return;
           pointerDown = true;
